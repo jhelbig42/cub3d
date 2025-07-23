@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/23 13:54:49 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/23 15:07:20 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ typedef struct s_map
     
 }   t_map;
 
+typedef struct s_RGB
+{
+    size_t  R;
+    size_t  G;
+    size_t  B;
+}   t_RGB;
+
+
 typedef struct s_game
 {
     t_map   *map;
@@ -41,6 +49,8 @@ typedef struct s_game
     int     player_y;
     int     player_orient_start; // just for the start N E S W
                                 //later orientation will be incremental aka complicated    
+    t_RGB   floor_color;
+    t_RGB   ceiling_color;
     void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img_ptr[4];        //ein image pro Wandausrichtung?    
