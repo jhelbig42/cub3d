@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/23 14:21:51 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/23 14:25:26 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int main(int argc, char **argv)
 	if (!game.win_ptr)
 		return (free(game.mlx_ptr), 1);
     //loading wall images
+    
     //setting start
+    
     //hooks
     mlx_hook(game.win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &game);
 	mlx_hook(game.win_ptr, DestroyNotify, StructureNotifyMask, 

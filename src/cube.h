@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/23 13:54:49 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/23 15:04:03 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_map
     
 }   t_map;
 
+
 typedef struct s_game
 {
     t_map   *map;
@@ -48,6 +49,9 @@ typedef struct s_game
 
 //destroy.c
 int	on_destroy(t_game *game);
+
+//error.c
+void    print_error(char *msg);
 
 //keypress.c
 int	on_keypress(int key, t_game *game);
