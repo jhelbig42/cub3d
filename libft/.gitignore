@@ -1,0 +1,8 @@
+src/*
+*.o
+test
+test_libc_ft.c
+a.out
+*.txt
+*.swp
+libft.a

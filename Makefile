@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/10 11:20:27 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/07/23 13:52:16 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,20 @@ SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = inc
 
-SRC = main.c
+SRC = main.c \
+		destroy.c \
+		keypress.c \
+		parser.c
+	
 	
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-HEADERS = 
+HEADERS = $(SRC_DIR)/cube.h 
 
 LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
+
+MINILIBX_DIR = minilibx-linux
 
 CC = cc
 
@@ -40,16 +46,18 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME): $(OBJ) $(HEADERS) $(LIBFT_A)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -o $(NAME)
+	$(MAKEALL) -C $(MINILIBX_DIR)
+	$(CC) $(OBJ) $(LIBFT_A) -Lminilibx-linux -l:libmlx_Linux.a -L/usr/local/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 	
 ${LIBFT_A}:
 	$(MAKEALL) -C $(LIBFT_DIR)
 	
 clean: 
 	$(MAKECLEAN) -C $(LIBFT_DIR)
+	$(MAKECLEAN) -C $(MINILIBX_DIR)
 	rm -f $(OBJ)
 
 fclean: clean
