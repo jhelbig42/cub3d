@@ -7,6 +7,7 @@ bool    fill_color(t_game *game, char *line, char c)
     char    **split;
     int     i;
     int     val;
+    t_RGB   RGB;
 
     split = ft_split(line, ',');
     if (!split)
@@ -14,6 +15,8 @@ bool    fill_color(t_game *game, char *line, char c)
     //there must be exactly 3 args given
     if (!split[0] || !split[1] || !split[2] || split[3])
         return (free_split(split), print_error("wrong number of RGB values given"), false);
+    if (c == 'F')
+        RGB = game->
     i = 0;
     while (i < 3)
     {

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/24 12:52:50 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/24 13:54:52 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ typedef struct s_map
     
 }   t_map;
 
+typedef struct s_RGB
+{
+    size_t  R;
+    size_t  G;
+    size_t  B;
+}   t_RGB;
 
 typedef struct s_game
 {
