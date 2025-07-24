@@ -1,7 +1,6 @@
-
 # Object files
 *.o
-
+build/
 
 # Linker output
 *.ilk
@@ -17,5 +16,4 @@
 
 # Executables
 *.out
-test
 cub3d
