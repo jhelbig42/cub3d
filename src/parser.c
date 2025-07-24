@@ -1,11 +1,13 @@
 #include "cube.h"
-
+/*
 static bool is_space(char c)
 {
     if (c == ' ')
         return (true);
     return (false);
 }
+*/
+
 bool    correct_file_type(char *map_name)
 {
     char    **split;
@@ -40,14 +42,20 @@ bool    parse_map(t_game *game, char *map_name)
         - F C Zahlen muessen zwischen 0 und 255 liegen
     */
     line = get_next_line(fd);
+    
     while (line)
     {
-        if (line[0] == 'F')
-            fill_color(game, 'F');
-        else if (line[0] == 'C')
-            fill_color(game, 'F');
-        else
+        printf("line read: %s", line);
+        if (line[0] == 'F' || line[0] == 'C') 
+        {
+            if (!find_colors(game, line, line[0]))
+                return (false);
+        }
+        //lies weiter
+        else if (!(line[0] == '\n' || line[0] == 'N' || line[0] == 'S' || line[0] == 'W' || line[0] == 'E'))
             break ;
+        free(line);
+        line = get_next_line(fd);
     }
     // hier muessen dann alle Daten bis auf die map ausgelesen sein
     // testen ob noch default Werte, wenn ja, dann return false

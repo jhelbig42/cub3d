@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/23 14:46:28 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/07/24 15:04:35 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ INC_DIR = inc
 SRC = main.c \
 		destroy.c \
 		error.c \
+		find_colors.c \
+		free.c \
 		keypress.c \
 		parser.c
 	

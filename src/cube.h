@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/24 13:54:52 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/24 15:02:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct s_map
 
 typedef struct s_RGB
 {
-    size_t  R;
-    size_t  G;
-    size_t  B;
+    int  R;
+    int  G;
+    int  B;
 }   t_RGB;
 
 typedef struct s_game
@@ -48,10 +48,17 @@ typedef struct s_game
     int     player_y;
     int     player_orient_start; // just for the start N E S W
                                 //later orientation will be incremental aka complicated    
+    t_RGB   floor_color;
+    t_RGB   ceiling_color;
     void	*mlx_ptr;
 	void	*win_ptr;
+    void    *north_path;
+    void    *south_path;
+    void    *west_path;
+    void    *east_path;
 	void	*img_ptr[4];        //ein image pro Wandausrichtung?    
 }   t_game;
+
 
 //destroy.c
 int	on_destroy(t_game *game);
@@ -65,8 +72,8 @@ void	free_split(char **split);
 //keypress.c
 int	on_keypress(int key, t_game *game);
 
-//map_init.c
-bool    fill_color(t_game *game, char c);
+//find_colors.c
+bool    find_colors(t_game *game, char *line, char c);
 
 //parser.c
 bool    parse_map(t_game *game, char *map_name);
