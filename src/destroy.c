@@ -10,6 +10,6 @@ int	on_destroy(t_game *game)
 	
     //frees
     free(game->mlx_ptr);
-	exit(1);
+	exit(0);
 	return (0);
 }

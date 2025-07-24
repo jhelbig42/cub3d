@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/23 15:04:03 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/24 12:52:50 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,16 @@ int	on_destroy(t_game *game);
 //error.c
 void    print_error(char *msg);
 
+//free.c
+void	free_split(char **split);
+
 //keypress.c
 int	on_keypress(int key, t_game *game);
 
+//map_init.c
+bool    fill_color(t_game *game, char c);
+
 //parser.c
-bool    parse_map(char **argv);
+bool    parse_map(t_game *game, char *map_name);
 
 #endif

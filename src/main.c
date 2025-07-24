@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/23 14:25:26 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/23 15:25:19 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     if (argc != 2)
         return (1);
     //parse map
-    if (!parse_map(argv))
+    if (!parse_map(&game, argv[1]))
         return (1);
     //build
     game.mlx_ptr = mlx_init();
