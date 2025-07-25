@@ -36,9 +36,9 @@ typedef struct s_map
 
 typedef struct s_RGB
 {
-    int  R;
-    int  G;
-    int  B;
+    size_t  R;
+    size_t  G;
+    size_t  B;
 }   t_RGB;
 
 typedef struct s_game
