@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   init.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 13:52:57 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/24 14:40:22 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/07/24 14:36:36 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/25 12:10:58 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cube.h"
+#ifndef INIT_H
+# define INIT_H
 
-bool	parse_map(char **argv)
-{
-	if (!argv)
-		return (false);
-	return (true);
-}
+# include "../includes/structs.h"
+
+t_game	game_init(void);
+
+#endif

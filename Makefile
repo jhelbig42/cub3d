@@ -6,26 +6,36 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/23 13:52:16 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/07/25 10:57:55 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = cub3d
 
 SRC_DIR = src
-OBJ_DIR = obj
-INC_DIR = inc
+OBJ_DIR = build
+INC_DIR = includes
 
-SRC = main.c \
-		destroy.c \
-		keypress.c \
-		parser.c
-	
-	
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+CFILES		:=
+vpath %.cpp $(SRC_FOLDER)
+CFILES += main.cpp
 
-HEADERS = $(SRC_DIR)/cube.h 
+SRC		:=
+SRC += $(SRC_DIR)/main.c
+SRC += $(SRC_DIR)/destroy.c
+SRC += $(SRC_DIR)/keypress.c
+SRC += $(SRC_DIR)/parser.c
+
+SRC += $(SRC_DIR)/init/init.c
+
+SRC += $(SRC_DIR)/render/render.c
+SRC += $(SRC_DIR)/render/create_graphics.c
+
+OBJ := $(patsubst src/%.c, build/%.o, $(SRC))
+
+HEADERS = $(SRC_DIR)/$(INC_DIR)/cube.h 
+HEADERS = $(SRC_DIR)/$(INC_DIR)/CONSTANTS.h 
+HEADERS = $(SRC_DIR)/$(INC_DIR)/structs.h 
 
 LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
@@ -42,10 +52,8 @@ MAKEFCLEAN = make fclean
 
 all: $(NAME)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME): $(OBJ) $(HEADERS) $(LIBFT_A)
@@ -55,15 +63,18 @@ $(NAME): $(OBJ) $(HEADERS) $(LIBFT_A)
 ${LIBFT_A}:
 	$(MAKEALL) -C $(LIBFT_DIR)
 	
+debug: 
+	gdb --args ./cub3d test
+
 clean: 
 	$(MAKECLEAN) -C $(LIBFT_DIR)
 	$(MAKECLEAN) -C $(MINILIBX_DIR)
-	rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -r $(OBJ_DIR)
-	rm $(LIBFT_A)
-	rm -f $(NAME)
+	rm -rf $(OBJ_DIR)
+	rm -rf $(LIBFT_A)
+	rm -rf $(NAME)
 
 re: fclean all
 

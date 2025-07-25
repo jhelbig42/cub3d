@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 13:52:57 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/24 14:40:22 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/25 12:16:45 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cube.h"
+#include "render.h"
 
-bool	parse_map(char **argv)
+void	create_img(t_img *img)
 {
-	if (!argv)
-		return (false);
-	return (true);
+	reset_img(img, SCREEN_WIDTH, SCREEN_HEIGHT);
+	gen_noise(img);
+}
+
+int	render_frames(t_game *game)
+{
+	create_img(&game->img);
+	mlx_put_image_to_window(
+		game->mlx_ptr, game->win_ptr, game->img.img, 0, 0);
+	return (0);
 }
