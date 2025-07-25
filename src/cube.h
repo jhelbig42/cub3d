@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/24 15:02:44 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 10:38:32 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,7 @@ void	free_split(char **split);
 //keypress.c
 int	on_keypress(int key, t_game *game);
 
-//find_colors.c
-bool    find_colors(t_game *game, char *line, char c);
-
-//parser.c
+//parser
 bool    parse_map(t_game *game, char *map_name);
 
 #endif

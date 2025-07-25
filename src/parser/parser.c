@@ -1,4 +1,4 @@
-#include "cube.h"
+#include "parser.h"
 /*
 static bool is_space(char c)
 {
@@ -54,28 +54,48 @@ bool    parse_map(t_game *game, char *map_name)
     /* - leerzeilen und spaces ueberspringen
         - nach keywords suchen NO SO WE EA F C 
         --> fill information into game struct
-        wenn andere Zeichen also type indentifier: return false
+        wenn andere Zeichen als type identifier: return false
         - F C Zahlen muessen zwischen 0 und 255 liegen
     */
     line = get_next_line(fd);
     
     while (line)
     {
-        printf("line read: %s", line);
+        //printf("line read: %s", line);
         if (line[0] == 'F' || line[0] == 'C') 
         {
             if (!find_colors(game, line, line[0]))
-                return (false);
+                return (free(line), false);
+        }
+        else if (!ft_strncmp(line, "NO", 2))
+        {
+            if (!set_wall_path(&game->north_path, line))
+                return (free(line), false);
+        }
+        else if (!ft_strncmp(line, "SO", 2))
+        {
+            if (!set_wall_path(&game->south_path, line))
+                return (free(line), false);
+        }
+        else if (!ft_strncmp(line, "WE", 2))
+        {
+            if (!set_wall_path(&game->west_path, line))
+                return (free(line), false);
+        }
+        else if (!ft_strncmp(line, "EA", 2))
+        {
+            if (!set_wall_path(&game->east_path, line))
+                return (free(line), false);
         }
         //lies weiter
-        else if (!(line[0] == '\n' || line[0] == 'N' || line[0] == 'S' || line[0] == 'W' || line[0] == 'E'))
+        else if (line[0] != '\n')
             break ;
         free(line);
         line = get_next_line(fd);
     }
     // hier muessen dann alle Daten bis auf die map ausgelesen sein
     // testen ob noch default Werte, wenn ja, dann return false
-   
+    free(line);
 
     /*map muss am Ende stehen
       - in der map nur 0, 1 und genau 1 N S E W

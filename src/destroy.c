@@ -10,6 +10,10 @@ int	on_destroy(t_game *game)
 	
     //frees
     free(game->mlx_ptr);
+    free(game->north_path);
+    free(game->south_path);
+    free(game->west_path);
+    free(game->east_path);
 	exit(0);
 	return (0);
 }

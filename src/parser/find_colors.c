@@ -1,10 +1,11 @@
-#include "cube.h"
+#include "parser.h"
 
 // F 220,100,0
 
 static bool    fill_color(char *line, t_RGB *RGB)
 {
     char    **split;
+    char    *trim_split;
     int     i;
     int     val;
 
@@ -17,24 +18,24 @@ static bool    fill_color(char *line, t_RGB *RGB)
     i = 0;
     while (i < 3)
     {
-        split[i] = ft_strtrim(split[i], " \n");
-        if (!split[i])
+        trim_split = ft_strtrim(split[i], " \n");
+        if (!trim_split)
             return (free_split(split), print_error("ft_strtrim failed"), false);
-        printf("val split: %s\n", split[i]);
         val = ft_atoi(split[i]);
         if (val == 0  && split[i][0] != '0')
-            return (free_split(split), print_error("RGB values are not given as numbers"), false);
+            return (free_split(split), free(trim_split), print_error("RGB values are not given as numbers"), false);
         if (val < 0 || val > 255)
-            return (free_split(split), print_error("invalid RGB values given"), false);
-        printf("val: %d\n", val);
+            return (free_split(split), free(trim_split), print_error("invalid RGB values given"), false);
         if (i == 0)
             RGB->R = val;
         else if (i == 1)
             RGB->G = val;
         else if (i == 2)
             RGB->B = val;
-        i++;  
+        i++;
+        free(trim_split);
     }
+    free_split(split);
     return (true);
 }
 

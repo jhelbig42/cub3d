@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/24 15:04:35 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/07/25 10:37:47 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ INC_DIR = inc
 SRC = main.c \
 		destroy.c \
 		error.c \
-		find_colors.c \
+		parser/find_colors.c \
+		parser/find_paths.c \
 		free.c \
 		keypress.c \
-		parser.c
+		parser/parser.c
 	
 	
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
