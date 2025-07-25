@@ -22,12 +22,28 @@ bool    correct_file_type(char *map_name)
     free_split(split);
     return (true);    
 }
-
+//default values in game struct used for checking completeness off map
+void    fill_default_game(t_game *game)
+{
+    game->player_x = -1;
+    game->player_y = -1;
+    game->floor_color.R = -1;
+    game->floor_color.G = -1;
+    game->floor_color.B = -1;
+    game->ceiling_color.R = -1;
+    game->ceiling_color.G = -1;
+    game->ceiling_color.B = -1;
+    game->north_path = NULL;
+    game->south_path = NULL;
+    game->west_path = NULL;
+    game->east_path = NULL;
+}
 bool    parse_map(t_game *game, char *map_name)
 {
     int     fd;
     char    *line;
 
+    fill_default_game(game);
     //correct name
     if (!correct_file_type(map_name))
         return (false);
