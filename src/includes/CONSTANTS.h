@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 10:35:35 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/25 14:03:12 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,4 @@
 //stats
 # define SCREEN_WIDTH 1920
 # define SCREEN_HEIGHT 1080
-
 #endif
