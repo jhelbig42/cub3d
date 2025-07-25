@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 11:01:16 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 14:41:45 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
+/*   Updated: 2025/07/25 14:41:54 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+// cube.h
+// This is the main header file. It should include all sources needed by main.
+// Don't include this header in other source files to prevent recursion
 
-# include "../includes/structs.h"
-# include "../includes/CONSTANTS.h"
-# include "../utils/utils.h"
+#ifndef CUBE_H
+# define CUBE_H
 
-//find_colors.c
-bool	find_colors(t_game *game, char *line, char c);
+# include "../init/init.h"
+# include "./structs.h"
+# include "./CONSTANTS.h"
+# include "../render/render.h"
+# include "../parser/parser.h"
 
-//find_paths.c
-bool	set_wall_paths(t_game *game, char *line);
+// destroy.c
+int		on_destroy(t_game *game);
 
-//parser.c
+// keypress.c
+int		on_keypress(int key, t_game *game);
+
+// parser.c
 bool	parse_map(t_game *game, char *map_name);
 
 #endif

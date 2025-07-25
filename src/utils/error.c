@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 11:01:16 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 14:41:45 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/07/25 11:01:49 by jhelbig           #+#    #+#             */
+/*   Updated: 2025/07/25 14:39:48 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include "utils.h"
 
-# include "../includes/structs.h"
-# include "../includes/CONSTANTS.h"
-# include "../utils/utils.h"
-
-//find_colors.c
-bool	find_colors(t_game *game, char *line, char c);
-
-//find_paths.c
-bool	set_wall_paths(t_game *game, char *line);
-
-//parser.c
-bool	parse_map(t_game *game, char *map_name);
-
-#endif
+void    print_error(char *msg)
+{
+    printf("Error\n");
+    printf("%s\n", msg);
+}  

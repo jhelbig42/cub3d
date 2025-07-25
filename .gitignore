@@ -1,15 +1,6 @@
-
 # Object files
 *.o
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.a
+build/
 
 # Executables
-*.out
-test
 cub3d

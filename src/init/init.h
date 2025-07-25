@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   init.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 11:01:49 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 11:01:51 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/07/24 14:36:36 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/25 12:10:58 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube.h"
+#ifndef INIT_H
+# define INIT_H
 
-void    print_error(char *msg)
-{
-    printf("Error\n");
-    printf("%s\n", msg);
-}  
+# include "../includes/structs.h"
+
+t_game	game_init(void);
+
+#endif

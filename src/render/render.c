@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keypress.c                                         :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 14:21:10 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/25 12:16:45 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cube.h"
+#include "render.h"
 
-//destroy on ESC
-int	on_keypress(int key, t_game *game)
+void	create_img(t_img *img)
 {
-	if (key == ESC)
-		on_destroy(game);
+	reset_img(img, SCREEN_WIDTH, SCREEN_HEIGHT);
+	gen_noise(img);
+}
+
+int	render_frames(t_game *game)
+{
+	create_img(&game->img);
+	mlx_put_image_to_window(
+		game->mlx_ptr, game->win_ptr, game->img.img, 0, 0);
 	return (0);
 }

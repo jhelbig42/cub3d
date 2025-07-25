@@ -6,11 +6,11 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 12:21:17 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/24 12:52:31 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 14:39:59 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube.h"
+#include "utils.h"
 
 void	free_split(char **split)
 {
