@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:24:01 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 14:33:36 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 14:56:53 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	on_destroy(t_game *game)
 	
     //frees
     free(game->mlx_ptr);
-    free(game->north_path);
+	free(game->north_path);
     free(game->south_path);
     free(game->west_path);
     free(game->east_path);

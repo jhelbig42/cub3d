@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 14:43:55 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 15:03:27 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (1);
+	game = game_init();
 	if (!parse_map(&game, argv[1]))
 		return (1);
 	test_print_game(&game);
-	game = game_init();
 	mlx_hook(game.win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &game);
 	mlx_hook(game.win_ptr, DestroyNotify, StructureNotifyMask, 
 		&on_destroy, &game);

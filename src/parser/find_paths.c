@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 12:13:17 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 15:02:10 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,24 @@ bool	set_wall_path(void **wall_path, char *line)
 bool	set_wall_paths(t_game *game, char *line)
 {
 	if (!ft_strncmp(line, "NO", 2))
-		{
-			if (!set_wall_path(&game->north_path, line))
-				return (free(line), false);
-		}
-		else if (!ft_strncmp(line, "SO", 2))
-		{
-			if (!set_wall_path(&game->south_path, line))
-				return (free(line), false);
-		}
-		else if (!ft_strncmp(line, "WE", 2))
-		{
-			if (!set_wall_path(&game->west_path, line))
-				return (free(line), false);
-		}
-		else if (!ft_strncmp(line, "EA", 2))
-		{
-			if (!set_wall_path(&game->east_path, line))
-				return (free(line), false);
-		}
-	return (true);
+	{
+		if (!set_wall_path(&game->north_path, line))
+			return (free(line), false);
+	}
+	else if (!ft_strncmp(line, "SO", 2))
+	{
+	if (!set_wall_path(&game->south_path, line))
+			return (free(line), false);
+	}
+	else if (!ft_strncmp(line, "WE", 2))
+	{
+		if (!set_wall_path(&game->west_path, line))
+			return (free(line), false);
+	}
+	else if (!ft_strncmp(line, "EA", 2))
+	{
+		if (!set_wall_path(&game->east_path, line))
+			return (free(line), false);
+	}
+return (true);
 }

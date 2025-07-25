@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 14:30:18 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 14:58:08 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_img	img;
-	void    *north_path;
+	void   	*north_path;
     void    *south_path;
     void    *west_path;
     void    *east_path;
