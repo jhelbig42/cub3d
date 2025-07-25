@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/24 14:58:43 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/07/25 10:57:55 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ SRC += $(SRC_DIR)/keypress.c
 SRC += $(SRC_DIR)/parser.c
 
 SRC += $(SRC_DIR)/init/init.c
+
+SRC += $(SRC_DIR)/render/render.c
+SRC += $(SRC_DIR)/render/create_graphics.c
 
 OBJ := $(patsubst src/%.c, build/%.o, $(SRC))
 
@@ -60,6 +63,9 @@ $(NAME): $(OBJ) $(HEADERS) $(LIBFT_A)
 ${LIBFT_A}:
 	$(MAKEALL) -C $(LIBFT_DIR)
 	
+debug: 
+	gdb --args ./cub3d test
+
 clean: 
 	$(MAKECLEAN) -C $(LIBFT_DIR)
 	$(MAKECLEAN) -C $(MINILIBX_DIR)

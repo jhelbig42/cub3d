@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/24 14:04:31 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/25 12:04:12 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 #include "./CONSTANTS.h"
 
-typedef struct s_data {
+typedef struct s_img {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_data;
+}	t_img;
 
 typedef struct s_map
 {
@@ -49,10 +49,12 @@ typedef struct s_game
 								// later orientation will be incremental aka complicated
 	t_RGB	floor_color;
 	t_RGB	ceiling_color;
+	int		width;
+	int		height;
 	void	*mlx_ptr;
-	t_data	mlx_img;
 	void	*win_ptr;
-	void	*img_ptr[4]; // ein image pro Wandausrichtung?
+	t_img	img;
+	void	*wall_graphics[4]; // ein image pro Wandausrichtung?
 }	t_game;
 
 #endif
