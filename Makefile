@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/25 10:57:55 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/07/25 14:42:44 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,13 @@ SRC		:=
 SRC += $(SRC_DIR)/main.c
 SRC += $(SRC_DIR)/destroy.c
 SRC += $(SRC_DIR)/keypress.c
-SRC += $(SRC_DIR)/parser.c
+
+SRC += $(SRC_DIR)/parser/parser.c
+SRC += $(SRC_DIR)/parser/find_colors.c 
+SRC += $(SRC_DIR)/parser/find_paths.c 
+
+SRC += $(SRC_DIR)/utils/free.c
+SRC += $(SRC_DIR)/utils/error.c 
 
 SRC += $(SRC_DIR)/init/init.c
 
@@ -35,7 +41,9 @@ OBJ := $(patsubst src/%.c, build/%.o, $(SRC))
 
 HEADERS = $(SRC_DIR)/$(INC_DIR)/cube.h 
 HEADERS = $(SRC_DIR)/$(INC_DIR)/CONSTANTS.h 
-HEADERS = $(SRC_DIR)/$(INC_DIR)/structs.h 
+HEADERS = $(SRC_DIR)/$(INC_DIR)/structs.h
+HEADERS = $(SRC_DIR)/init/init.h 
+HEADERS = $(SRC_DIR)/parser/parser.h 
 
 LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a

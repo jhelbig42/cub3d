@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keypress.c                                         :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 14:21:10 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/07/25 11:01:49 by jhelbig           #+#    #+#             */
+/*   Updated: 2025/07/25 14:39:48 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cube.h"
+#include "utils.h"
 
-//destroy on ESC
-int	on_keypress(int key, t_game *game)
+void    print_error(char *msg)
 {
-	if (key == ESC)
-		on_destroy(game);
-	return (0);
-}
+    printf("Error\n");
+    printf("%s\n", msg);
+}  

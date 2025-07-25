@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 10:51:13 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/25 14:41:54 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "./structs.h"
 # include "./CONSTANTS.h"
 # include "../render/render.h"
+# include "../parser/parser.h"
 
 // destroy.c
 int		on_destroy(t_game *game);
@@ -29,6 +30,6 @@ int		on_destroy(t_game *game);
 int		on_keypress(int key, t_game *game);
 
 // parser.c
-bool	parse_map(char **argv);
+bool	parse_map(t_game *game, char *map_name);
 
 #endif

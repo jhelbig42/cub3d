@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 12:04:12 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/25 14:58:08 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct s_map
 
 typedef struct s_RGB
 {
-	size_t	R;
-	size_t	G;
-	size_t	B;
+	short	R;
+	short	G;
+	short	B;
 }	t_RGB;
 
 typedef struct s_game
@@ -54,6 +54,10 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_img	img;
+	void   	*north_path;
+    void    *south_path;
+    void    *west_path;
+    void    *east_path;
 	void	*wall_graphics[4]; // ein image pro Wandausrichtung?
 }	t_game;
 

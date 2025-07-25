@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 13:52:57 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/24 14:40:22 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/02/20 12:21:17 by jhelbig           #+#    #+#             */
+/*   Updated: 2025/07/25 14:39:59 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cube.h"
+#include "utils.h"
 
-bool	parse_map(char **argv)
+void	free_split(char **split)
 {
-	if (!argv)
-		return (false);
-	return (true);
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
