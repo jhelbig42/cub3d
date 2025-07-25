@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_paths.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 11:15:38 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 12:13:17 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,14 @@
 bool	set_wall_path(void **wall_path, char *line)
 {
 	char	*path;
-	char	*trim_line;
-    //int     fd;
-    //char    *buf;
+    int     fd;
+    char    *buf;
 
     //find path
-	trim_line = ft_strtrim(&line[2], "\n");
-	path = ft_strdup(trim_line);
-	free(trim_line);
+	path = ft_strtrim(&line[2], " \n");
 	if (!path)
-		return (print_error("strdup or strtrim failed"), false);
+		return (print_error("strtrim failed"), false);
     //make sure file exists and it is possible to open
-    /*
     fd = open(path, O_RDONLY);
     if (fd < 0)
         return (print_error("could not open wall file"), free(path), false);
@@ -36,7 +32,30 @@ bool	set_wall_path(void **wall_path, char *line)
         return (print_error("could not read from wall file"), free(path), false);
     close(fd);
     //file is closed, safe path
-    */
 	*wall_path = (void *)path;
+	return (true);
+}
+bool	set_wall_paths(t_game *game, char *line)
+{
+	if (!ft_strncmp(line, "NO", 2))
+		{
+			if (!set_wall_path(&game->north_path, line))
+				return (free(line), false);
+		}
+		else if (!ft_strncmp(line, "SO", 2))
+		{
+			if (!set_wall_path(&game->south_path, line))
+				return (free(line), false);
+		}
+		else if (!ft_strncmp(line, "WE", 2))
+		{
+			if (!set_wall_path(&game->west_path, line))
+				return (free(line), false);
+		}
+		else if (!ft_strncmp(line, "EA", 2))
+		{
+			if (!set_wall_path(&game->east_path, line))
+				return (free(line), false);
+		}
 	return (true);
 }

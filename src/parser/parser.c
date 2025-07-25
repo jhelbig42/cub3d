@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:25 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 11:09:24 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 13:18:05 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
-/*
-static bool is_space(char c)
-{
-    if (c == ' ')
-        return (true);
-    return (false);
-}
-*/
 
 bool	correct_file_type(char *map_name)
 {
@@ -80,29 +72,13 @@ bool	parse_map(t_game *game, char *map_name)
 			if (!find_colors(game, line, line[0]))
 				return (free(line), false);
 		}
-		else if (!ft_strncmp(line, "NO", 2))
-		{
-			if (!set_wall_path(&game->north_path, line))
-				return (free(line), false);
-		}
-		else if (!ft_strncmp(line, "SO", 2))
-		{
-			if (!set_wall_path(&game->south_path, line))
-				return (free(line), false);
-		}
-		else if (!ft_strncmp(line, "WE", 2))
-		{
-			if (!set_wall_path(&game->west_path, line))
-				return (free(line), false);
-		}
-		else if (!ft_strncmp(line, "EA", 2))
-		{
-			if (!set_wall_path(&game->east_path, line))
-				return (free(line), false);
-		}
+		
+		if (!set_wall_paths(game, line))
+			return (false);
+		
         //lies weiter
-		else if (line[0] != '\n')
-			break ;
+		//else if (line[0] != '\n')
+			//break ;
 		free(line);
 		line = get_next_line(fd);
 	}

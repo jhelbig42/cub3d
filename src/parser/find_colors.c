@@ -3,16 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   find_colors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:03 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 11:13:49 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/25 12:00:22 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
 // F 220,100,0
+static void set_RGB_val(t_RGB *RGB, int i, int val)
+{
+	if (i == 0)
+		RGB->R = val;
+	else if (i == 1)
+		RGB->G = val;
+	else if (i == 2)
+		RGB->B = val;
+}
+
+static bool	check_RGB_val(char *input, int *val)
+{
+	*val = ft_atoi(input);
+	if (*val == 0 && input[0] != '0')
+		return (print_error("RGB values are not given as numbers"), false);
+	if (*val < 0 || *val > 255)
+		return (print_error("invalid RGB values given"), false);
+	return (true);
+}
 
 static bool	fill_color(char *line, t_RGB *RGB)
 {
@@ -33,17 +52,9 @@ static bool	fill_color(char *line, t_RGB *RGB)
 		trim_split = ft_strtrim(split[i], " \n");
 		if (!trim_split)
 			return (free_split(split), print_error("ft_strtrim failed"), false);
-		val = ft_atoi(split[i]);
-		if (val == 0 && split[i][0] != '0')
-			return (free_split(split), free(trim_split), print_error("RGB values are not given as numbers"), false);
-		if (val < 0 || val > 255)
-			return (free_split(split), free(trim_split), print_error("invalid RGB values given"), false);
-		if (i == 0)
-			RGB->R = val;
-		else if (i == 1)
-			RGB->G = val;
-		else if (i == 2)
-			RGB->B = val;
+		if (!check_RGB_val(split[i], &val))
+			return (free_split(split), free(trim_split), false);
+		set_RGB_val(RGB, i, val);
 		i++;
 		free(trim_split);
 	}
