@@ -37,7 +37,7 @@ int	shm_att_pb(Display *d,XErrorEvent *ev)
 void	*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format)
 {
   t_img	*img;
-  int	(*save_handler)();
+  int	(*save_handler)(void *);
 
   if (!(img = malloc(sizeof(*img))))
     return ((void *)0);
@@ -72,7 +72,7 @@ void	*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format)
     }
   img->shm.readOnly = False;
   mlx_X_error = 0;
-  save_handler = XSetErrorHandler(shm_att_pb);
+  save_handler = XSetErrorHandler(shm_att_pb(xvar->display, NULL));
   if (!XShmAttach(xvar->display,&(img->shm)) ||
       0&XSync(xvar->display,False) || mlx_X_error)
     {
