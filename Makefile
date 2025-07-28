@@ -17,7 +17,7 @@ OBJ_DIR = build
 INC_DIR = includes
 
 CFILES		:=
-vpath %.cpp $(SRC_FOLDER)
+vpath %.c $(SRC_FOLDER)
 CFILES += main.cpp
 
 SRC		:=
@@ -50,7 +50,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 MINILIBX_DIR = minilibx-linux
 
-CC = cc
+CC = clang
 
 CFLAGS = -g -Wall -Wextra -Werror
 
