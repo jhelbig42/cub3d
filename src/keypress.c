@@ -12,9 +12,8 @@
 
 #include "includes/cube.h"
 
-int on_keypress(int key, t_game *game)
+int	on_keypress(int key, t_game *game)
 {
-
 	if (key == ESC)
 		on_destroy(game);
 	return (0);
