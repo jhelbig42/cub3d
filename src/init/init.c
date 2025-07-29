@@ -44,7 +44,9 @@ t_game	*init_test_game(t_game *game)
 		.pos_x = 2,
 		.pos_y = 2,
 		.dir_x = 1,
-		.dir_y = 0
+		.dir_y = 0,
+		.plane_x = 0,
+		.plane_y = 0.66
 	};
 	return (game);
 }
