@@ -39,7 +39,6 @@ int	main(int argc, char **argv)
 		return (1);
 	mlx_hook(game.win_ptr, EXIT_HOOK, 0, on_destroy, &game);
 	mlx_hook(game.win_ptr, 2, 1L << 0, on_keypress, &game);
-	mlx_loop(game.mlx_ptr);
 	test_print_game(&game);
 	mlx_loop_hook(game.mlx_ptr, render_frames, &game);
 	mlx_loop(game.mlx_ptr);
