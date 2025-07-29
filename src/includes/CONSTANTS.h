@@ -27,6 +27,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+//MLX hooks
+# define EXIT_HOOK 17
+# define KEY_PRESS_HOOK 2
+# define KEY_RELEASE_HOOK 3
+
 //keys
 # define ESC 65307
 
@@ -35,6 +40,6 @@
 # define C_NEON_YELLOW 0xFFCFFF04
 
 //stats
-# define SCREEN_WIDTH 1920
-# define SCREEN_HEIGHT 1080
+# define SCREEN_WIDTH 960
+# define SCREEN_HEIGHT 540
 #endif

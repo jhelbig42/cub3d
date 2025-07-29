@@ -71,8 +71,14 @@ $(NAME): $(OBJ) $(HEADERS) $(LIBFT_A)
 ${LIBFT_A}:
 	$(MAKEALL) -C $(LIBFT_DIR)
 	
-debug: 
-	gdb --args ./cub3d test
+debug: $(NAME)
+	gdb --args ./cub3d maps/subject.cub
+
+run: $(NAME)
+	./cub3d maps/subject.cub
+
+val_test: $(NAME)
+	valgrind --leak-check=full --track-fds=yes ./$(NAME) maps/subject.cub
 
 clean: 
 	$(MAKECLEAN) -C $(LIBFT_DIR)

@@ -12,13 +12,13 @@
 
 #include "render.h"
 
-void create_img(t_img *img)
+void	create_img(t_img *img)
 {
 	reset_img(img, SCREEN_WIDTH, SCREEN_HEIGHT);
 	gen_noise(img);
 }
 
-int render_frames(t_game *game)
+int	render_frames(t_game *game)
 {
 	create_img(&game->img);
 	mlx_put_image_to_window(

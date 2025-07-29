@@ -30,7 +30,7 @@ typedef struct s_map
 {
 	int		lines; // giving the complete size
 	int		col;
-	char	**map; // actual map
+	int	**map; // actual map
 }	t_map;
 
 typedef struct s_RGB
