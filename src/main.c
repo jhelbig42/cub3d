@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 15:03:27 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/29 15:50:29 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	main(int argc, char **argv)
 	game = game_init();
 	// if (!parse_map(&game, argv[1]))
 	// 	printf("map error\n");
+	init_test_game(&game);
 	if (argv[1])
 		printf("Map Name: %s\n", argv[1]);
-	init_test_game(&game);
-	test_print_game(&game);
+	//test_print_game(&game);
 	mlx_hook(game.win_ptr, EXIT_HOOK, 0, on_destroy, &game);
 	mlx_hook(game.win_ptr, KEY_PRESS_HOOK, 1L << 0, on_keypress, &game);
 	mlx_loop_hook(game.mlx_ptr, render_frames, &game);

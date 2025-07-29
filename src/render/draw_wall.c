@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster.h                                        :+:      :+:    :+:   */
+/*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 11:48:18 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/29 15:39:25 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/07/29 15:35:01 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/29 15:45:49 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYCASTER_H
-# define RAYCASTER_H
+#include "render.h"
 
-# include "../includes/CONSTANTS.h"
-# include "../includes/structs.h"
-# include "../render/render.h"
-
-typedef struct s_ray
+void	draw_wall_x(t_img img, int x, int wall_height)
 {
-	double	camera_x;
-	double	dir_x;
-	double	dir_y;
-	double	delta_x;
-	double	delta_y;
-	int		map_x;
-	int		map_y;
-	double	side_dist_x;
-	double	side_dist_y;
-	int		step_x;
-	int		step_y;
-	bool	hit;
-	int		side; 
-}	t_ray;
+	int	y;
+	int	top;
 
-#endif
+	y = SCREEN_HEIGHT / 2 - wall_height / 2;
+	top = SCREEN_HEIGHT / 2 + wall_height / 2;
+	while (y++ < top)
+		pixel_put(img.img, x, y, 130);
+}

@@ -6,11 +6,40 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 12:13:42 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:08:12 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
+
+int	**create_map(void)
+{
+	int	i;
+	int	j;
+	int	*line;
+	int	**map;
+
+	map = (int **)malloc(sizeof(int *) * 24);
+	i = -1;
+	while (++i < 24)
+	{
+		j = 0;
+		line = (int *)malloc(sizeof(int) * 24);
+		if (i == 0 || i == 23)
+		{
+			while (j++ < 23)
+				line[j] = 1;
+		}
+		else
+			while (j++ < 23)
+				line[j] = 0;
+		line[0] = 1;
+		line[23] = 1;
+		map[i] = line;
+	}
+	printf("Map Created\n");
+	return (map);
+}
 
 t_game	game_init(void)
 {
@@ -29,15 +58,7 @@ t_game	game_init(void)
 
 t_game	*init_test_game(t_game *game)
 {
-	int worldMap[5][5] = {
-	{1, 1, 1, 1, 1},
-	{1, 0, 0, 0, 1},
-	{1, 0, 0, 0, 1},
-	{1, 0, 0, 0, 1},
-	{1, 1, 1, 1, 1},
-	};
-
-	game->map.map = (int **)worldMap;
+	game->map.map = create_map();
 	game->map.width = 5;
 	game->map.height = 5;
 	game->player = (t_player){ 

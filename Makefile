@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/25 14:42:44 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/07/29 15:48:37 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,11 @@ SRC += $(SRC_DIR)/utils/error.c
 
 SRC += $(SRC_DIR)/init/init.c
 
+SRC += $(SRC_DIR)/raycaster/raycaster.c
+
 SRC += $(SRC_DIR)/render/render.c
 SRC += $(SRC_DIR)/render/create_graphics.c
+SRC += $(SRC_DIR)/render/draw_wall.c
 
 OBJ := $(patsubst src/%.c, build/%.o, $(SRC))
 

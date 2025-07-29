@@ -67,21 +67,4 @@ typedef struct s_game
 	void		*east_path;
 }	t_game;
 
-typedef struct s_ray
-{
-	double	camera_x;
-	double	dir_x;
-	double	dir_y;
-	double	delta_x;
-	double	delta_y;
-	int		map_x;
-	int		map_y;
-	double	side_dist_x;
-	double	side_dist_y;
-	int		step_x;
-	int		step_y;
-	bool	hit;
-	int		side; 
-}	t_ray;
-
 #endif

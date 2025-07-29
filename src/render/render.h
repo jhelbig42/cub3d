@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 12:06:06 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:47:40 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@
 # include "../includes/CONSTANTS.h"
 # include "../includes/structs.h"
 
-// render
+// render.c
 int				render_frames(t_game *game);
 int				render_loop_wrapper(void);
+void			raycaster(t_game *game);
 
-// create_graphics
+// create_graphics.c
 void			pixel_put(t_img *img, int x, int y, int color);
 unsigned int	get_grad_col(int val, int max,
 					unsigned int c_min, unsigned int c_max);
 void			reset_img(t_img *img, int width, int height);
 void			gen_noise(t_img *p);
+
+// draw_wall.c
+void			draw_wall_x(t_img img, int x, int wall_height);
 
 #endif

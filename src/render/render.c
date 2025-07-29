@@ -6,21 +6,22 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 12:16:45 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:47:53 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-void	create_img(t_img *img)
+void	create_img(t_game *game)
 {
-	reset_img(img, SCREEN_WIDTH, SCREEN_HEIGHT);
-	gen_noise(img);
+	reset_img(&game->img, SCREEN_WIDTH, SCREEN_HEIGHT);
+	gen_noise(&game->img);
+	raycaster(game);
 }
 
 int	render_frames(t_game *game)
 {
-	create_img(&game->img);
+	create_img(game);
 	mlx_put_image_to_window(
 		game->mlx_ptr, game->win_ptr, game->img.img, 0, 0);
 	return (0);
