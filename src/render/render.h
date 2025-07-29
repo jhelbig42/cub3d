@@ -16,10 +16,11 @@
 # include "../includes/CONSTANTS.h"
 # include "../includes/structs.h"
 
-//render
+// render
 int				render_frames(t_game *game);
+int				render_loop_wrapper(void);
 
-//create_graphics
+// create_graphics
 void			pixel_put(t_img *img, int x, int y, int color);
 unsigned int	get_grad_col(int val, int max,
 					unsigned int c_min, unsigned int c_max);

@@ -18,10 +18,10 @@
 # define CUBE_H
 
 # include "../init/init.h"
-# include "./structs.h"
-# include "./CONSTANTS.h"
-# include "../render/render.h"
 # include "../parser/parser.h"
+# include "../render/render.h"
+# include "./CONSTANTS.h"
+# include "./structs.h"
 
 // destroy.c
 int		on_destroy(t_game *game);
