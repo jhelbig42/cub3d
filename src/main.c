@@ -22,6 +22,7 @@ void	test_print_game(t_game *game)
 	printf("south path: %s\n", (char *)game->south_path);
 	printf("west path: %s\n", (char *)game->west_path);
 	printf("east path: %s\n", (char *)game->east_path);
+	printf("Player pos: %f / %f\n", game->player.pos_x, game->player.pos_y);
 }
 
 int	main(int argc, char **argv)
@@ -31,8 +32,11 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (1);
 	game = game_init();
-	if (!parse_map(&game, argv[1]))
-		printf("map error\n");
+	// if (!parse_map(&game, argv[1]))
+	// 	printf("map error\n");
+	if (argv[1])
+		printf("Map Name: %s\n", argv[1]);
+	init_test_game(&game);
 	test_print_game(&game);
 	mlx_hook(game.win_ptr, EXIT_HOOK, 0, on_destroy, &game);
 	mlx_hook(game.win_ptr, KEY_PRESS_HOOK, 1L << 0, on_keypress, &game);

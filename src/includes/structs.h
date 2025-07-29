@@ -28,9 +28,9 @@ typedef struct s_img {
 
 typedef struct s_map
 {
-	int		lines; // giving the complete size
-	int		col;
-	int	**map; // actual map
+	int		width;
+	int		height;
+	int		**map;
 }	t_map;
 
 typedef struct s_RGB
@@ -40,25 +40,29 @@ typedef struct s_RGB
 	short	B;
 }	t_RGB;
 
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+}	t_player;
+
 typedef struct s_game
 {
-	t_map	*map;
-	int		player_x; // start but also later current pos
-	int		player_y;
-	int		player_orient_start; // just for the start N E S W
-								// later orientation will be incremental aka complicated
-	t_RGB	floor_color;
-	t_RGB	ceiling_color;
-	int		width;
-	int		height;
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-	void   	*north_path;
-    void    *south_path;
-    void    *west_path;
-    void    *east_path;
-	void	*wall_graphics[4]; // ein image pro Wandausrichtung?
+	t_map		map;
+	t_player	player;
+	t_RGB		floor_color;
+	t_RGB		ceiling_color;
+	int			width;
+	int			height;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+	void		*north_path;
+	void		*south_path;
+	void		*west_path;
+	void		*east_path;
 }	t_game;
 
 #endif
