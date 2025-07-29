@@ -12,7 +12,7 @@
 
 #include "parser.h"
 
-bool	set_wall_path(void **wall_path, char *line)
+static bool	set_wall_path(void **wall_path, char *line)
 {
 	char	*path;
     int     fd;
@@ -58,4 +58,13 @@ bool	set_wall_paths(t_game *game, char *line)
 			return (free(line), false);
 	}
 return (true);
+}
+
+bool	is_wall_path(char *line)
+{
+	if (!ft_strncmp(line, "NO", 2) || !ft_strncmp(line, "SO", 2) 
+		|| !ft_strncmp(line, "WE", 2) || !ft_strncmp(line, "EA", 2))
+		return (true);
+	else
+		return (false);
 }

@@ -72,16 +72,20 @@ bool	parse_map(t_game *game, char *map_name)
 			if (!find_colors(game, line, line[0]))
 				return (free(line), false);
 		}
-		
-		if (!set_wall_paths(game, line))
-			return (false);
-		
-        //lies weiter
-		//else if (line[0] != '\n')
-			//break ;
+		else if (is_wall_path(line))
+		{
+			if (!set_wall_paths(game, line))
+				return (false);
+		}
+		//newlines ueberspringen, sonst raus
+		else if (line[0] != '\n')
+			break ;
 		free(line);
 		line = get_next_line(fd);
 	}
+	printf("line: %s", line);
+	if (!data_complete(game))
+		return(free(line), false);
     // hier muessen dann alle Daten bis auf die map ausgelesen sein
     // testen ob noch default Werte, wenn ja, dann return false
 	free(line);

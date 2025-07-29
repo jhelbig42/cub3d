@@ -17,10 +17,14 @@
 # include "../includes/CONSTANTS.h"
 # include "../utils/utils.h"
 
+//complete.c
+bool    data_complete(t_game *game);
+
 //find_colors.c
 bool	find_colors(t_game *game, char *line, char c);
 
 //find_paths.c
+bool	is_wall_path(char *line);
 bool	set_wall_paths(t_game *game, char *line);
 
 //parser.c
