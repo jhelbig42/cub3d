@@ -45,20 +45,20 @@ static bool	fill_color(char *line, t_RGB *RGB)
 		return (false);
 	//there must be exactly 3 args given
 	if (!split[0] || !split[1] || !split[2] || split[3])
-		return (free_split(split), print_error("wrong number of RGB values given"), false);
+		return (free_str_arr(split), print_error("wrong number of RGB values given"), false);
 	i = 0;
 	while (i < 3)
 	{
 		trim_split = ft_strtrim(split[i], " \n");
 		if (!trim_split)
-			return (free_split(split), print_error("ft_strtrim failed"), false);
+			return (free_str_arr(split), print_error("ft_strtrim failed"), false);
 		if (!check_RGB_val(split[i], &val))
-			return (free_split(split), free(trim_split), false);
+			return (free_str_arr(split), free(trim_split), false);
 		set_RGB_val(RGB, i, val);
 		i++;
 		free(trim_split);
 	}
-	free_split(split);
+	free_str_arr(split);
 	return (true);
 }
 

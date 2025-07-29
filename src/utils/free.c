@@ -12,15 +12,15 @@
 
 #include "utils.h"
 
-void	free_split(char **split)
+void	free_str_arr(char **str_arr)
 {
 	int	i;
 
 	i = 0;
-	while (split[i])
+	while (str_arr[i])
 	{
-		free(split[i]);
+		free(str_arr[i]);
 		i++;
 	}
-	free(split);
+	free(str_arr);
 }

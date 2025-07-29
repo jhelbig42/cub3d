@@ -4,6 +4,6 @@
 # include "../includes/CONSTANTS.h"
 
 void    print_error(char *msg);
-void	free_split(char **split);
+void	free_str_arr(char **split);
 
 #endif
