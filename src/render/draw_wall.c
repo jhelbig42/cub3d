@@ -12,13 +12,13 @@
 
 #include "render.h"
 
-void	draw_wall_x(t_img img, int x, int wall_height)
+void draw_wall_x(t_img img, int x, int wall_height)
 {
-	int	y;
-	int	top;
+	int y;
+	int top;
 
-	y = SCREEN_HEIGHT / 2 - wall_height / 2;
+	y	= SCREEN_HEIGHT / 2 - wall_height / 2;
 	top = SCREEN_HEIGHT / 2 + wall_height / 2;
 	while (y++ < top)
-		pixel_put(img.img, x, y, 130);
+		pixel_put(&img, x + 1, y, 0xFFAB20FD);
 }

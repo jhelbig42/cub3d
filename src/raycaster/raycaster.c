@@ -12,16 +12,14 @@
 
 #include "raycaster.h"
 
-void	detect_hit(void)
-{
-}
-
 //set default vals and calculate,vector of current ray
 t_ray	init_ray(t_player p, int x)
 {
 	t_ray		ray;
 
 	ray.hit = false;
+	ray.map_x = (int)p.pos_x;
+	ray.map_y = (int)p.pos_y;
 	ray.side = -1; 
 	ray.delta_x = 1e30;
 	ray.delta_y = 1e30;
