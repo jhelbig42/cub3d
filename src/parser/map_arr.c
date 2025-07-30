@@ -24,7 +24,13 @@ static void    set_start_pos(t_game *game, char pos)
         game->player.plane_y = -0.66;
     }
 }
-
+bool    is_orient(char c)
+{
+    if (c == 'N' || c =='S' || c == 'W' || c =='E')
+        return (true);
+    else
+        return (false);
+}
 static bool    read_map_char(t_game *game, char **map, int *i, int *width, char *pos)
 {
     char    cur;
@@ -39,7 +45,7 @@ static bool    read_map_char(t_game *game, char **map, int *i, int *width, char 
             if (cur != '0' && cur != '1' && cur != 'N'
                 && cur != 'S' && cur != 'E' && cur != 'W' && cur != ' ' && cur != '\n')
                 return (print_error("undefined symbols in map"), false);
-            if (cur == 'N' || cur == 'S' || cur == 'E' || cur == 'W')
+            if (is_orient(cur))
             {
                 if (*pos != 'D')
                     return (print_error("more that 1 player given in map"), false);
@@ -52,6 +58,36 @@ static bool    read_map_char(t_game *game, char **map, int *i, int *width, char 
             j++;
         }
         *i = *i + 1;
+    }
+    return (true);
+}
+
+bool    map_into_game(t_game *game, char **map)
+{
+    int i;
+    int j;
+
+    game->map.map = (int **)malloc(sizeof(int *) * game->map.lines);
+    if (!game->map.map)
+        return (print_error("malloc error map **int arr"), false);
+    i = 0;
+    while (i < game->map.lines)
+    {
+        game->map.map[i] = (int *)malloc(sizeof(int) * game->map.col);
+        if (!game->map.map[i])
+            return (print_error("malloc error map int[i] arr"), free_int_arr(game->map.map, i), false);
+        j = 0;
+        while (j < game->map.col)
+        {
+            if ( !map[i][j] || map[i][j] =='\n'|| map[i][j] == '0' || map[i][j] == ' ')
+                game->map.map[i][j] = 0;
+            else if (map[i][j] == '1')
+                game->map.map[i][j] = 1;
+            else if (is_orient(map[i][j]))
+                game->map.map[i][j] = 2;
+            j++;
+        }
+        i++;
     }
     return (true);
 }
@@ -69,13 +105,14 @@ bool map_str_arr_valid(t_game *game, char **map)
     width = 0;
     
     read_map_char(game, map, &i, &width, &pos);
-
     game->map.lines = i;
     game->map.col = width;
     if (pos == 'D')
         return (print_error("no player given in map"), false);
     set_start_pos(game, pos);
-    //flood fill here
-    //return floodfill false
+    if (!map_into_game(game, map))
+        return (false);
+    //floodfill
+    //return
     return (true);
 }

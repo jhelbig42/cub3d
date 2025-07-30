@@ -25,5 +25,6 @@ int on_destroy(t_game *game)
 	free(game->south_path);
 	free(game->west_path);
 	free(game->east_path);
+	free_int_arr(game->map.map, game->map.lines);
 	exit(0);
 }

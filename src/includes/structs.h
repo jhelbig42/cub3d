@@ -26,11 +26,16 @@ typedef struct s_img {
 	int		endian;
 }	t_img;
 
+// in map **int
+// 1 wall
+// 0 empty
+// 2 player
+
 typedef struct s_map
 {
 	int		lines; // giving the complete size
 	int		col;
-	char	**map; // actual map
+	int		**map; // actual map
 }	t_map;
 
 typedef struct s_RGB

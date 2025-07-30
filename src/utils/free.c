@@ -24,3 +24,16 @@ void	free_str_arr(char **str_arr)
 	}
 	free(str_arr);
 }
+
+void	free_int_arr(int **int_arr, int index)
+{
+	int	i;
+
+	i = 0;
+	while (i < index)
+	{
+		free(int_arr[i]);
+		i++;
+	}
+	free(int_arr);
+}

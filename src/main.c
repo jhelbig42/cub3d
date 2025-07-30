@@ -30,7 +30,20 @@ void	test_print_game(t_game *game)
 	printf("width: %d\n", game->map.col);
 	printf("player: pos_x: %f, pos_y: %f, dir_x: %f, dir_y: %f, plane_x: %f, plane_y: %f\n",
 		game->player.pos_x, game->player.pos_y, game->player.dir_x, game->player.dir_y, game->player.plane_x, game->player.plane_y);
-
+	int i;
+	int j;
+	i = 0;
+	while (i < game->map.lines)
+	{
+		j = 0;
+		while (j < game->map.col)
+		{
+			printf("%d", game->map.map[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
