@@ -28,7 +28,7 @@ void	test_print_game(t_game *game)
 	printf("east path: %s\n", (char *)game->east_path);
 	printf("height: %d\n", game->map.lines);
 	printf("width: %d\n", game->map.col);
-	printf("player: pos_x: %f, pos_y: %f, dir_x: %f, dir_y: %f, plane_x: %f, plane_y: %f",
+	printf("player: pos_x: %f, pos_y: %f, dir_x: %f, dir_y: %f, plane_x: %f, plane_y: %f\n",
 		game->player.pos_x, game->player.pos_y, game->player.dir_x, game->player.dir_y, game->player.plane_x, game->player.plane_y);
 
 }

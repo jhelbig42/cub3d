@@ -1,0 +1,66 @@
+#include "parser.h"
+
+
+bool	correct_file_type(char *map_name)
+{
+	char	**split;
+
+	split = ft_split(map_name, '.');
+	if (!split)
+		return (print_error("split failed"), false);
+	if (!split[1])
+		return (free_str_arr(split), print_error("no '.' within filename"), false);
+	if (ft_strncmp(split[1], "cub", 2) != 0)
+		return (free_str_arr(split), print_error("wrong name extension of given filename"), false);
+	free_str_arr(split);
+	return (true); 
+}
+
+//default values in game struct used for checking completeness of map
+void	fill_default_game(t_game *game)
+{
+	game->floor_color.R = -1;
+	game->floor_color.G = -1;
+	game->floor_color.B = -1;
+	game->ceiling_color.R = -1;
+	game->ceiling_color.G = -1;
+	game->ceiling_color.B = -1;
+	game->north_path = NULL;
+	game->south_path = NULL;
+	game->west_path = NULL;
+	game->east_path = NULL;
+
+	//default orientation is N
+    game->player.dir_x = 0;
+    game->player.dir_y = 1;
+    game->player.plane_x = 0.66;
+    game->player.plane_y = 0;
+}
+bool    data_complete(t_game *game)
+{
+    if (game->floor_color.R == -1
+        || game->floor_color.G == -1 || game->floor_color.B == -1 
+        || game->ceiling_color.R == -1 || game->ceiling_color.G == -1
+        || game->ceiling_color.B == -1
+        || game->north_path == NULL || game->south_path == NULL
+        || game->west_path == NULL  || game->east_path == NULL)
+        return (print_error("Incomplete map data given"), false);
+    else
+        return (true);
+}
+
+char 	**init_map_char(char **map)
+{
+	int i;
+
+	map = (char **)malloc(sizeof(char *) * MAX_MAP_LENGTH); 
+	if (!map)
+		return (print_error("error malloc map"), NULL);
+	i = 0;
+	while (i < MAX_MAP_LENGTH)
+	{
+		map[i] = NULL;
+		i++;
+	}
+	return (map);
+}
