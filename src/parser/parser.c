@@ -104,6 +104,8 @@ bool	parse_map(t_game *game, char *map_name)
 		line = get_next_line(fd);
 		i++;
 	}
+	if (!map_str_arr_valid(game, map_str_arr))
+		return (free_str_arr(map_str_arr), close (fd), false);
 	close(fd);
 	
 	return (true);

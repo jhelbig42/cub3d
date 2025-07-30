@@ -46,17 +46,19 @@ bool map_str_arr_valid(t_game *game, char **map)
     int     j;
     char    cur;
     char    pos;
+    int     width;
 
     pos = 'D';
     i = 0;
+    width = 0;
     while (map[i])
     {
         j = 0;
         while (map[i][j])
         {
             cur = map[i][j];
-            if (cur != 0 && cur != 1 && cur != 'N'
-                && cur != 'S' && cur != 'E' && cur != 'W')
+            if (cur != '0' && cur != '1' && cur != 'N'
+                && cur != 'S' && cur != 'E' && cur != 'W' && cur != ' ' && cur != '\n')
                 return (print_error("undefined symbols in map"), false);
             if (cur == 'N' || cur == 'S' || cur == 'E' || cur == 'W')
             {
@@ -66,12 +68,16 @@ bool map_str_arr_valid(t_game *game, char **map)
                 game->player.pos_x = i;
                 game->player.pos_y = j;
             }
+            //find max_len
+            if (j > width)
+                width = j;
             j++;
         }
         i++;
     }
     //i ist hier die Zahl der Zeilen
-    game->height = i;
+    game->map.lines = i;
+    game->map.col = width;
     if (pos == 'D')
         return (print_error("no player given in map"), false);
     set_start_pos(game, pos);

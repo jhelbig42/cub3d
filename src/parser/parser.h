@@ -19,6 +19,7 @@
 
 //complete.c
 bool    data_complete(t_game *game);
+bool map_str_arr_valid(t_game *game, char **map);
 
 //find_colors.c
 bool	find_colors(t_game *game, char *line, char c);
