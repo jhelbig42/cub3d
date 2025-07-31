@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 10:34:05 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/07/31 08:59:10 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/31 10:47:36 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#ifndef EVENTS_H
+#define EVENTS_H
 
-void create_img(t_game *game)
-{
-	reset_img(&game->img, SCREEN_WIDTH, SCREEN_HEIGHT);
-	gen_noise(&game->img);
-	raycaster(game);
-}
+#include "../includes/CONSTANTS.h"
+#include "../movement/movement.h"
 
-int render_frames(t_game *game)
-{
-	move_player(game);
-	create_img(game);
-	mlx_put_image_to_window(
-		game->mlx_ptr, game->win_ptr, game->img.img, 0, 0);
-	return (0);
-}
+// destroy.c
+int on_destroy(t_game *game);
+
+// keypress.c
+int on_keypress(int key, t_game *game);
+int on_keyrelease(int key, t_game *game);
+
+#endif

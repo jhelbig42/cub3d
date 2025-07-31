@@ -1,9 +1,16 @@
 #ifndef UTILS_H
-# define UTILS_H
+#define UTILS_H
 
-# include "../includes/CONSTANTS.h"
+#include "../includes/CONSTANTS.h"
+#include <math.h>
 
-void    print_error(char *msg);
-void	free_split(char **split);
+// utils.c
+double deg_to_rad(int angle);
+
+// error.c
+void print_error(char *msg);
+
+// free.c
+void free_split(char **split);
 
 #endif

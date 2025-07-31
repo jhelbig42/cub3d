@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 14:41:54 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/07/31 10:41:18 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,13 @@
 // Don't include this header in other source files to prevent recursion
 
 #ifndef CUBE_H
-# define CUBE_H
+#define CUBE_H
 
-# include "../init/init.h"
-# include "../parser/parser.h"
-# include "../render/render.h"
-# include "./CONSTANTS.h"
-# include "./structs.h"
-
-// destroy.c
-int		on_destroy(t_game *game);
-
-// keypress.c
-int		on_keypress(int key, t_game *game);
-
-// parser.c
-bool	parse_map(t_game *game, char *map_name);
+#include "../events/events.h"
+#include "../init/init.h"
+#include "../parser/parser.h"
+#include "../render/render.h"
+#include "./CONSTANTS.h"
+#include "./structs.h"
 
 #endif

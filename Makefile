@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/29 15:48:37 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/07/31 15:30:41 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,11 @@ CFILES += main.cpp
 
 SRC		:=
 SRC += $(SRC_DIR)/main.c
-SRC += $(SRC_DIR)/destroy.c
-SRC += $(SRC_DIR)/keypress.c
+
+SRC += $(SRC_DIR)/events/destroy.c
+SRC += $(SRC_DIR)/events/keypress.c
+
+SRC += $(SRC_DIR)/movement/movement.c
 
 SRC += $(SRC_DIR)/parser/parser.c
 SRC += $(SRC_DIR)/parser/find_colors.c 
@@ -31,6 +34,7 @@ SRC += $(SRC_DIR)/parser/find_paths.c
 
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 
+SRC += $(SRC_DIR)/utils/utils.c
 
 SRC += $(SRC_DIR)/init/init.c
 
