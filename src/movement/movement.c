@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 09:57:25 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/31 10:05:11 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 void walk(t_game *game, int dir)
 {
-	if (!game || !dir)
-		return;
+	if (dir > 0)
+	{
+		game->player.pos_x += game->player.dir_x;
+		game->player.pos_y += game->player.dir_y;
+	}
+	else
+	{
+		game->player.pos_x -= game->player.dir_x;
+		game->player.pos_y -= game->player.dir_y;
+	}
 }
 
 void rotate(t_game *game, int dir)
