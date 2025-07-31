@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:54:55 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 09:03:16 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/31 10:43:34 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 #include "../includes/CONSTANTS.h"
 #include "../includes/structs.h"
 
-void walk(t_game *game, int dir);
-void rotate(t_game *game, int dir);
+void move_player(t_game *game);
+
 #endif

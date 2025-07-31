@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/29 16:08:12 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/31 10:29:12 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,13 @@ t_game *init_test_game(t_game *game)
 	game->map.width	 = 5;
 	game->map.height = 5;
 	game->player	 = (t_player){
-			.pos_x	 = 2,
-			.pos_y	 = 2,
-			.dir_x	 = 0.5,
-			.dir_y	 = 0.5,
-			.plane_x = 0,
-			.plane_y = 0.66};
+			.pos_x	  = 2,
+			.pos_y	  = 2,
+			.dir_x	  = 1,
+			.dir_y	  = 0,
+			.walking  = 0,
+			.rotating = 0,
+			.plane_x  = 0,
+			.plane_y  = 0.66};
 	return (game);
 }

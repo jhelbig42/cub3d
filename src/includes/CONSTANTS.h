@@ -43,10 +43,12 @@
 // colors
 #define C_NEON_VIOLET 0xFFAB20FD
 #define C_NEON_YELLOW 0xFFCFFF04
+#define C_NEON_BLUE 0x4D4DFF
 
 // stats
 #define SCREEN_WIDTH 960
 #define SCREEN_HEIGHT 540
-#define ROT_ANGLE 0.1
+#define ROT_ANGLE 0.01
+#define WALK_SPEED 0.03
 
 #endif
