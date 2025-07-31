@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keypress.c                                         :+:      :+:    :+:   */
+/*   destroy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 14:21:10 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/07/24 14:24:01 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/31 09:20:45 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cube.h"
+#include "../includes/CONSTANTS.h"
+#include "../includes/structs.h"
 
-int	on_keypress(int key, t_game *game)
+int on_destroy(t_game *game)
 {
-	if (key == ESC)
-		on_destroy(game);
-	return (0);
+	// destroy images
+	mlx_destroy_image(game->mlx_ptr, game->img.img);
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	mlx_destroy_display(game->mlx_ptr);
+
+	// frees
+	free(game->mlx_ptr);
+	free(game->north_path);
+	free(game->south_path);
+	free(game->west_path);
+	free(game->east_path);
+	exit(0);
 }

@@ -30,8 +30,6 @@ bool	correct_file_type(char *map_name)
 //default values in game struct used for checking completeness of map
 void	fill_default_game(t_game *game)
 {
-	game->player_x = -1;
-	game->player_y = -1;
 	game->floor_color.R = -1;
 	game->floor_color.G = -1;
 	game->floor_color.B = -1;

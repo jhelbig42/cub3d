@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   raycaster.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 10:34:05 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/07/29 11:48:18 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/31 16:36:23 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#ifndef RAYCASTER_H
+#define RAYCASTER_H
 
-void create_img(t_game *game)
-{
-	reset_img(&game->img, SCREEN_WIDTH, SCREEN_HEIGHT);
-	gen_noise(&game->img);
-	raycaster(game);
-}
+#include "../includes/CONSTANTS.h"
+#include "../includes/structs.h"
 
-int render_frames(t_game *game)
+void raycaster(t_game *game);
+void draw_wall_x(t_img img, int x, int wall_height);
+
+typedef struct s_ray
 {
-	move_player(game);
-	create_img(game);
-	mlx_put_image_to_window(
-		game->mlx_ptr, game->win_ptr, game->img.img, 0, 0);
-	return (0);
-}
+	double	   camera_x;
+	t_vector_d dir;
+	t_vector_d delta;
+	t_vector_i map;
+	t_vector_d side_dist;
+	t_vector_i step;
+	bool	   hit;
+	int		   side;
+} t_ray;
+
+#endif

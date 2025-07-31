@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/25 14:42:44 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/07/31 15:30:41 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,11 @@ CFILES += main.cpp
 
 SRC		:=
 SRC += $(SRC_DIR)/main.c
-SRC += $(SRC_DIR)/destroy.c
-SRC += $(SRC_DIR)/keypress.c
+
+SRC += $(SRC_DIR)/events/destroy.c
+SRC += $(SRC_DIR)/events/keypress.c
+
+SRC += $(SRC_DIR)/movement/movement.c
 
 SRC += $(SRC_DIR)/parser/parser.c
 SRC += $(SRC_DIR)/parser/find_colors.c 
@@ -31,11 +34,15 @@ SRC += $(SRC_DIR)/parser/find_paths.c
 
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 
+SRC += $(SRC_DIR)/utils/utils.c
 
 SRC += $(SRC_DIR)/init/init.c
 
+SRC += $(SRC_DIR)/raycaster/raycaster.c
+
 SRC += $(SRC_DIR)/render/render.c
 SRC += $(SRC_DIR)/render/create_graphics.c
+SRC += $(SRC_DIR)/render/draw_wall.c
 
 OBJ := $(patsubst src/%.c, build/%.o, $(SRC))
 
@@ -71,8 +78,14 @@ $(NAME): $(OBJ) $(HEADERS) $(LIBFT_A)
 ${LIBFT_A}:
 	$(MAKEALL) -C $(LIBFT_DIR)
 	
-debug: 
-	gdb --args ./cub3d test
+debug: $(NAME)
+	gdb --args ./cub3d maps/subject.cub
+
+run: $(NAME)
+	./cub3d maps/subject.cub
+
+val_test: $(NAME)
+	valgrind --leak-check=full --track-fds=yes ./$(NAME) maps/subject.cub
 
 clean: 
 	$(MAKECLEAN) -C $(LIBFT_DIR)
