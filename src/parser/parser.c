@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "parser.h"
+
 bool	read_map_data(t_game *game, int fd, char **line)
 {
 	while (*line)
@@ -32,7 +33,7 @@ bool	read_map_data(t_game *game, int fd, char **line)
 	}
 	return (true);
 }
-bool	read_map_arr(t_game *game, int fd, char **line)
+bool	read_map(t_game *game, int fd, char **line)
 {
 	char	**map_str_arr;
 	int		i;
@@ -70,7 +71,7 @@ bool	parse_map(t_game *game, char *map_name)
 		return (false);
 	if (!data_complete(game))
 		return(free(line), close(fd), false);
-	if (!read_map_arr(game, fd, &line))
+	if (!read_map(game, fd, &line))
 		return(false);
 	close(fd);
 	return (true);

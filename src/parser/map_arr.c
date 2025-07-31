@@ -79,7 +79,7 @@ bool    map_into_game(t_game *game, char **map)
         j = 0;
         while (j < game->map.col)
         {
-            if ( !map[i][j] || map[i][j] =='\n'|| map[i][j] == '0' || map[i][j] == ' ')
+            if (!map[i][j] || map[i][j] =='\n'|| map[i][j] == '0' || map[i][j] == ' ')
                 game->map.map[i][j] = 0;
             else if (map[i][j] == '1')
                 game->map.map[i][j] = 1;
@@ -112,7 +112,8 @@ bool map_str_arr_valid(t_game *game, char **map)
     set_start_pos(game, pos);
     if (!map_into_game(game, map))
         return (false);
-    //floodfill
+    if (!flood_fill(game))
+        return(false);
     //return
     return (true);
 }
