@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/31 10:52:28 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:37:03 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void test_print_game(t_game *game)
 	printf("south path: %s\n", (char *)game->south_path);
 	printf("west path: %s\n", (char *)game->west_path);
 	printf("east path: %s\n", (char *)game->east_path);
-	printf("Player pos: %f / %f\n", game->player.pos_x, game->player.pos_y);
+	printf("Player pos: %f / %f\n", game->player.pos.x, game->player.pos.y);
 }
 
 int main(int argc, char **argv)

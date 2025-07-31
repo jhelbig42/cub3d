@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 10:43:51 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:36:40 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include "../includes/CONSTANTS.h"
 #include "../includes/structs.h"
 #include "../movement/movement.h"
+#include "../raycaster/raycaster.h"
 
 // render.c
-int	 render_frames(t_game *game);
-int	 render_loop_wrapper(void);
-void raycaster(t_game *game);
+int render_frames(t_game *game);
+int render_loop_wrapper(void);
 
 // create_graphics.c
 void		 pixel_put(t_img *img, int x, int y, int color);
