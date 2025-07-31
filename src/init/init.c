@@ -71,6 +71,7 @@ t_game *init_test_game(t_game *game)
 			.dir_y	  = 0,
 			.walking  = 0,
 			.rotating = 0,
+			.strafing = 0,
 			.plane_x  = 0,
 			.plane_y  = 0.66};
 	return (game);
