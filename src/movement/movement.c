@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 10:57:33 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:11:11 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static void strafe(t_game *game)
 	// TODO: detect wall hit
 	dir = game->player.strafing;
 
-	new_dir = rotate_vector(game->player.dir_x, game->player.dir_y, 90 * dir);
+	new_dir = rotate_vector(
+		game->player.dir_x, game->player.dir_y, deg_to_rad(90 * dir));
 	game->player.pos_x += new_dir.x * WALK_SPEED;
 	game->player.pos_y += new_dir.y * WALK_SPEED;
 }
@@ -58,10 +59,10 @@ static void rotate(t_game *game)
 
 	p		   = &game->player;
 	dir		   = p->rotating;
-	new_dir	   = rotate_vector(p->dir_x, p->dir_y, ROT_ANGLE * dir);
+	new_dir	   = rotate_vector(p->dir_x, p->dir_y, deg_to_rad(ROT_ANGLE * dir));
 	p->dir_x   = new_dir.x;
 	p->dir_y   = new_dir.y;
-	new_dir	   = rotate_vector(p->plane_x, p->plane_y, ROT_ANGLE * dir);
+	new_dir	   = rotate_vector(p->plane_x, p->plane_y, deg_to_rad(ROT_ANGLE * dir));
 	p->plane_x = new_dir.x;
 	p->plane_y = new_dir.y;
 }

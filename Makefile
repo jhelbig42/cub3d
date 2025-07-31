@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/31 09:20:07 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/07/31 15:30:41 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC += $(SRC_DIR)/parser/find_paths.c
 
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 
+SRC += $(SRC_DIR)/utils/utils.c
 
 SRC += $(SRC_DIR)/init/init.c
 

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.h                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 08:54:55 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 15:29:11 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/07/31 15:18:42 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/31 15:27:54 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MOVEMENT_H
-#define MOVEMENT_H
-#include "../includes/CONSTANTS.h"
-#include "../includes/structs.h"
-#include "../utils/utils.h"
+#include "utils.h"
 
-void move_player(t_game *game);
-
-#endif
+double deg_to_rad(int angle)
+{
+	return ((angle)*M_PI / 180.0);
+}
