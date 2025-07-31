@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 10:28:46 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:53:47 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ typedef struct s_img
 	int	  line_length;
 	int	  endian;
 } t_img;
+
+typedef struct s_vector
+{
+	double x;
+	double y;
+} t_vector;
 
 typedef struct s_map
 {
@@ -51,6 +57,7 @@ typedef struct s_player
 	double plane_y;
 	int	   walking;
 	int	   rotating;
+	int	   strafing;
 } t_player;
 
 typedef struct s_game

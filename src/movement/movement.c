@@ -12,6 +12,27 @@
 
 #include "movement.h"
 
+t_vector rotate_vector(double x, double y, double angle)
+{
+	t_vector vector;
+
+	vector.x = x * cos(angle) - y * sin(angle);
+	vector.y = x * sin(angle) + y * cos(angle);
+	return (vector);
+}
+
+static void strafe(t_game *game)
+{
+	int		 dir;
+	t_vector new_dir;
+	// TODO: detect wall hit
+	dir = game->player.strafing;
+
+	new_dir = rotate_vector(game->player.dir_x, game->player.dir_y, 90 * dir);
+	game->player.pos_x += new_dir.x * WALK_SPEED;
+	game->player.pos_y += new_dir.y * WALK_SPEED;
+}
+
 static void walk(t_game *game)
 {
 	int dir;
@@ -33,16 +54,16 @@ static void rotate(t_game *game)
 {
 	t_player *p;
 	int		  dir;
-	double	  tmp_x;
+	t_vector  new_dir;
 
 	p		   = &game->player;
 	dir		   = p->rotating;
-	tmp_x	   = p->dir_x;
-	p->dir_x   = p->dir_x * cos(ROT_ANGLE * dir) - p->dir_y * sin(ROT_ANGLE * dir);
-	p->dir_y   = tmp_x * sin(ROT_ANGLE * dir) + p->dir_y * cos(ROT_ANGLE * dir);
-	tmp_x	   = p->plane_x;
-	p->plane_x = p->plane_x * cos(ROT_ANGLE * dir) - p->plane_y * sin(ROT_ANGLE * dir);
-	p->plane_y = tmp_x * sin(ROT_ANGLE * dir) + p->plane_y * cos(ROT_ANGLE * dir);
+	new_dir	   = rotate_vector(p->dir_x, p->dir_y, ROT_ANGLE * dir);
+	p->dir_x   = new_dir.x;
+	p->dir_y   = new_dir.y;
+	new_dir	   = rotate_vector(p->plane_x, p->plane_y, ROT_ANGLE * dir);
+	p->plane_x = new_dir.x;
+	p->plane_y = new_dir.y;
 }
 
 void move_player(t_game *game)
@@ -51,4 +72,6 @@ void move_player(t_game *game)
 		rotate(game);
 	if (game->player.walking)
 		walk(game);
+	if (game->player.strafing)
+		strafe(game);
 }

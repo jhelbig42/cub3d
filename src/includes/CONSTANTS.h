@@ -40,6 +40,13 @@
 #define UP 65362
 #define DOWN 65364
 
+#define A 97
+#define S 115
+#define D 100
+#define W 119
+#define Q 113
+#define E 101
+
 // colors
 #define C_NEON_VIOLET 0xFFAB20FD
 #define C_NEON_YELLOW 0xFFCFFF04

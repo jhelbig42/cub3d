@@ -14,29 +14,37 @@
 
 int on_keypress(int key, t_game *game)
 {
-	// printf("KEY: %d\n", key);
+	printf("KEY: %d\n", key);
 	if (key == ESC)
 		on_destroy(game);
-	if (key == LEFT)
+	if (key == LEFT || key == A)
 		game->player.rotating = -1;
-	if (key == RIGHT)
+	if (key == RIGHT || key == D)
 		game->player.rotating = 1;
-	if (key == UP)
+	if (key == UP || key == W)
 		game->player.walking = 1;
-	if (key == DOWN)
+	if (key == DOWN || key == S)
 		game->player.walking = -1;
+	if (key == E)
+		game->player.strafing = 1;
+	if (key == Q)
+		game->player.strafing = -1;
 	return (0);
 }
 
 int on_keyrelease(int key, t_game *game)
 {
-	if (key == LEFT)
+	if (key == LEFT || key == A)
 		game->player.rotating = 0;
-	if (key == RIGHT)
+	if (key == RIGHT || key == D)
 		game->player.rotating = 0;
-	if (key == UP)
+	if (key == UP || key == W)
 		game->player.walking = 0;
-	if (key == DOWN)
+	if (key == DOWN || key == S)
 		game->player.walking = 0;
+	if (key == E)
+		game->player.strafing = 0;
+	if (key == Q)
+		game->player.strafing = 0;
 	return (0);
 }
