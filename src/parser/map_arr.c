@@ -79,13 +79,10 @@ bool    map_into_game(t_game *game, char **map)
         j = 0;
         while (j < game->map.col)
         {
-            if (!map[i][j] || map[i][j] =='\n'|| map[i][j] == '0' || map[i][j] == ' ')
+            if (!map[i][j] || map[i][j] =='\n'|| map[i][j] == '0' || map[i][j] == ' ' || is_orient(map[i][j]))
                 game->map.map[i][j] = 0;
             else if (map[i][j] == '1')
                 game->map.map[i][j] = 1;
-            //player does not to be marked - is just walkable - w
-            else if (is_orient(map[i][j]))
-                game->map.map[i][j] = 2;
             j++;
         }
         i++;

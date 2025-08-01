@@ -25,6 +25,7 @@ char	**copy_map(t_map *map, char **char_map)
 	char **copy;
 	int i;
 	int	j;
+	int	len;
 
 	copy = (char **)malloc(sizeof(char *) * (map->lines + 1));
 	if (!copy)
@@ -36,9 +37,10 @@ char	**copy_map(t_map *map, char **char_map)
 		copy[i] = (char *)malloc(sizeof(char) * (map->col + 1));
 		if (!copy[i])
 			return (print_error("malloc failed in floodfill"), free_str_arr(copy), NULL);
+		len = ft_strlen(char_map[i]);
 		while (j < map->col)
 		{
-			if (char_map[i][j] == '1')
+			if (j < len && char_map[i][j] == '1')
 				copy[i][j] = char_map[i][j];
 			else
 				copy[i][j] = '0';
@@ -51,7 +53,7 @@ char	**copy_map(t_map *map, char **char_map)
 	return (copy);
 }
 
-void	fill(t_game *game, char ***map, int i, int j)
+static void	fill(t_game *game, char ***map, int i, int j)
 {
 	if (i < 0 || i >= game->map.lines || j < 0 || j >= game->map.col)
 		return;
@@ -65,7 +67,7 @@ void	fill(t_game *game, char ***map, int i, int j)
 	fill(game, map, i, j + 1);
 	fill(game, map, i, j - 1);
 }
-bool	test_flood_fill(t_game *game, char **copy)
+static bool	test_flood_fill(t_game *game, char **copy)
 {
 	int i;
 
