@@ -37,6 +37,6 @@ bool    data_complete(t_game *game);
 char 	**init_map_char(char **map);
 
 //floodfill.c
-bool	flood_fill(t_game *game);
+bool	flood_fill(t_game *game, char **char_map);
 
 #endif

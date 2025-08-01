@@ -31,7 +31,7 @@ bool    is_orient(char c)
     else
         return (false);
 }
-static bool    read_map_char(t_game *game, char **map, int *i, int *width, char *pos)
+static bool    check_map_char(t_game *game, char **map, int *i, int *width, char *pos)
 {
     char    cur;
     int     j;
@@ -83,6 +83,7 @@ bool    map_into_game(t_game *game, char **map)
                 game->map.map[i][j] = 0;
             else if (map[i][j] == '1')
                 game->map.map[i][j] = 1;
+            //player does not to be marked - is just walkable - w
             else if (is_orient(map[i][j]))
                 game->map.map[i][j] = 2;
             j++;
@@ -94,7 +95,7 @@ bool    map_into_game(t_game *game, char **map)
 //are symbols in map that are not allowed?
 //- in der map nur 0, 1 und genau 1 N S E W
 //map surrounded by walls
-bool map_str_arr_valid(t_game *game, char **map)
+bool map_str_arr_valid(t_game *game, char **char_map)
 {
     int     i;
     char    pos;
@@ -104,16 +105,15 @@ bool map_str_arr_valid(t_game *game, char **map)
     i = 0;
     width = 0;
     
-    read_map_char(game, map, &i, &width, &pos);
+    check_map_char(game, char_map, &i, &width, &pos);
     game->map.lines = i;
     game->map.col = width;
     if (pos == 'D')
         return (print_error("no player given in map"), false);
     set_start_pos(game, pos);
-    if (!map_into_game(game, map))
-        return (false);
-    if (!flood_fill(game))
+    if (!flood_fill(game, char_map))
         return(false);
-    //return
+    if (!map_into_game(game, char_map))
+        return (false);
     return (true);
 }

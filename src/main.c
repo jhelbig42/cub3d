@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	game = game_init();
 	if (!parse_map(&game, argv[1]))
 		return (1);
-	test_print_game(&game);
+	//test_print_game(&game);
 	mlx_hook(game.win_ptr, EXIT_HOOK, 0, on_destroy, &game);
 	mlx_hook(game.win_ptr, 2, 1L << 0, on_keypress, &game);
 	mlx_loop(game.mlx_ptr);
