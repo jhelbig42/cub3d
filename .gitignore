@@ -4,3 +4,5 @@ build/
 
 # Executables
 cub3d
+
+.vscode
