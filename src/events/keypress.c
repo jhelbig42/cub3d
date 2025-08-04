@@ -12,7 +12,7 @@
 
 #include "events.h"
 
-int on_keypress(int key, t_game *game)
+int	on_keypress(int key, t_game *game)
 {
 	if (key == ESC)
 		on_destroy(game);
@@ -31,7 +31,7 @@ int on_keypress(int key, t_game *game)
 	return (0);
 }
 
-int on_keyrelease(int key, t_game *game)
+int	on_keyrelease(int key, t_game *game)
 {
 	if (key == LEFT || key == A)
 		game->player.rotating = 0;

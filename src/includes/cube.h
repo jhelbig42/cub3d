@@ -15,13 +15,13 @@
 // Don't include this header in other source files to prevent recursion
 
 #ifndef CUBE_H
-#define CUBE_H
+# define CUBE_H
 
-#include "../events/events.h"
-#include "../init/init.h"
-#include "../parser/parser.h"
-#include "../render/render.h"
-#include "./CONSTANTS.h"
-#include "./structs.h"
+# include "../events/events.h"
+# include "../init/init.h"
+# include "../parser/parser.h"
+# include "../render/render.h"
+# include "./CONSTANTS.h"
+# include "./structs.h"
 
 #endif

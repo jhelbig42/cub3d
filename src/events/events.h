@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 
 #ifndef EVENTS_H
-#define EVENTS_H
+# define EVENTS_H
 
-#include "../includes/CONSTANTS.h"
-#include "../movement/movement.h"
+# include "../includes/CONSTANTS.h"
+# include "../movement/movement.h"
 
 // destroy.c
-int on_destroy(t_game *game);
+int	on_destroy(t_game *game);
 
 // keypress.c
-int on_keypress(int key, t_game *game);
-int on_keyrelease(int key, t_game *game);
+int	on_keypress(int key, t_game *game);
+int	on_keyrelease(int key, t_game *game);
 
 #endif
