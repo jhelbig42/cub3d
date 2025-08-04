@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/04 10:13:37 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/04 10:15:56 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,11 @@ bool	map_into_game(t_game *game, char **map)
 	}
 	return (true);
 }
+
 //are symbols in map that are not allowed?
 //- in der map nur 0, 1 und genau 1 N S E W
 //map surrounded by walls
-bool map_str_arr_valid(t_game *game, char **char_map)
+bool	map_str_arr_valid(t_game *game, char **char_map)
 {
 	int		i;
 	char	pos;
