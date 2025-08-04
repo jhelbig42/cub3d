@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:54:55 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:13:09 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/04 15:30:35 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include "../includes/structs.h"
 # include "../utils/utils.h"
 
-void	move_player(t_game *game);
+void		move_player(t_game *game);
 
 //movement_utils.c
-bool	empty_field(t_map map, t_vector_d pos);
+bool		empty_field(t_map map, t_vector_d pos);
+t_vector_d	rotate_vector(double x, double y, double angle);
 #endif

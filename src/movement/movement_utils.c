@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 15:13:25 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:13:42 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/04 15:30:43 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,13 @@ bool	empty_field(t_map map, t_vector_d pos)
 	if (map.map[(int)pos.x][(int)pos.y])
 		return (false);
 	return (true);
+}
+
+t_vector_d	rotate_vector(double x, double y, double angle)
+{
+	t_vector_d	vector;
+
+	vector.x = x * cos(angle) - y * sin(angle);
+	vector.y = x * sin(angle) + y * cos(angle);
+	return (vector);
 }

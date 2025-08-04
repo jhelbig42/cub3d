@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 16:32:01 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/04 15:27:25 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_player
 	int			walking;
 	int			rotating;
 	int			strafing;
+	int			nodding;
 }	t_player;
 
 typedef struct s_game

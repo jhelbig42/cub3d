@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/07/31 15:30:41 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/04 15:19:54 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC += $(SRC_DIR)/events/destroy.c
 SRC += $(SRC_DIR)/events/keypress.c
 
 SRC += $(SRC_DIR)/movement/movement.c
+SRC += $(SRC_DIR)/movement/movement_utils.c
 
 SRC += $(SRC_DIR)/parser/parser.c
 SRC += $(SRC_DIR)/parser/find_colors.c 
