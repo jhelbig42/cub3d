@@ -12,42 +12,65 @@
 
 #include "movement.h"
 
-t_vector_d rotate_vector(double x, double y, double angle)
+bool	empty_field(t_map map, t_vector_d pos)
 {
-	t_vector_d vector;
+	if (map.map[(int)pos.x][(int)pos.y])
+		return (false);
+	return (true);
+}
+
+t_vector_d	rotate_vector(double x, double y, double angle)
+{
+	t_vector_d	vector;
 
 	vector.x = x * cos(angle) - y * sin(angle);
 	vector.y = x * sin(angle) + y * cos(angle);
 	return (vector);
 }
 
-static void strafe(t_game *game)
+static void	strafe(t_game *game)
 {
-	int		   dir;
-	t_vector_d new_dir;
-	// TODO: detect wall hit
-	dir = game->player.strafing;
+	int			dir;
+	t_vector_d	new_dir;
+	t_vector_d	new_pos;
 
+	dir = game->player.strafing;
 	new_dir = rotate_vector(
-		game->player.dir.x, game->player.dir.y, deg_to_rad(90 * dir));
-	game->player.pos.x += new_dir.x * WALK_SPEED;
-	game->player.pos.y += new_dir.y * WALK_SPEED;
+			game->player.dir.x, game->player.dir.y, deg_to_rad(90 * dir));
+	new_pos.x = game->player.pos.x + new_dir.x * WALK_SPEED;
+	new_pos.y = game->player.pos.y + new_dir.y * WALK_SPEED;
+	if (empty_field(game->map, new_pos))
+	{
+		game->player.pos.x = new_pos.x;
+		game->player.pos.y = new_pos.y;
+	}
 }
 
-static void walk(t_game *game)
+static void	walk(t_game *game)
 {
-	int dir;
-	// TODO: detect wall hit
+	int			dir;
+	t_vector_d	new_pos;
+
 	dir = game->player.walking;
 	if (dir > 0)
 	{
-		game->player.pos.x += game->player.dir.x * WALK_SPEED;
-		game->player.pos.y += game->player.dir.y * WALK_SPEED;
+		new_pos.x = game->player.pos.x + game->player.dir.x * WALK_SPEED;
+		new_pos.y = game->player.pos.y + game->player.dir.y * WALK_SPEED;
+		if (empty_field(game->map, new_pos))
+		{
+			game->player.pos.x = new_pos.x;
+			game->player.pos.y = new_pos.y;
+		}
 	}
 	else
 	{
-		game->player.pos.x -= game->player.dir.x * WALK_SPEED;
-		game->player.pos.y -= game->player.dir.y * WALK_SPEED;
+		new_pos.x = game->player.pos.x - game->player.dir.x * WALK_SPEED;
+		new_pos.y = game->player.pos.y - game->player.dir.y * WALK_SPEED;
+		if (empty_field(game->map, new_pos))
+		{
+			game->player.pos.x = new_pos.x;
+			game->player.pos.y = new_pos.y;
+		}
 	}
 }
 

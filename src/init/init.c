@@ -63,8 +63,8 @@ t_game	game_init(void)
 t_game *init_test_game(t_game *game)
 {
 	game->map.map = create_map();
-	game->map.width = 5;
-	game->map.height = 5;
+	game->map.width = 24;
+	game->map.height = 24;
 	game->player = (t_player){
 		.pos.x = 2,
 		.pos.y = 2,
