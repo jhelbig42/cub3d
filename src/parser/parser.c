@@ -16,6 +16,9 @@ bool	read_map_data(t_game *game, int fd, char **line)
 {
 	while (*line)
 	{
+		//*line = ft_strtrim(line, " ");
+		if (!*line)
+			return (print_error("ft_strtrim failed"), false);
 		if (*line[0] == 'F' || *line[0] == 'C') 
 		{
 			if (!find_colors(game, *line, *line[0]))
