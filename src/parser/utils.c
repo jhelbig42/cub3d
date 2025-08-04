@@ -19,10 +19,10 @@ bool	correct_file_type(char *map_name)
 	split = ft_split(map_name, '.');
 	if (!split)
 		return (print_error("split failed"), false);
-	if (!split[1])
+	if (!split[1] || !split[2])
 		return (free_str_arr(split), 
 			print_error("no '.' within filename"), false);
-	if (ft_strncmp(split[1], "cub", 2) != 0)
+	if (ft_strncmp(split[1], "cub", 3) != 0 || (split[1][3] && split[1][3] != '\0'))
 		return (free_str_arr(split), 
 			print_error("wrong name extension of given filename"), false);
 	free_str_arr(split);
