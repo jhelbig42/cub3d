@@ -45,9 +45,17 @@ bool	is_orient(char c)
 		return (false);
 }
 
+bool	is_valid_sym(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'W' || c == 'E' || c == '1' 
+		|| c == '0' || c == ' ' || c == '\n')
+		return (true);
+	else
+		return (false);
+}
+
 static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 {
-	char	cur;
 	int		j;
 
 	while (map[*i])
@@ -55,16 +63,14 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 		j = 0;
 		while (map[*i][j])
 		{
-			cur = map[*i][j];
-			if (cur != '0' && cur != '1' && cur != 'N'
-				&& cur != 'S' && cur != 'E' && cur != 'W' && cur != ' ' && cur != '\n')
+			if (!is_valid_sym( map[*i][j]))
 				return (print_error("undefined symbols in map"), false);
-			if (is_orient(cur))
+			if (is_orient( map[*i][j]))
 			{
 				if (*pos != 'D')
 					return (print_error("more that 1 player given in map"),
 						false);
-				*pos = cur;
+				*pos =  map[*i][j];
 				game->player.pos_x = *i;
 				game->player.pos_y = j;
 			}
@@ -117,7 +123,8 @@ bool	map_str_arr_valid(t_game *game, char **char_map)
 
 	pos = 'D';
 	i = 0;
-	check_map_char(game, char_map, &i, &pos);
+	if (!check_map_char(game, char_map, &i, &pos))
+		return (false);
 	game->map.lines = i;
 	if (pos == 'D')
 		return (print_error("no player given in map"), false);
