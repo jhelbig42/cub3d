@@ -51,6 +51,7 @@ t_game	game_init(void)
 	game.mlx_ptr = mlx_init();
 	game.width = SCREEN_WIDTH;
 	game.height = SCREEN_HEIGHT;
+	game.horizont = SCREEN_HEIGHT * .5;
 	game.win_ptr = mlx_new_window(
 			game.mlx_ptr, game.width, game.height, "cub3d");
 	game.img.img = mlx_new_image(game.mlx_ptr, game.width, game.height);

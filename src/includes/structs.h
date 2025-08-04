@@ -71,6 +71,7 @@ typedef struct s_game
 	t_RGB		ceiling_color;
 	int			width;
 	int			height;
+	int			horizont;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_img		img;
