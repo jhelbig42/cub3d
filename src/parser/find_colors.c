@@ -14,14 +14,14 @@
 
 // F 220,100,0
 
-static void	set_RGB_val(t_RGB *RGB, int i, int val)
+static void	set_RGB_val(t_rgb *rgb, int i, int val)
 {
 	if (i == 0)
-		RGB->R = val;
+		rgb->r = val;
 	else if (i == 1)
-		RGB->G = val;
+		rgb->g = val;
 	else if (i == 2)
-		RGB->B = val;
+		rgb->b = val;
 }
 
 static bool	check_RGB_val(char *input, int *val)
@@ -34,7 +34,7 @@ static bool	check_RGB_val(char *input, int *val)
 	return (true);
 }
 
-static bool	fill_color(char *line, t_RGB *RGB)
+static bool	fill_color(char *line, t_rgb *rgb)
 {
 	char	**split;
 	char	*trim_split;
@@ -71,3 +71,4 @@ bool	find_colors(t_game *game, char *line, char c)
 		return (false);
 	return (true);
 }
+
