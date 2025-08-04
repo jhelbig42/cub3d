@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:25 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 13:18:05 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/04 09:37:38 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ bool	read_map_data(t_game *game, int fd, char **line)
 	}
 	return (true);
 }
+
 bool	read_map(t_game *game, int fd, char **line)
 {
 	char	**map_str_arr;
@@ -43,7 +44,7 @@ bool	read_map(t_game *game, int fd, char **line)
 	if (!map_str_arr)
 		return (free(*line), close(fd), false);
 	i = 0;
-    while (*line)
+	while (*line)
 	{
 		map_str_arr[i] = *line;
 		*line = get_next_line(fd);
@@ -66,13 +67,13 @@ bool	parse_map(t_game *game, char *map_name)
 	fd = open(map_name, O_RDONLY);
 	if (fd < 0)
 		return (print_error("could not open map file"), false);
-   	line = get_next_line(fd);
+	line = get_next_line(fd);
 	if (!read_map_data(game, fd, &line))
 		return (false);
 	if (!data_complete(game))
-		return(free(line), close(fd), false);
+		return (free(line), close(fd), false);
 	if (!read_map(game, fd, &line))
-		return(false);
+		return (false);
 	close(fd);
 	return (true);
 }
