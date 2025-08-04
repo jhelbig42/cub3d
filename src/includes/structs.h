@@ -38,12 +38,12 @@ typedef struct s_map
 	int		**map; // actual map
 }	t_map;
 
-typedef struct s_RGB
+typedef struct s_rgb
 {
-	short	R;
-	short	G;
-	short	B;
-}	t_RGB;
+	short	r;
+	short	g;
+	short	b;
+}	t_rgb;
 
 typedef struct s_player
 {
