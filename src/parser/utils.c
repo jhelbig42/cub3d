@@ -32,28 +32,26 @@ bool	correct_file_type(char *map_name)
 //default values in game struct used for checking completeness of map
 void	fill_default_game(t_game *game)
 {
-	game->floor_color.R = -1;
-	game->floor_color.G = -1;
-	game->floor_color.B = -1;
-	game->ceiling_color.R = -1;
-	game->ceiling_color.G = -1;
-	game->ceiling_color.B = -1;
+	game->floor_color.r = -1;
+	game->floor_color.g = -1;
+	game->floor_color.b = -1;
+	game->ceiling_color.r = -1;
+	game->ceiling_color.g = -1;
+	game->ceiling_color.b = -1;
 	game->north_path = NULL;
 	game->south_path = NULL;
 	game->west_path = NULL;
 	game->east_path = NULL;
-	game->player.dir_x = 0;
-	game->player.dir_y = 1;
 	game->player.plane_x = 0.66;
 	game->player.plane_y = 0;
 }
 
 bool	data_complete(t_game *game)
 {
-	if (game->floor_color.R == -1
-		|| game->floor_color.G == -1 || game->floor_color.B == -1 
-		|| game->ceiling_color.R == -1 || game->ceiling_color.G == -1
-		|| game->ceiling_color.B == -1
+	if (game->floor_color.r == -1
+		|| game->floor_color.g == -1 || game->floor_color.b == -1 
+		|| game->ceiling_color.r == -1 || game->ceiling_color.g == -1
+		|| game->ceiling_color.b == -1
 		|| game->north_path == NULL || game->south_path == NULL
 		|| game->west_path == NULL || game->east_path == NULL)
 		return (print_error("Incomplete map data given"), false);
