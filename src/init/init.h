@@ -15,6 +15,6 @@
 
 # include "../includes/structs.h"
 
-t_game	game_init(void);
+t_game	game_init(t_game game);
 
 #endif
