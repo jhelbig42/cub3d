@@ -44,13 +44,13 @@ void test_print_game(t_game *game)
 
 int	main(int argc, char **argv)
 {
-	t_game	game;
+	static t_game	game;
 
 	if (argc != 2)
 		return (print_error("no map file given"), 1);
 	if (!parse_map(&game, argv[1]))
 		return (1);
-	game = game_init();
+	game = game_init(game);
 	if (argv[1])
 		printf("Map Name: %s\n", argv[1]);
 	// test_print_game(&game);
