@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:29:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/05 09:23:53 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 10:10:03 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	fill_default_game(t_game *game)
 	game->player.plane.y = 0;
 	game->player.dir.x = 0;
 	game->player.dir.y = 1;
+	game->map.width = 0;
+	game->map.height = 0;
 }
 
 bool	data_complete(t_game *game)
