@@ -23,7 +23,7 @@ ft_print_char.c ft_printf.c ft_print_number_base.c ft_print_pointer.c ft_print_s
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		get_next_line.c \
+		get_next_line_costum.c \
 		get_next_line_utils.c 
 
 
@@ -32,7 +32,7 @@ OBJS = $(SRC:%.c=%.o)
 BONUS_OBJS = $(BONUS:%.c=%.o)
 
 HEADERS = libft.h \
-	get_next_line.h
+	get_next_line_costum.h
 
 TEST = test_libc_ft.c
 

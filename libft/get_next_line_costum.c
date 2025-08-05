@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_costum.h"
 //random buffer size!
 
 //read buffer by buffer until newline is found and store in list
@@ -123,12 +123,12 @@ void	prepare_storebuffer_next_round(t_storebuffer **new_line_list)
 }
 
 //check for invalid fd, too little buffer_size and errors on read
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, bool done)
 {
 	char					*next_line;
 	static t_storebuffer	*new_line_list;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
+	if (done || fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
 	{
 		storebuffer_clear(&new_line_list);
 		return (NULL);

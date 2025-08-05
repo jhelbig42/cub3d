@@ -64,12 +64,12 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 		while (map[*i][j])
 		{
 			if (!is_valid_sym(map[*i][j]))
-				return (print_error("undefined symbols in map"), false);
+				return (print_error("undefined symbols in map"), free_paths(game), false);
 			if (is_orient(map[*i][j]))
 			{
 				if (*pos != 'D')
 					return (print_error("more that 1 player given in map"),
-						false);
+						free_paths(game), false);
 				*pos = map[*i][j];
 				game->player.pos.x = *i;
 				game->player.pos.y = j;
@@ -127,7 +127,7 @@ bool	map_str_arr_valid(t_game *game, char **char_map)
 		return (false);
 	game->map.height = i;
 	if (pos == 'D')
-		return (print_error("no player given in map"), false);
+		return (free_paths(game), print_error("no player given in map"), false);
 	set_start_pos(game, pos);
 	if (!flood_fill(game, char_map))
 		return (false);

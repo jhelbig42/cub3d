@@ -32,11 +32,11 @@ static void	strafe(t_game *game)
 
 static void	walk(t_game *game)
 {
-	int			dir;
+	//int			dir;
 	t_vector_d	new_pos;
 	t_vector_d	new_dir;
 
-	dir = game->player.walking;
+	//dir = game->player.walking;
 	new_dir.x = game->player.dir.x * WALK_SPEED * game->player.walking;
 	new_dir.y = game->player.dir.y * WALK_SPEED * game->player.walking;
 	new_pos.x = game->player.pos.x + new_dir.x;

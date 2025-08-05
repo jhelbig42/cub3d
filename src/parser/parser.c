@@ -21,7 +21,7 @@ bool	read_map_data(t_game *game, int fd, char **line)
 		if (*line[0] == 'F' || *line[0] == 'C') 
 		{
 			if (!find_colors(game, *line, *line[0]))
-				return (free(line), close(fd), false);
+				return (free(*line), close(fd), false);
 		}
 		else if (is_wall_path(*line))
 		{
@@ -31,7 +31,7 @@ bool	read_map_data(t_game *game, int fd, char **line)
 		else if (*line[0] != '\n')
 			break ;
 		free(*line);
-		*line = get_next_line(fd);
+		*line = get_next_line(fd, false);
 	}
 	return (true);
 }
@@ -49,7 +49,7 @@ bool	read_map(t_game *game, int fd, char **line)
 	while (*line)
 	{
 		map_str_arr[i] = *line;
-		*line = get_next_line(fd);
+		*line = get_next_line(fd, false);
 		i++;
 	}
 	if (!map_str_arr_valid(game, map_str_arr))
@@ -69,11 +69,11 @@ bool	parse_map(t_game *game, char *map_name)
 	fd = open(map_name, O_RDONLY);
 	if (fd < 0)
 		return (print_error("could not open map file"), false);
-	line = get_next_line(fd);
+	line = get_next_line(fd, false);
 	if (!read_map_data(game, fd, &line))
-		return (false);
+		return (get_next_line(fd, true), false);
 	if (!data_complete(game))
-		return (free(line), close(fd), false);
+		return (get_next_line(fd, true), free(line), close(fd), false);
 	if (!read_map(game, fd, &line))
 		return (false);
 	close(fd);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_costum.h"
 
 size_t	line_size(t_storebuffer **new_line_list)
 {

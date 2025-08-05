@@ -57,7 +57,7 @@ bool	data_complete(t_game *game)
 		|| game->ceiling_color.b == -1
 		|| game->north_path == NULL || game->south_path == NULL
 		|| game->west_path == NULL || game->east_path == NULL)
-		return (print_error("Incomplete map data given"), false);
+		return (print_error("Incomplete map data given"), free_paths(game), false);
 	else
 		return (true);
 }

@@ -17,7 +17,7 @@
 #ifndef CONSTANTS_H
 # define CONSTANTS_H
 
-# include "../../libft/get_next_line.h"
+# include "../../libft/get_next_line_costum.h"
 # include "../../libft/libft.h"
 # include "../../minilibx-linux/mlx.h"
 # include <X11/X.h>
