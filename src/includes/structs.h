@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/05 09:29:58 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:32:04 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,6 @@ typedef struct s_rgb
 	short	g;
 	short	b;
 }	t_rgb;
-
-typedef struct s_player
-{
-	double	pos.x;
-	double	pos.y;
-	double	dir.x;
-	double	dir.y;
-	double	plane.x;
-	double	plane.y;
-}	t_player;
 
 typedef struct s_player
 {

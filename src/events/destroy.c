@@ -6,12 +6,11 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:24:01 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/05 09:20:34 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:36:11 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/CONSTANTS.h"
-#include "../includes/structs.h"
+#include "events.h"
 
 int	on_destroy(t_game *game)
 {

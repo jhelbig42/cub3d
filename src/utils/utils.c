@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 15:18:42 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 15:27:54 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/05 09:34:12 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 double deg_to_rad(int angle)
 {
-	return ((angle)*M_PI / 180.0);
+	return ((angle) * M_PI / 180.0);
 }
