@@ -19,21 +19,21 @@ static void	set_start_pos(t_game *game, char pos)
 		game->player.dir.x = 1;
 		game->player.dir.y = 0;
 		game->player.plane.x = 0;
-		game->player.plane.y = -0.66;
+		game->player.plane.y = 0.66;
 	}
 	else if (pos == 'S')
 	{
-		game->player.dir.x = -1;
-		game->player.dir.y = 0;
-		game->player.plane.x = -0.66;
+		game->player.dir.x = 0;
+		game->player.dir.y = -1;
+		game->player.plane.x = 0.66;
 		game->player.plane.y = 0;
 	}
 	else if (pos == 'W')
 	{
-		game->player.dir.x = 0;
-		game->player.dir.y = -1;
+		game->player.dir.x = -1;
+		game->player.dir.y = 0;
 		game->player.plane.x = 0;
-		game->player.plane.y = -0.66;
+		game->player.plane.y = 0.66;
 	}
 }
 
