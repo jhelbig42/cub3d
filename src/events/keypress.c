@@ -17,17 +17,17 @@ int	on_keypress(int key, t_game *game)
 	if (key == ESC)
 		on_destroy(game);
 	if (key == LEFT || key == A)
-		game->player.rotating = -1;
-	if (key == RIGHT || key == D)
 		game->player.rotating = 1;
+	if (key == RIGHT || key == D)
+		game->player.rotating = -1;
 	if (key == UP || key == W)
 		game->player.walking = 1;
 	if (key == DOWN || key == S)
 		game->player.walking = -1;
 	if (key == E)
-		game->player.strafing = 1;
-	if (key == Q)
 		game->player.strafing = -1;
+	if (key == Q)
+		game->player.strafing = 1;
 	if (key == I)
 		game->player.nodding = 1;
 	if (key == K)

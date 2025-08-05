@@ -46,12 +46,12 @@ typedef struct s_map
 	int	**map;
 }	t_map;
 
-typedef struct s_RGB
+typedef struct s_rgb
 {
-	short	R;
-	short	G;
-	short	B;
-}	t_RGB;
+	short	r;
+	short	g;
+	short	b;
+}	t_rgb;
 
 typedef struct s_player
 {
@@ -68,8 +68,8 @@ typedef struct s_game
 {
 	t_map		map;
 	t_player	player;
-	t_RGB		floor_color;
-	t_RGB		ceiling_color;
+	t_rgb		floor_color;
+	t_rgb		ceiling_color;
 	int			width;
 	int			height;
 	int			horizont;

@@ -25,6 +25,8 @@ bool	empty_field(t_map map, t_vector_d pos);
 void	print_error(char *msg);
 
 // free.c
-void	free_split(char **split);
+void	free_str_arr(char **str_arr);
+void	free_int_arr(int **int_arr, int index);
+void	free_paths(t_game *game);
 
 #endif

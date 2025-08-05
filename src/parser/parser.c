@@ -6,40 +6,56 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:25 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 13:18:05 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:24:39 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-bool	correct_file_type(char *map_name)
+bool	read_map_data(t_game *game, int fd, char **line)
 {
-	char	**split;
-
-	split = ft_split(map_name, '.');
-	if (!split)
-		return (print_error("split failed"), false);
-	if (!split[1])
-		return (free_split(split), print_error("no '.' within filename"), false);
-	if (ft_strncmp(split[1], "cub", 2) != 0)
-		return (free_split(split), print_error("wrong name extension of given filename"), false);
-	free_split(split);
-	return (true); 
+	while (*line)
+	{
+		if (!*line)
+			return (print_error("ft_strtrim failed"), false);
+		if (*line[0] == 'F' || *line[0] == 'C') 
+		{
+			if (!find_colors(game, *line, *line[0]))
+				return (free(line), close(fd), false);
+		}
+		else if (is_wall_path(*line))
+		{
+			if (!set_wall_paths(game, *line))
+				return (free(*line), close(fd), false);
+		}
+		else if (*line[0] != '\n')
+			break ;
+		free(*line);
+		*line = get_next_line(fd);
+	}
+	return (true);
 }
 
-//default values in game struct used for checking completeness of map
-void	fill_default_game(t_game *game)
+bool	read_map(t_game *game, int fd, char **line)
 {
-	game->floor_color.R = -1;
-	game->floor_color.G = -1;
-	game->floor_color.B = -1;
-	game->ceiling_color.R = -1;
-	game->ceiling_color.G = -1;
-	game->ceiling_color.B = -1;
-	game->north_path = NULL;
-	game->south_path = NULL;
-	game->west_path = NULL;
-	game->east_path = NULL;
+	char	**map_str_arr;
+	int		i;
+
+	map_str_arr = NULL;
+	map_str_arr = init_map_char(map_str_arr);
+	if (!map_str_arr)
+		return (free(*line), close(fd), false);
+	i = 0;
+	while (*line)
+	{
+		map_str_arr[i] = *line;
+		*line = get_next_line(fd);
+		i++;
+	}
+	if (!map_str_arr_valid(game, map_str_arr))
+		return (free_str_arr(map_str_arr), close (fd), false);
+	free_str_arr(map_str_arr);
+	return (true);
 }
 
 bool	parse_map(t_game *game, char *map_name)
@@ -48,52 +64,18 @@ bool	parse_map(t_game *game, char *map_name)
 	char	*line;
 
 	fill_default_game(game);
-	//correct name
 	if (!correct_file_type(map_name))
 		return (false);
-    //open file
 	fd = open(map_name, O_RDONLY);
 	if (fd < 0)
 		return (print_error("could not open map file"), false);
-    /* - leerzeilen und spaces ueberspringen
-        - nach keywords suchen NO SO WE EA F C 
-        --> fill information into game struct
-        wenn andere Zeichen als type identifier: return false
-        - F C Zahlen muessen zwischen 0 und 255 liegen
-    */
 	line = get_next_line(fd);
-	while (line)
-	{
-        //printf("line read: %s", line);
-		if (line[0] == 'F' || line[0] == 'C') 
-		{
-			if (!find_colors(game, line, line[0]))
-				return (free(line), false);
-		}
-		
-		if (!set_wall_paths(game, line))
-			return (false);
-		
-        //lies weiter
-		//else if (line[0] != '\n')
-			//break ;
-		free(line);
-		line = get_next_line(fd);
-	}
-    // hier muessen dann alle Daten bis auf die map ausgelesen sein
-    // testen ob noch default Werte, wenn ja, dann return false
-	free(line);
-    /*map muss am Ende stehen
-      - in der map nur 0, 1 und genau 1 N S E W
-      - laenge und breite bestimmen (eventuell mit gnl? 
-            - damit man nur einmal liest.)
-      - malloc
-      - auslesen
-
-      - surrounded by walls
-    */
-
-    //file schliessen
+	if (!read_map_data(game, fd, &line))
+		return (false);
+	if (!data_complete(game))
+		return (free(line), close(fd), false);
+	if (!read_map(game, fd, &line))
+		return (false);
 	close(fd);
 	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:59:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 10:47:36 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/05 09:35:55 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "../includes/CONSTANTS.h"
 # include "../movement/movement.h"
+# include "../utils/utils.h"
+# include "../includes/structs.h"
 
 // destroy.c
 int	on_destroy(t_game *game);
