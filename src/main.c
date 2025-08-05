@@ -51,7 +51,6 @@ int main(int argc, char **argv)
 	game = game_init();
 	if (!parse_map(&game, argv[1]))
 	 	return (1);
-	//init_test_game(&game);
 	if (argv[1])
 		printf("Map Name: %s\n", argv[1]);
 	// test_print_game(&game);
