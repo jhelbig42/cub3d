@@ -87,6 +87,7 @@ bool	map_into_game(t_game *game, char **map)
 {
 	int	i;
 	int	j;
+	int	len;
 
 	game->map.map = (int **)malloc(sizeof(int *) * game->map.height);
 	if (!game->map.map)
@@ -98,14 +99,14 @@ bool	map_into_game(t_game *game, char **map)
 		if (!game->map.map[i])
 			return (print_error("malloc error map int[i] arr"),
 				free_int_arr(game->map.map, i), false);
+		len = ft_strlen(map[i]);
 		j = 0;
 		while (j < game->map.width)
 		{
-			if (!map[i][j] || map[i][j] == '\n' || map[i][j] == '0'
-				|| map[i][j] == ' ' || is_orient(map[i][j]))
-				game->map.map[i][j] = 0;
-			else if (map[i][j] == '1')
+			if (j < len && map[i][j] == '1')
 				game->map.map[i][j] = 1;
+			else
+				game->map.map[i][j] = 0;
 			j++;
 		}
 		i++;
