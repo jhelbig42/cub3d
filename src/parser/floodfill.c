@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:26:40 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/04 10:14:06 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:28:05 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	test_print_map(t_game *game, char ***map)
 	int	j;
 
 	i = 0;
-	while (i < game->map.lines)
+	while (i < game->map.height)
 	{
 		j = 0;
-		while (j < game->map.col)
+		while (j < game->map.width)
 		{
 			if ((*map)[i][j])
 				printf("%c", (*map)[i][j]);
@@ -40,19 +40,19 @@ char	**copy_map(t_map *map, char **char_map)
 	int		j;
 	int		len;
 
-	copy = (char **)malloc(sizeof(char *) * (map->lines + 1));
+	copy = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (!copy)
 		return (print_error("malloc failed in floodfill"), NULL);
 	i = 0;
-	while (i < map->lines)
+	while (i < map->height)
 	{
 		j = 0;
-		copy[i] = (char *)malloc(sizeof(char) * (map->col + 1));
+		copy[i] = (char *)malloc(sizeof(char) * (map->width + 1));
 		if (!copy[i])
 			return (print_error("malloc failed in floodfill"),
 				free_str_arr(copy), NULL);
 		len = ft_strlen(char_map[i]);
-		while (j < map->col)
+		while (j < map->width)
 		{
 			if (j < len && char_map[i][j] == '1')
 				copy[i][j] = char_map[i][j];
@@ -69,7 +69,7 @@ char	**copy_map(t_map *map, char **char_map)
 
 static void	fill(t_game *game, char ***map, int i, int j)
 {
-	if (i < 0 || i >= game->map.lines || j < 0 || j >= game->map.col)
+	if (i < 0 || i >= game->map.height || j < 0 || j >= game->map.width)
 		return ;
 	if ((*map)[i][j] != '0')
 		return ;
@@ -85,16 +85,16 @@ static bool	test_flood_fill(t_game *game, char **copy)
 	int	i;
 
 	i = 0;
-	while (i < game->map.lines)
+	while (i < game->map.height)
 	{
-		if (copy[i][0] == '8' || copy[i][game->map.col - 1] == '8')
+		if (copy[i][0] == '8' || copy[i][game->map.width - 1] == '8')
 			return (print_error("floodfill failed, map not entirely surrounded by walls"), false);
 		i++;
 	}
 	i = 0;
-	while (i < game->map.col)
+	while (i < game->map.width)
 	{
-		if (copy[0][i] == '8' || copy[game->map.lines - 1][i] == '8')
+		if (copy[0][i] == '8' || copy[game->map.height - 1][i] == '8')
 			return (print_error("floodfill failed, map not entirely surrounded by walls"), false);
 		i++;
 	}
@@ -110,8 +110,8 @@ bool	flood_fill(t_game *game, char **char_map)
 	copy = copy_map(&game->map, char_map);
 	if (!copy)
 		return (false);
-	i = game->player.pos_x;
-	j = game->player.pos_y;
+	i = game->player.pos.x;
+	j = game->player.pos.y;
 	fill(game, &copy, i, j);
 	if (!test_flood_fill(game, copy))
 		return (free_str_arr(copy), false);

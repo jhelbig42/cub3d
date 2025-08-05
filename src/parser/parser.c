@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:25 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/04 09:37:38 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:24:39 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ bool	read_map_data(t_game *game, int fd, char **line)
 {
 	while (*line)
 	{
-		//*line = ft_strtrim(line, " ");
 		if (!*line)
 			return (print_error("ft_strtrim failed"), false);
 		if (*line[0] == 'F' || *line[0] == 'C') 

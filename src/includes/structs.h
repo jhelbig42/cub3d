@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/05 09:11:45 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:29:58 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-#include "./CONSTANTS.h"
+# include "./CONSTANTS.h"
 
-typedef struct s_img {
+typedef struct s_img
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -26,16 +27,23 @@ typedef struct s_img {
 	int		endian;
 }	t_img;
 
-// in map **int
-// 1 wall
-// 0 empty
-// 2 player
+typedef struct s_vector_d
+{
+	double	x;
+	double	y;
+}	t_vector_d;
+
+typedef struct s_vector_i
+{
+	int	x;
+	int	y;
+}	t_vector_i;
 
 typedef struct s_map
 {
-	int		lines; // giving the complete size
-	int		col;
-	int		**map; // actual map
+	int	width;
+	int	height;
+	int	**map;
 }	t_map;
 
 typedef struct s_rgb
@@ -47,12 +55,22 @@ typedef struct s_rgb
 
 typedef struct s_player
 {
-	double	pos_x;
-	double	pos_y;
-	double	dir_x;
-	double	dir_y;
-	double	plane_x;
-	double	plane_y;
+	double	pos.x;
+	double	pos.y;
+	double	dir.x;
+	double	dir.y;
+	double	plane.x;
+	double	plane.y;
+}	t_player;
+
+typedef struct s_player
+{
+	t_vector_d	pos;
+	t_vector_d	dir;
+	t_vector_d	plane;
+	int			walking;
+	int			rotating;
+	int			strafing;
 }	t_player;
 
 typedef struct s_game

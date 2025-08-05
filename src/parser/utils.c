@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:29:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/05 09:13:58 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:23:53 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	fill_default_game(t_game *game)
 	game->south_path = NULL;
 	game->west_path = NULL;
 	game->east_path = NULL;
-	game->player.plane_x = 0.66;
-	game->player.plane_y = 0;
+	game->player.plane.x = 0.66;
+	game->player.plane.y = 0;
 }
 
 bool	data_complete(t_game *game)

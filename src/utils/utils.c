@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keypress.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 14:21:10 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/07/31 15:18:42 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/07/31 15:27:54 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cube.h"
+#include "utils.h"
 
-int	on_keypress(int key, t_game *game)
+double deg_to_rad(int angle)
 {
-	if (key == ESC)
-		on_destroy(game);
-	return (0);
+	return ((angle)*M_PI / 180.0);
 }

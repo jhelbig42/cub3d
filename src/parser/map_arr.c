@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/04 10:15:56 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:29:58 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@ static void	set_start_pos(t_game *game, char pos)
 {
 	if (pos == 'E')
 	{
-		game->player.dir_x = 1;
-		game->player.dir_y = 0;
-		game->player.plane_x = 0;
-		game->player.plane_y = -0.66;
+		game->player.dir.x = 1;
+		game->player.dir.y = 0;
+		game->player.plane.x = 0;
+		game->player.plane.y = -0.66;
 	}
 	else if (pos == 'S')
 	{
-		game->player.dir_x = -1;
-		game->player.dir_y = 0;
-		game->player.plane_x = -0.66;
-		game->player.plane_y = 0;
+		game->player.dir.x = -1;
+		game->player.dir.y = 0;
+		game->player.plane.x = -0.66;
+		game->player.plane.y = 0;
 	}
 	else if (pos == 'W')
 	{
-		game->player.dir_x = 0;
-		game->player.dir_y = -1;
-		game->player.plane_x = 0;
-		game->player.plane_y = -0.66;
+		game->player.dir.x = 0;
+		game->player.dir.y = -1;
+		game->player.plane.x = 0;
+		game->player.plane.y = -0.66;
 	}
 }
 
@@ -71,11 +71,11 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 					return (print_error("more that 1 player given in map"),
 						false);
 				*pos =  map[*i][j];
-				game->player.pos_x = *i;
-				game->player.pos_y = j;
+				game->player.pos.x = *i;
+				game->player.pos.y = j;
 			}
-			if (j > game->map.col)
-				game->map.col = j;
+			if (j > game->map.width)
+				game->map.width = j;
 			j++;
 		}
 		*i = *i + 1;
@@ -88,18 +88,18 @@ bool	map_into_game(t_game *game, char **map)
 	int	i;
 	int	j;
 
-	game->map.map = (int **)malloc(sizeof(int *) * game->map.lines);
+	game->map.map = (int **)malloc(sizeof(int *) * game->map.height);
 	if (!game->map.map)
 		return (print_error("malloc error map **int arr"), false);
 	i = 0;
-	while (i < game->map.lines)
+	while (i < game->map.height)
 	{
-		game->map.map[i] = (int *)malloc(sizeof(int) * game->map.col);
+		game->map.map[i] = (int *)malloc(sizeof(int) * game->map.width);
 		if (!game->map.map[i])
 			return (print_error("malloc error map int[i] arr"),
 				free_int_arr(game->map.map, i), false);
 		j = 0;
-		while (j < game->map.col)
+		while (j < game->map.width)
 		{
 			if (!map[i][j] || map[i][j] == '\n' || map[i][j] == '0'
 				|| map[i][j] == ' ' || is_orient(map[i][j]))
@@ -125,7 +125,7 @@ bool	map_str_arr_valid(t_game *game, char **char_map)
 	i = 0;
 	if (!check_map_char(game, char_map, &i, &pos))
 		return (false);
-	game->map.lines = i;
+	game->map.height = i;
 	if (pos == 'D')
 		return (print_error("no player given in map"), false);
 	set_start_pos(game, pos);
