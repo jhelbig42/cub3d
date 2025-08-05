@@ -6,13 +6,13 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 15:18:42 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/05 09:34:12 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/04 15:13:19 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-double deg_to_rad(int angle)
+double	deg_to_rad(int angle)
 {
 	return ((angle) * M_PI / 180.0);
 }

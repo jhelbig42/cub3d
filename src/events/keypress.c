@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 10:57:56 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/04 15:37:35 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,22 @@ int	on_keypress(int key, t_game *game)
 		game->player.strafing = -1;
 	if (key == Q)
 		game->player.strafing = 1;
+	if (key == I)
+		game->player.nodding = 1;
+	if (key == K)
+		game->player.nodding = -1;
 	return (0);
 }
 
 int	on_keyrelease(int key, t_game *game)
 {
-	if (key == LEFT || key == A)
+	if (key == LEFT || key == A || key == RIGHT || key == D)
 		game->player.rotating = 0;
-	if (key == RIGHT || key == D)
-		game->player.rotating = 0;
-	if (key == UP || key == W)
+	if (key == UP || key == W || key == DOWN || key == S)
 		game->player.walking = 0;
-	if (key == DOWN || key == S)
-		game->player.walking = 0;
-	if (key == E)
+	if (key == E || key == Q)
 		game->player.strafing = 0;
-	if (key == Q)
-		game->player.strafing = 0;
+	if (key == I || key == K)
+		game->player.nodding = 0;
 	return (0);
 }

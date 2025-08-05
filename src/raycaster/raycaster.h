@@ -11,24 +11,23 @@
 /* ************************************************************************** */
 
 #ifndef RAYCASTER_H
-#define RAYCASTER_H
+# define RAYCASTER_H
 
-#include "../includes/CONSTANTS.h"
-#include "../includes/structs.h"
+# include "../includes/CONSTANTS.h"
+# include "../includes/structs.h"
 
-void raycaster(t_game *game);
-void draw_wall_x(t_img img, int x, int wall_height);
+void	raycaster(t_game *game);
 
 typedef struct s_ray
 {
-	double	   camera_x;
-	t_vector_d dir;
-	t_vector_d delta;
-	t_vector_i map;
-	t_vector_d side_dist;
-	t_vector_i step;
-	bool	   hit;
-	int		   side;
-} t_ray;
+	double		camera_x;
+	t_vector_d	dir;
+	t_vector_d	delta;
+	t_vector_i	map;
+	t_vector_d	side_dist;
+	t_vector_i	step;
+	bool		hit;
+	int			side;
+}	t_ray;
 
 #endif

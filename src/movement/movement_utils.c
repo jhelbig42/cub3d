@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_wall.c                                        :+:      :+:    :+:   */
+/*   movement_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 15:35:01 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 10:10:32 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/08/04 15:13:25 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/08/04 15:30:43 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "movement.h"
 
-void	draw_wall_x(t_game *game, int x, int wall_height)
+bool	empty_field(t_map map, t_vector_d pos)
 {
-	int	y;
-	int	top;
+	if (map.map[(int)pos.x][(int)pos.y])
+		return (false);
+	return (true);
+}
 
-	y= game->horizont - wall_height / 2;
-	top = game->horizont + wall_height / 2;
-	while (y++ < top)
-		pixel_put(&game->img, x + 1, y, C_NEON_BLUE);
+t_vector_d	rotate_vector(double x, double y, double angle)
+{
+	t_vector_d	vector;
+
+	vector.x = x * cos(angle) - y * sin(angle);
+	vector.y = x * sin(angle) + y * cos(angle);
+	return (vector);
 }

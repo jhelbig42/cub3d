@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/05 09:17:45 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/04 15:22:54 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 
 // keys
 # define ESC 65307
+# define SPACE 32
 # define LEFT 65361
 # define RIGHT 65363
 # define UP 65362
@@ -47,6 +48,8 @@
 # define W 119
 # define Q 113
 # define E 101
+# define I 105
+# define K 107
 
 // colors
 # define C_NEON_VIOLET 0xFFAB20FD

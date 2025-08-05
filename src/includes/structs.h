@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/05 09:32:04 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/04 15:27:25 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_player
 	int			walking;
 	int			rotating;
 	int			strafing;
+	int			nodding;
 }	t_player;
 
 typedef struct s_game
@@ -71,6 +72,7 @@ typedef struct s_game
 	t_rgb		ceiling_color;
 	int			width;
 	int			height;
+	int			horizont;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_img		img;
