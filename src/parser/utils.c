@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:29:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/04 09:45:04 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:13:58 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ bool	correct_file_type(char *map_name)
 	split = ft_split(map_name, '.');
 	if (!split)
 		return (print_error("split failed"), false);
-	if (!split[1] || !split[2])
-		return (free_str_arr(split), 
-			print_error("no '.' within filename"), false);
+	if (!split[1] || split[2])
+		return (free_str_arr(split), print_error("no '.' within filename"), false);
 	if (ft_strncmp(split[1], "cub", 3) != 0 || (split[1][3] && split[1][3] != '\0'))
 		return (free_str_arr(split), 
 			print_error("wrong name extension of given filename"), false);

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 15:03:27 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:14:53 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 void	test_print_game(t_game *game)
 {
-	printf("ceiling color: R %d G %d B %d\n", game->ceiling_color.R, 
-		game->ceiling_color.G, game->ceiling_color.B);
-	printf("floor color: R %d G %d B %d\n", game->floor_color.R,
-		game->floor_color.G, game->floor_color.B);
+	printf("ceiling color: R %d G %d B %d\n", game->ceiling_color.r, 
+		game->ceiling_color.g, game->ceiling_color.b);
+	printf("floor color: R %d G %d B %d\n", game->floor_color.r,
+		game->floor_color.g, game->floor_color.b);
 	printf("north path: %s\n", (char *)game->north_path);
 	printf("south path: %s\n", (char *)game->south_path);
 	printf("west path: %s\n", (char *)game->west_path);

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:03 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/04 09:41:24 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:12:39 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static bool	fill_color(char *line, t_rgb *rgb)
 				false);
 		if (!check_RGB_val(split[i], &val))
 			return (free_str_arr(split), free(trim_split), false);
-		set_RGB_val(RGB, i++, val);
+		set_RGB_val(rgb, i++, val);
 		free(trim_split);
 	}
 	free_str_arr(split);
