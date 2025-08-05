@@ -3,6 +3,6 @@
 build/
 
 # Executables
-cub3dg
+cub3d
 
 .vscode

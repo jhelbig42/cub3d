@@ -43,6 +43,8 @@ void	fill_default_game(t_game *game)
 	game->east_path = NULL;
 	game->player.plane.x = 0.66;
 	game->player.plane.y = 0;
+	game->player.dir.x = 0;
+	game->player.dir.y = 1;
 }
 
 bool	data_complete(t_game *game)
