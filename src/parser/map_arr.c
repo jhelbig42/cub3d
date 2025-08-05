@@ -71,8 +71,8 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 					return (print_error("more that 1 player given in map"),
 						false);
 				*pos = map[*i][j];
-				game->player.pos.x = *i;
-				game->player.pos.y = j;
+				game->player.pos.y = *i;
+				game->player.pos.x = j;
 			}
 			if (j > game->map.width)
 				game->map.width = j;
@@ -94,8 +94,8 @@ bool	map_into_game(t_game *game, char **map)
 	i = 0;
 	while (i < game->map.height)
 	{
-		game->map.map[i] = (int *)malloc(sizeof(int) * game->map.width);
-		if (!game->map.map[i])
+		game->map.map[game->map.height - 1 - i] = (int *)malloc(sizeof(int) * game->map.width);
+		if (!game->map.map[game->map.height - 1 - i])
 			return (print_error("malloc error map int[i] arr"),
 				free_int_arr(game->map.map, i), false);
 		j = 0;
@@ -103,13 +103,14 @@ bool	map_into_game(t_game *game, char **map)
 		{
 			if (!map[i][j] || map[i][j] == '\n' || map[i][j] == '0'
 				|| map[i][j] == ' ' || is_orient(map[i][j]))
-				game->map.map[i][j] = 0;
+				game->map.map[game->map.height - 1 - i][j] = 0;
 			else if (map[i][j] == '1')
-				game->map.map[i][j] = 1;
+				game->map.map[game->map.height - 1 - i][j] = 1;
 			j++;
 		}
 		i++;
 	}
+	game->player.pos.y = game->map.height - 1 - game->player.pos.y;
 	return (true);
 }
 
