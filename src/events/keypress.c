@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:31:27 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/04 15:37:35 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	on_keypress(int key, t_game *game)
 {
-	printf("KEY: %d \n", key);
 	if (key == ESC)
 		on_destroy(game);
 	if (key == LEFT || key == A)
