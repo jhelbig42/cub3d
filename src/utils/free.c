@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 12:21:17 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 14:39:59 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:51:38 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@ void	free_int_arr(int **int_arr, int index)
 		i++;
 	}
 	free(int_arr);
+}
+
+void	free_paths(t_game *game)
+{
+	free(game->north_path);
+	free(game->south_path);
+	free(game->west_path);
+	free(game->east_path);
 }

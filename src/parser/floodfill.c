@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:26:40 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/05 09:28:05 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:53:30 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ bool	flood_fill(t_game *game, char **char_map)
 	j = game->player.pos.y;
 	fill(game, &copy, i, j);
 	if (!test_flood_fill(game, copy))
-		return (free_str_arr(copy), false);
+		return (free_paths(game), free_str_arr(copy), false);
 	else
 		return (free_str_arr(copy), true);
 }

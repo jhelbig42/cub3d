@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/05 09:29:58 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 09:55:59 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 		j = 0;
 		while (map[*i][j])
 		{
-			if (!is_valid_sym( map[*i][j]))
+			if (!is_valid_sym(map[*i][j]))
 				return (print_error("undefined symbols in map"), false);
-			if (is_orient( map[*i][j]))
+			if (is_orient(map[*i][j]))
 			{
 				if (*pos != 'D')
 					return (print_error("more that 1 player given in map"),
 						false);
-				*pos =  map[*i][j];
+				*pos = map[*i][j];
 				game->player.pos.x = *i;
 				game->player.pos.y = j;
 			}
