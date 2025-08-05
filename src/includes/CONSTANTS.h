@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CONSTANTS.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 16:17:06 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/05 09:17:45 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,8 @@
 # define SCREEN_HEIGHT 540
 # define ROT_ANGLE 1
 # define WALK_SPEED 0.13
+
+//map
+# define MAX_MAP_LENGTH 200
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/31 16:37:03 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/05 10:06:29 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,43 @@
 
 void test_print_game(t_game *game)
 {
-	printf("ceiling color: R %d G %d B %d\n", game->ceiling_color.R,
-		   game->ceiling_color.G, game->ceiling_color.B);
-	printf("floor color: R %d G %d B %d\n", game->floor_color.R,
-		   game->floor_color.G, game->floor_color.B);
+	printf("ceiling color: R %d G %d B %d\n", game->ceiling_color.r, 
+		game->ceiling_color.g, game->ceiling_color.b);
+	printf("floor color: R %d G %d B %d\n", game->floor_color.r,
+		game->floor_color.g, game->floor_color.b);
 	printf("north path: %s\n", (char *)game->north_path);
 	printf("south path: %s\n", (char *)game->south_path);
 	printf("west path: %s\n", (char *)game->west_path);
 	printf("east path: %s\n", (char *)game->east_path);
-	printf("Player pos: %f / %f\n", game->player.pos.x, game->player.pos.y);
+	printf("height: %d\n", game->map.height);
+	printf("width: %d\n", game->map.width);
+	printf("player: pos.x: %f, pos.y: %f, dir.x: %f, dir.y: %f, plane.x: %f, plane.y: %f\n",
+		game->player.pos.x, game->player.pos.y, game->player.dir.x, game->player.dir.y, game->player.plane.x, game->player.plane.y);
+	int i;
+	int j;
+	i = 0;
+	while (i < game->map.height)
+	{
+		j = 0;
+		while (j < game->map.width)
+		{
+			printf("%d", game->map.map[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_game game;
+	static t_game	game;
 
 	if (argc != 2)
+		return (print_error("no map file given"), 1);
+	if (!parse_map(&game, argv[1]))
 		return (1);
-	game = game_init();
-	// if (!parse_map(&game, argv[1]))
-	// 	printf("map error\n");
-	init_test_game(&game);
+	game = game_init(game);
 	if (argv[1])
 		printf("Map Name: %s\n", argv[1]);
 	// test_print_game(&game);

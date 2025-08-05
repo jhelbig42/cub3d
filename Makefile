@@ -30,7 +30,10 @@ SRC += $(SRC_DIR)/movement/movement.c
 
 SRC += $(SRC_DIR)/parser/parser.c
 SRC += $(SRC_DIR)/parser/find_colors.c 
-SRC += $(SRC_DIR)/parser/find_paths.c 
+SRC += $(SRC_DIR)/parser/find_paths.c
+SRC += $(SRC_DIR)/parser/map_arr.c
+SRC += $(SRC_DIR)/parser/utils.c
+SRC += $(SRC_DIR)/parser/floodfill.c
 
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 

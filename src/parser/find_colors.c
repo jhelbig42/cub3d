@@ -6,21 +6,22 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:03 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 12:00:22 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/05 10:16:02 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
 // F 220,100,0
-static void set_RGB_val(t_RGB *RGB, int i, int val)
+
+static void	set_RGB_val(t_rgb *rgb, int i, int val)
 {
 	if (i == 0)
-		RGB->R = val;
+		rgb->r = val;
 	else if (i == 1)
-		RGB->G = val;
+		rgb->g = val;
 	else if (i == 2)
-		RGB->B = val;
+		rgb->b = val;
 }
 
 static bool	check_RGB_val(char *input, int *val)
@@ -33,7 +34,7 @@ static bool	check_RGB_val(char *input, int *val)
 	return (true);
 }
 
-static bool	fill_color(char *line, t_RGB *RGB)
+static bool	fill_color(char *line, t_rgb *rgb)
 {
 	char	**split;
 	char	*trim_split;
@@ -43,22 +44,22 @@ static bool	fill_color(char *line, t_RGB *RGB)
 	split = ft_split(line, ',');
 	if (!split)
 		return (false);
-	//there must be exactly 3 args given
 	if (!split[0] || !split[1] || !split[2] || split[3])
-		return (free_split(split), print_error("wrong number of RGB values given"), false);
+		return (free_str_arr(split),
+			print_error("wrong number of RGB values given"), false);
 	i = 0;
 	while (i < 3)
 	{
 		trim_split = ft_strtrim(split[i], " \n");
 		if (!trim_split)
-			return (free_split(split), print_error("ft_strtrim failed"), false);
+			return (free_str_arr(split), print_error("ft_strtrim failed"),
+				false);
 		if (!check_RGB_val(split[i], &val))
-			return (free_split(split), free(trim_split), false);
-		set_RGB_val(RGB, i, val);
-		i++;
+			return (free_str_arr(split), free(trim_split), false);
+		set_RGB_val(rgb, i++, val);
 		free(trim_split);
 	}
-	free_split(split);
+	free_str_arr(split);
 	return (true);
 }
 
@@ -70,3 +71,4 @@ bool	find_colors(t_game *game, char *line, char c)
 		return (false);
 	return (true);
 }
+
