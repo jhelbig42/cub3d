@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/05 09:55:59 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 14:28:52 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ static void	set_start_pos(t_game *game, char pos)
 	{
 		game->player.dir.x = -1;
 		game->player.dir.y = 0;
-		game->player.plane.x = -0.66;
-		game->player.plane.y = 0;
+		game->player.plane.x = 0;
+		game->player.plane.y = -0.66;
 	}
 	else if (pos == 'W')
 	{
