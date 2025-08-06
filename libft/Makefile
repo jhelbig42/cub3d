@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+         #
+#    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2024/11/20 13:05:26 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/08/06 13:48:09 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ ft_print_char.c ft_printf.c ft_print_number_base.c ft_print_pointer.c ft_print_s
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		get_next_line_costum.c \
+		get_next_line_custom.c \
 		get_next_line_utils.c 
 
 
@@ -32,7 +32,7 @@ OBJS = $(SRC:%.c=%.o)
 BONUS_OBJS = $(BONUS:%.c=%.o)
 
 HEADERS = libft.h \
-	get_next_line_costum.h
+	get_next_line_custom.h
 
 TEST = test_libc_ft.c
 

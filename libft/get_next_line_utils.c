@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 09:00:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2024/12/11 17:12:40 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 13:48:09 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_costum.h"
+#include "get_next_line_custom.h"
 
 size_t	line_size(t_storebuffer **new_line_list)
 {

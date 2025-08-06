@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:22:54 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/06 13:48:09 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #ifndef CONSTANTS_H
 # define CONSTANTS_H
 
-# include "../../libft/get_next_line_costum.h"
+# include "../../libft/get_next_line_custom.h"
 # include "../../libft/libft.h"
 # include "../../minilibx-linux/mlx.h"
 # include <X11/X.h>
