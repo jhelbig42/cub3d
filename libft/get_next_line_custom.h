@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_custom.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 09:00:15 by jhelbig           #+#    #+#             */
-/*   Updated: 2024/12/11 17:13:26 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/08/06 15:04:43 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/08/06 15:04:45 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_CUSTOM_H
+# define GET_NEXT_LINE_CUSTOM_H
 
 # include <stdio.h>
 # include <stdbool.h> // bools
@@ -20,7 +20,7 @@
 # include <fcntl.h> // flags for open
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 100
 # endif
 
 typedef struct s_storebuffer
@@ -29,7 +29,7 @@ typedef struct s_storebuffer
 	struct s_storebuffer	*next;
 }	t_storebuffer;
 
-char			*get_next_line(int fd);
+char			*get_next_line(int fd, bool done);
 char			*create_next_line(t_storebuffer **new_line_list);
 bool			find_newline(t_storebuffer **new_line_list);
 void			read_buffers(t_storebuffer **new_line_list, int fd);

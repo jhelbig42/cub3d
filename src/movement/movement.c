@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:31:05 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/06 14:31:34 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ static void	strafe(t_game *game)
 
 static void	walk(t_game *game)
 {
-	int			dir;
 	t_vector_d	new_pos;
 	t_vector_d	new_dir;
 
-	dir = game->player.walking;
 	new_dir.x = game->player.dir.x * WALK_SPEED * game->player.walking;
 	new_dir.y = game->player.dir.y * WALK_SPEED * game->player.walking;
 	new_pos.x = game->player.pos.x + new_dir.x;

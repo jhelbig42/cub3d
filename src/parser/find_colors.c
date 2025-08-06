@@ -67,9 +67,9 @@ static bool	fill_color(char *line, int *rgb)
 bool	find_colors(t_game *game, char *line, char c)
 {
 	if (c == 'F' && !fill_color(&line[1], &game->floor_color))
-		return (false);
+		return (free_paths(game), false);
 	if (c == 'C' && !fill_color(&line[1], &game->ceiling_color))
-		return (false);
+		return (free_paths(game), false);
 	return (true);
 }
 
