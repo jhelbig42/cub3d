@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/06 14:16:55 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 15:25:38 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 void test_print_game(t_game *game)
 {
-	printf("ceiling color: R %d G %d B %d\n", game->ceiling_color.r, 
-		game->ceiling_color.g, game->ceiling_color.b);
-	printf("floor color: R %d G %d B %d\n", game->floor_color.r,
-		game->floor_color.g, game->floor_color.b);
-	printf("north path: %s\n", (char *)game->north->path);
-	printf("south path: %s\n", (char *)game->south->path);
-	printf("west path: %s\n", (char *)game->west->path);
-	printf("east path: %s\n", (char *)game->east->path);
+	printf("north path: %s\n", (char *)game->north.path);
+	printf("south path: %s\n", (char *)game->south.path);
+	printf("west path: %s\n", (char *)game->west.path);
+	printf("east path: %s\n", (char *)game->east.path);
 	printf("height: %d\n", game->map.height);
 	printf("width: %d\n", game->map.width);
 	printf("player: pos.x: %f, pos.y: %f, dir.x: %f, dir.y: %f, plane.x: %f, plane.y: %f\n",

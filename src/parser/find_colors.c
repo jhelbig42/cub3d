@@ -14,14 +14,14 @@
 
 // F 220,100,0
 
-static void	set_RGB_val(t_rgb *rgb, int i, int val)
+static void	set_RGB_val(int *rgb, int i, int val)
 {
 	if (i == 0)
-		rgb->r = val;
+		*rgb |= val << 16;
 	else if (i == 1)
-		rgb->g = val;
+		*rgb |= val << 8;
 	else if (i == 2)
-		rgb->b = val;
+		*rgb |= val << 0;
 }
 
 static bool	check_RGB_val(char *input, int *val)
@@ -34,13 +34,14 @@ static bool	check_RGB_val(char *input, int *val)
 	return (true);
 }
 
-static bool	fill_color(char *line, t_rgb *rgb)
+static bool	fill_color(char *line, int *rgb)
 {
 	char	**split;
 	char	*trim_split;
 	int		i;
 	int		val;
 
+	*rgb = 0;
 	split = ft_split(line, ',');
 	if (!split)
 		return (false);
@@ -66,9 +67,9 @@ static bool	fill_color(char *line, t_rgb *rgb)
 bool	find_colors(t_game *game, char *line, char c)
 {
 	if (c == 'F' && !fill_color(&line[1], &game->floor_color))
-		return (false);
+		return (free_paths(game), false);
 	if (c == 'C' && !fill_color(&line[1], &game->ceiling_color))
-		return (false);
+		return (free_paths(game), false);
 	return (true);
 }
 

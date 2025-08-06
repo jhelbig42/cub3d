@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 14:20:26 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 15:27:16 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,10 @@ typedef struct s_game
 {
 	t_map		map;
 	t_player	player;
-	t_rgb		floor_color;
-	t_rgb		ceiling_color;
+	bool		noise;
+	bool		shades;
+	int			floor_color;
+	int			ceiling_color;
 	int			width;
 	int			height;
 	int			horizont;

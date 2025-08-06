@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/06 14:11:17 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 15:26:29 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ bool	set_wall_paths(t_game *game, char *line)
 {
 	if (!ft_strncmp(line, "NO", 2))
 	{
-		if (!set_wall_path(&game->north->path, line))
+		if (!set_wall_path(&game->north.path, line))
 			return (free(line), false);
 	}
 	else if (!ft_strncmp(line, "SO", 2))
 	{
-		if (!set_wall_path(&game->south->path, line))
+		if (!set_wall_path(&game->south.path, line))
 			return (free(line), false);
 	}
 	else if (!ft_strncmp(line, "WE", 2))
 	{
-		if (!set_wall_path(&game->west->path, line))
+		if (!set_wall_path(&game->west.path, line))
 			return (free(line), false);
 	}
 	else if (!ft_strncmp(line, "EA", 2))
 	{
-		if (!set_wall_path(&game->east->path, line))
+		if (!set_wall_path(&game->east.path, line))
 			return (free(line), false);
 	}
 	return (true);

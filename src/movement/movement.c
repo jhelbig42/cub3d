@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:31:05 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/06 14:31:34 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	strafe(t_game *game)
 	t_vector_d	new_dir;
 	t_vector_d	new_pos;
 
-	dir = game->player.strafing;
+	dir = -game->player.strafing;
 	new_dir = rotate_vector(
 			game->player.dir.x, game->player.dir.y, deg_to_rad(90 * dir));
 	new_pos.x = game->player.pos.x + new_dir.x * WALK_SPEED;
@@ -32,11 +32,9 @@ static void	strafe(t_game *game)
 
 static void	walk(t_game *game)
 {
-	int			dir;
 	t_vector_d	new_pos;
 	t_vector_d	new_dir;
 
-	dir = game->player.walking;
 	new_dir.x = game->player.dir.x * WALK_SPEED * game->player.walking;
 	new_dir.y = game->player.dir.y * WALK_SPEED * game->player.walking;
 	new_pos.x = game->player.pos.x + new_dir.x;
@@ -62,7 +60,7 @@ static void	rotate(t_game *game)
 	t_vector_d	new_dir;
 
 	p = &game->player;
-	dir = p->rotating;
+	dir = -p->rotating;
 	new_dir = rotate_vector(p->dir.x, p->dir.y,
 			deg_to_rad(ROT_ANGLE * dir));
 	p->dir.x = new_dir.x;
@@ -76,6 +74,10 @@ static void	rotate(t_game *game)
 static void	move_horizont(t_game *game)
 {
 	game->horizont += game->player.nodding * 2;
+	if (game->horizont > SCREEN_HEIGHT)
+		game->horizont = SCREEN_HEIGHT;
+	if (game->horizont < 0)
+		game->horizont = 0;
 }
 
 void	move_player(t_game *game)
