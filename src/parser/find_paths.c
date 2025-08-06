@@ -6,13 +6,13 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/04 09:42:09 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 14:11:17 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-static bool	set_wall_path(void **wall_path, char *line)
+static bool	set_wall_path(char **wall_path, char *line)
 {
 	char	*path;
 	int		fd;
@@ -29,7 +29,7 @@ static bool	set_wall_path(void **wall_path, char *line)
 		return (print_error("could not read from wall file"),
 			free(path), false);
 	close(fd);
-	*wall_path = (void *)path;
+	*wall_path = path;
 	return (true);
 }
 
@@ -37,22 +37,22 @@ bool	set_wall_paths(t_game *game, char *line)
 {
 	if (!ft_strncmp(line, "NO", 2))
 	{
-		if (!set_wall_path(&game->north_path, line))
+		if (!set_wall_path(&game->north->path, line))
 			return (free(line), false);
 	}
 	else if (!ft_strncmp(line, "SO", 2))
 	{
-		if (!set_wall_path(&game->south_path, line))
+		if (!set_wall_path(&game->south->path, line))
 			return (free(line), false);
 	}
 	else if (!ft_strncmp(line, "WE", 2))
 	{
-		if (!set_wall_path(&game->west_path, line))
+		if (!set_wall_path(&game->west->path, line))
 			return (free(line), false);
 	}
 	else if (!ft_strncmp(line, "EA", 2))
 	{
-		if (!set_wall_path(&game->east_path, line))
+		if (!set_wall_path(&game->east->path, line))
 			return (free(line), false);
 	}
 	return (true);

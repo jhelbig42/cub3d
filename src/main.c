@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/05 10:06:29 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 14:16:55 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void test_print_game(t_game *game)
 		game->ceiling_color.g, game->ceiling_color.b);
 	printf("floor color: R %d G %d B %d\n", game->floor_color.r,
 		game->floor_color.g, game->floor_color.b);
-	printf("north path: %s\n", (char *)game->north_path);
-	printf("south path: %s\n", (char *)game->south_path);
-	printf("west path: %s\n", (char *)game->west_path);
-	printf("east path: %s\n", (char *)game->east_path);
+	printf("north path: %s\n", (char *)game->north->path);
+	printf("south path: %s\n", (char *)game->south->path);
+	printf("west path: %s\n", (char *)game->west->path);
+	printf("east path: %s\n", (char *)game->east->path);
 	printf("height: %d\n", game->map.height);
 	printf("width: %d\n", game->map.width);
 	printf("player: pos.x: %f, pos.y: %f, dir.x: %f, dir.y: %f, plane.x: %f, plane.y: %f\n",
@@ -50,7 +50,8 @@ int	main(int argc, char **argv)
 		return (print_error("no map file given"), 1);
 	if (!parse_map(&game, argv[1]))
 		return (1);
-	game = game_init(game);
+	if (!game_init(&game))
+		return (1);
 	if (argv[1])
 		printf("Map Name: %s\n", argv[1]);
 	// test_print_game(&game);
