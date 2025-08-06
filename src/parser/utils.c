@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:29:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/05 10:10:03 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 15:14:42 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,8 @@ bool	correct_file_type(char *map_name)
 //default values in game struct used for checking completeness of map
 void	fill_default_game(t_game *game)
 {
-	game->floor_color.r = -1;
-	game->floor_color.g = -1;
-	game->floor_color.b = -1;
-	game->ceiling_color.r = -1;
-	game->ceiling_color.g = -1;
-	game->ceiling_color.b = -1;
+	game->floor_color = -1;
+	game->ceiling_color = -1;
 	game->north_path = NULL;
 	game->south_path = NULL;
 	game->west_path = NULL;
@@ -51,10 +47,7 @@ void	fill_default_game(t_game *game)
 
 bool	data_complete(t_game *game)
 {
-	if (game->floor_color.r == -1
-		|| game->floor_color.g == -1 || game->floor_color.b == -1 
-		|| game->ceiling_color.r == -1 || game->ceiling_color.g == -1
-		|| game->ceiling_color.b == -1
+	if (game->floor_color == -1 || game->ceiling_color == -1
 		|| game->north_path == NULL || game->south_path == NULL
 		|| game->west_path == NULL || game->east_path == NULL)
 		return (print_error("Incomplete map data given"), free_paths(game), false);

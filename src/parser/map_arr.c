@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/06 14:28:52 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 15:13:45 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ static void	set_start_pos(t_game *game, char pos)
 	}
 	else if (pos == 'S')
 	{
-		game->player.dir.x = -1;
-		game->player.dir.y = 0;
-		game->player.plane.x = 0;
-		game->player.plane.y = -0.66;
+		game->player.dir.x = 0;
+		game->player.dir.y = -1;
+		game->player.plane.x = -0.66;
+		game->player.plane.y = 0;
 	}
 	else if (pos == 'W')
 	{
-		game->player.dir.x = 0;
-		game->player.dir.y = -1;
+		game->player.dir.x = -1;
+		game->player.dir.y = 0;
 		game->player.plane.x = 0;
-		game->player.plane.y = -0.66;
+		game->player.plane.y = 0.66;
 	}
 }
 
@@ -71,8 +71,8 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 					return (print_error("more that 1 player given in map"),
 						free_paths(game), false);
 				*pos = map[*i][j];
-				game->player.pos.x = *i;
-				game->player.pos.y = j;
+				game->player.pos.y = *i;
+				game->player.pos.x = j;
 			}
 			if (j > game->map.width)
 				game->map.width = j;
@@ -95,8 +95,8 @@ bool	map_into_game(t_game *game, char **map)
 	i = 0;
 	while (i < game->map.height)
 	{
-		game->map.map[i] = (int *)malloc(sizeof(int) * game->map.width);
-		if (!game->map.map[i])
+		game->map.map[game->map.height - 1 - i] = (int *)malloc(sizeof(int) * game->map.width);
+		if (!game->map.map[game->map.height - 1 - i])
 			return (print_error("malloc error map int[i] arr"),
 				free_int_arr(game->map.map, i), false);
 		len = ft_strlen(map[i]);
@@ -104,13 +104,14 @@ bool	map_into_game(t_game *game, char **map)
 		while (j < game->map.width)
 		{
 			if (j < len && map[i][j] == '1')
-				game->map.map[i][j] = 1;
+				game->map.map[game->map.height - 1 - i][j] = 1;
 			else
-				game->map.map[i][j] = 0;
+				game->map.map[game->map.height - 1 - i][j] = 0;
 			j++;
 		}
 		i++;
 	}
+	game->player.pos.y = game->map.height - 1 - game->player.pos.y;
 	return (true);
 }
 

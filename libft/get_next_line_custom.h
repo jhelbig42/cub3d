@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_custom.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 09:00:15 by jhelbig           #+#    #+#             */
-/*   Updated: 2024/12/11 17:13:26 by jhelbig          ###   ########.fr       */
+/*   Created: 2025/08/06 15:04:43 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/08/06 15:04:45 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_CUSTOM_H
+# define GET_NEXT_LINE_CUSTOM_H
 
 # include <stdio.h>
 # include <stdbool.h> // bools

@@ -23,8 +23,9 @@ ft_print_char.c ft_printf.c ft_print_number_base.c ft_print_pointer.c ft_print_s
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		get_next_line_custom.c \
-		get_next_line_utils.c 
+		get_next_line_utils.c\
+		ft_putnbr_base.c\
+		get_next_line_custom.c
 
 
 OBJS = $(SRC:%.c=%.o)

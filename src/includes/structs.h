@@ -68,8 +68,8 @@ typedef struct s_game
 {
 	t_map		map;
 	t_player	player;
-	t_rgb		floor_color;
-	t_rgb		ceiling_color;
+	int			floor_color;
+	int			ceiling_color;
 	int			width;
 	int			height;
 	int			horizont;
@@ -80,6 +80,8 @@ typedef struct s_game
 	void		*south_path;
 	void		*west_path;
 	void		*east_path;
+	bool		noise;
+	bool		shades;
 }	t_game;
 
 #endif

@@ -14,10 +14,6 @@
 
 void test_print_game(t_game *game)
 {
-	printf("ceiling color: R %d G %d B %d\n", game->ceiling_color.r, 
-		game->ceiling_color.g, game->ceiling_color.b);
-	printf("floor color: R %d G %d B %d\n", game->floor_color.r,
-		game->floor_color.g, game->floor_color.b);
 	printf("north path: %s\n", (char *)game->north_path);
 	printf("south path: %s\n", (char *)game->south_path);
 	printf("west path: %s\n", (char *)game->west_path);
