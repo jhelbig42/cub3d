@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 14:31:34 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 15:27:20 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	rotate(t_game *game)
 
 static void	move_horizont(t_game *game)
 {
-	game->horizont += game->player.nodding * 2;
+	game->horizont += game->player.nodding * NOD_SPEED;
 	if (game->horizont > SCREEN_HEIGHT)
 		game->horizont = SCREEN_HEIGHT;
 	if (game->horizont < 0)

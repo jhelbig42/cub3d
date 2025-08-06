@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 16:23:53 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:45:52 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_game	game_init(t_game game)
 	game.horizont = SCREEN_HEIGHT * .5;
 	game.noise = false;
 	game.shades = false;
+	game.last_frame = get_mills();
+	game.len_frame = 1000 / FRAME_RATE;
 	game.win_ptr = mlx_new_window(
 			game.mlx_ptr, game.width, game.height, "cub3d");
 	game.img.img = mlx_new_image(game.mlx_ptr, game.width, game.height);

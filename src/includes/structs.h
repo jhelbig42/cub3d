@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:27:25 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:45:32 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ typedef struct s_game
 	int			ceiling_color;
 	int			width;
 	int			height;
+	int64_t		last_frame;
+	int			len_frame;
 	int			horizont;
 	void		*mlx_ptr;
 	void		*win_ptr;

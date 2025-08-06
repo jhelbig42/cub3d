@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:36:36 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 12:10:58 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:43:39 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define INIT_H
 
 # include "../includes/structs.h"
+# include "../utils/utils.h"
 
 t_game	game_init(t_game game);
 

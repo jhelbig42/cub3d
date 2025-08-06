@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 13:48:09 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/06 15:51:26 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/time.h>
 
 // MLX hooks
 # define EXIT_HOOK 17
@@ -61,8 +62,10 @@
 // stats
 # define SCREEN_WIDTH 960
 # define SCREEN_HEIGHT 540
-# define ROT_ANGLE 1
-# define WALK_SPEED 0.13
+# define ROT_ANGLE 2
+# define WALK_SPEED 0.06
+# define NOD_SPEED 4
+# define FRAME_RATE 48
 
 //map
 # define MAX_MAP_LENGTH 200
