@@ -47,6 +47,7 @@
 # define D 100
 # define W 119
 # define Q 113
+# define M 109
 # define N 110
 # define E 101
 # define I 105

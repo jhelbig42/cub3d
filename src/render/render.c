@@ -16,7 +16,7 @@ void	create_img(t_game *game)
 {
 	reset_img(&game->img, SCREEN_WIDTH, SCREEN_HEIGHT);
 	if (game->noise)
-		gen_noise(&game->img);
+		gen_noise(game);
 	else
 		bg_col(game);
 	raycaster(game);

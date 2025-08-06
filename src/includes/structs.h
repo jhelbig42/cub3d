@@ -81,6 +81,7 @@ typedef struct s_game
 	void		*west_path;
 	void		*east_path;
 	bool		noise;
+	bool		shades;
 }	t_game;
 
 #endif

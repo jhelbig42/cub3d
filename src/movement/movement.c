@@ -76,6 +76,10 @@ static void	rotate(t_game *game)
 static void	move_horizont(t_game *game)
 {
 	game->horizont += game->player.nodding * 2;
+	if (game->horizont > SCREEN_HEIGHT)
+		game->horizont = SCREEN_HEIGHT;
+	if (game->horizont < 0)
+		game->horizont = 0;
 }
 
 void	move_player(t_game *game)

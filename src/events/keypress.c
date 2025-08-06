@@ -35,6 +35,8 @@ int	on_keypress(int key, t_game *game)
 		game->player.nodding = -1;
 	if (key == N)
 		game->noise = !game->noise;
+	if (key == M)
+		game->shades = !game->shades;
 	return (0);
 }
 
