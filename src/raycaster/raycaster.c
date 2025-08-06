@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 16:33:38 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/06 16:14:34 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,9 @@ int	dda(t_game *game, t_ray ray)
 			ray.map.y += ray.step.y;
 			ray.side = 1;
 		}
+		//hier wissen wir welche Wand getroffen wurde
 		if (game->map.map[ray.map.y][ray.map.x] > 0)
-			ray.hit = 1;
+			ray.hit = 1;	
 	}
 	if (ray.side == 0)
 		perp_wall_dist = (ray.side_dist.x - ray.delta.x);
