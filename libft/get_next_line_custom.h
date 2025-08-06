@@ -20,7 +20,7 @@
 # include <fcntl.h> // flags for open
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 100
 # endif
 
 typedef struct s_storebuffer
@@ -29,7 +29,7 @@ typedef struct s_storebuffer
 	struct s_storebuffer	*next;
 }	t_storebuffer;
 
-char			*get_next_line(int fd);
+char			*get_next_line(int fd, bool done);
 char			*create_next_line(t_storebuffer **new_line_list);
 bool			find_newline(t_storebuffer **new_line_list);
 void			read_buffers(t_storebuffer **new_line_list, int fd);

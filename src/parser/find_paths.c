@@ -38,22 +38,22 @@ bool	set_wall_paths(t_game *game, char *line)
 	if (!ft_strncmp(line, "NO", 2))
 	{
 		if (!set_wall_path(&game->north_path, line))
-			return (free(line), false);
+			return (false);
 	}
 	else if (!ft_strncmp(line, "SO", 2))
 	{
 		if (!set_wall_path(&game->south_path, line))
-			return (free(line), false);
+			return (false);
 	}
 	else if (!ft_strncmp(line, "WE", 2))
 	{
 		if (!set_wall_path(&game->west_path, line))
-			return (free(line), false);
+			return (false);
 	}
 	else if (!ft_strncmp(line, "EA", 2))
 	{
 		if (!set_wall_path(&game->east_path, line))
-			return (free(line), false);
+			return (false);
 	}
 	return (true);
 }
