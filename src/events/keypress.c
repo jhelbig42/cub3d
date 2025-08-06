@@ -14,7 +14,6 @@
 
 int	on_keypress(int key, t_game *game)
 {
-	printf("KEY: %d\n", key);
 	if (key == ESC)
 		on_destroy(game);
 	if (key == LEFT || key == A)
