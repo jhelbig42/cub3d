@@ -84,3 +84,21 @@ void	gen_noise(t_img *img)
 		}
 	}
 }
+
+void	bg_col(t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	y = -1;
+	while (y <= SCREEN_HEIGHT)
+	{
+		if (++x >= SCREEN_WIDTH && ++y > -2)
+			x = 0;
+		if (y < game->horizont)
+			pixel_put(&game->img, x, y, game->floor_color);
+		else
+			pixel_put(&game->img, x, y, game->ceiling_color);
+	}
+}

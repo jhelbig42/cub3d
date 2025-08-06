@@ -14,6 +14,7 @@
 
 int	on_keypress(int key, t_game *game)
 {
+	printf("KEY: %d\n", key);
 	if (key == ESC)
 		on_destroy(game);
 	if (key == LEFT || key == A)
@@ -32,6 +33,8 @@ int	on_keypress(int key, t_game *game)
 		game->player.nodding = 1;
 	if (key == K)
 		game->player.nodding = -1;
+	if (key == N)
+		game->noise = !game->noise;
 	return (0);
 }
 

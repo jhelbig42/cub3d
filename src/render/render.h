@@ -28,6 +28,7 @@ unsigned int	get_grad_col(int val, int max,
 					unsigned int c_min, unsigned int c_max);
 void			reset_img(t_img *img, int width, int height);
 void			gen_noise(t_img *p);
+void			bg_col(t_game *game);
 
 // draw_wall.c
 void			draw_wall_x(t_game *game, int x, int wall_height);

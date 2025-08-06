@@ -12,14 +12,17 @@
 
 #include "render.h"
 
-void create_img(t_game *game)
+void	create_img(t_game *game)
 {
 	reset_img(&game->img, SCREEN_WIDTH, SCREEN_HEIGHT);
-	gen_noise(&game->img);
+	if (game->noise)
+		gen_noise(&game->img);
+	else
+		bg_col(game);
 	raycaster(game);
 }
 
-int render_frames(t_game *game)
+int	render_frames(t_game *game)
 {
 	move_player(game);
 	create_img(game);
