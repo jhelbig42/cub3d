@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 11:05:19 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:47:38 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 static void	on_keypress_ascii(int key, t_game *game)
 {
-	if (key == A)
-		game->player.rotating = -1;
-	if (key == D)
-		game->player.rotating = 1;
 	if (key == W)
 		game->player.walking = 1;
 	if (key == S)
 		game->player.walking = -1;
-	if (key == E)
-		game->player.strafing = 1;
-	if (key == Q)
+	if (key == A)
 		game->player.strafing = -1;
+	if (key == D)
+		game->player.strafing = 1;
 	if (key == I)
 		game->player.nodding = 1;
 	if (key == K)
@@ -65,11 +61,11 @@ int	on_keypress(int key, t_game *game)
 
 int	on_keyrelease(int key, t_game *game)
 {
-	if (key == LEFT || key == A || key == RIGHT || key == D)
+	if (key == LEFT || key == RIGHT)
 		game->player.rotating = 0;
 	if (key == UP || key == W || key == DOWN || key == S)
 		game->player.walking = 0;
-	if (key == E || key == Q)
+	if (key == A || key == D)
 		game->player.strafing = 0;
 	if (key == I || key == K)
 		game->player.nodding = 0;
