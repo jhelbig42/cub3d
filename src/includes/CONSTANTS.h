@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 15:51:26 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 10:29:43 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@
 
 // keys
 # define ESC 65307
-# define SPACE 32
 # define LEFT 65361
 # define RIGHT 65363
 # define UP 65362
 # define DOWN 65364
 
+# define SPACE 32
 # define A 97
 # define S 115
 # define D 100

@@ -6,23 +6,21 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 09:47:03 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 10:38:28 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "events.h"
 
-int	on_keypress(int key, t_game *game)
+static void	on_keypress_ascii(int key, t_game *game)
 {
-	if (key == ESC)
-		on_destroy(game);
-	if (key == LEFT || key == A)
+	if (key == A)
 		game->player.rotating = -1;
-	if (key == RIGHT || key == D)
+	if (key == D)
 		game->player.rotating = 1;
-	if (key == UP || key == W)
+	if (key == W)
 		game->player.walking = 1;
-	if (key == DOWN || key == S)
+	if (key == S)
 		game->player.walking = -1;
 	if (key == E)
 		game->player.strafing = 1;
@@ -37,7 +35,31 @@ int	on_keypress(int key, t_game *game)
 	if (key == M)
 		game->shades = !game->shades;
 	if (key == SPACE)
-		jump(game);
+		if (!game->player.jumping)
+			jump(game);
+}
+
+static void	on_keypress_special(int key, t_game *game)
+{
+	if (key == ESC)
+		on_destroy(game);
+	if (key == LEFT)
+		game->player.rotating = -1;
+	if (key == RIGHT)
+		game->player.rotating = 1;
+	if (key == UP)
+		game->player.walking = 1;
+	if (key == DOWN)
+		game->player.walking = -1;
+}
+
+int	on_keypress(int key, t_game *game)
+{
+	//printf("KEY: %d\n", key);
+	if (key <= 122)
+		on_keypress_ascii(key, game);
+	else
+		on_keypress_special(key, game);
 	return (0);
 }
 
