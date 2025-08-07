@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:22 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 11:13:14 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:38:24 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ void	bg_col(t_game *game)
 	{
 		if (game->shades && y < game->horizont + game->player.jump_offset)
 			col = get_grad_col(
-					y, game->horizont + game->player.jump_offset, 0x0, game->floor_color); 
+					y, game->horizont + game->player.jump_offset, game->floor_color, 0x0); 
 		else if (game->shades)
 			col = get_grad_col(
-					y, SCREEN_HEIGHT, game->ceiling_color, 0x0); 
+					y, SCREEN_HEIGHT, 0x0, game->ceiling_color); 
 		else if (y < game->horizont + game->player.jump_offset)
 			col = game->floor_color;
 		else
