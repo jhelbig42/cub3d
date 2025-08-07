@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.h                                         :+:      :+:    :+:   */
+/*   movement_y.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 08:54:55 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 09:47:56 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/08/07 09:41:45 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/08/07 09:57:44 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MOVEMENT_H
-# define MOVEMENT_H
-# include "../includes/CONSTANTS.h"
-# include "../includes/structs.h"
-# include "../utils/utils.h"
+#include "movement.h"
 
-void		move_player(t_game *game);
+void	jump(t_game *game)
+{
+	game->player.jump_offset += 1;
+}
 
-//movement_utils.c
-bool		empty_field(t_map map, t_vector_d pos);
-t_vector_d	rotate_vector(double x, double y, double angle);
-
-//movement_y.c
-void		move_horizont(t_game *game);
-void		jump(t_game *game);
-#endif
+void	move_horizont(t_game *game)
+{
+	game->horizont += game->player.nodding * NOD_SPEED;
+	if (game->horizont > SCREEN_HEIGHT)
+		game->horizont = SCREEN_HEIGHT;
+	if (game->horizont < 0)
+		game->horizont = 0;
+}

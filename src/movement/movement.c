@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 15:27:20 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 09:43:07 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,6 @@ static void	rotate(t_game *game)
 			deg_to_rad(ROT_ANGLE * dir));
 	p->plane.x = new_dir.x;
 	p->plane.y = new_dir.y;
-}
-
-static void	move_horizont(t_game *game)
-{
-	game->horizont += game->player.nodding * NOD_SPEED;
-	if (game->horizont > SCREEN_HEIGHT)
-		game->horizont = SCREEN_HEIGHT;
-	if (game->horizont < 0)
-		game->horizont = 0;
 }
 
 void	move_player(t_game *game)
