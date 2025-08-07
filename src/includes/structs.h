@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:27:25 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:21:18 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ typedef struct s_player
 	int			rotating;
 	int			strafing;
 	int			nodding;
+	bool		jumping;
+	float		jump_offset;
+	float		jump_velo;
 }	t_player;
 
 typedef struct s_game
@@ -72,7 +75,10 @@ typedef struct s_game
 	int			ceiling_color;
 	int			width;
 	int			height;
+	int64_t		last_frame;
+	int			len_frame;
 	int			horizont;
+	t_vector_i	mouse_pos;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_img		img;

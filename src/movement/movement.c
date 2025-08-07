@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 14:31:34 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/07 15:25:28 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	walk(t_game *game)
 	}
 }
 
-static void	rotate(t_game *game)
+void	rotate(t_game *game)
 {
 	t_player	*p;
 	int			dir;
@@ -71,19 +71,12 @@ static void	rotate(t_game *game)
 	p->plane.y = new_dir.y;
 }
 
-static void	move_horizont(t_game *game)
-{
-	game->horizont += game->player.nodding * 2;
-	if (game->horizont > SCREEN_HEIGHT)
-		game->horizont = SCREEN_HEIGHT;
-	if (game->horizont < 0)
-		game->horizont = 0;
-}
-
 void	move_player(t_game *game)
 {
 	if (game->player.rotating)
 		rotate(game);
+	if (game->player.jumping)
+		jumping(game);
 	if (game->player.walking)
 		walk(game);
 	if (game->player.strafing)

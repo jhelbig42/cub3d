@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 15:11:50 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:11:52 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:42:40 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 // utils.c
 double	deg_to_rad(int angle);
-bool	empty_field(t_map map, t_vector_d pos);
+int64_t	get_mills(void);
 
 // error.c
 void	print_error(char *msg);
