@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 09:43:07 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:06:14 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	move_player(t_game *game)
 {
 	if (game->player.rotating)
 		rotate(game);
+	if (game->player.jumping)
+		jumping(game);
 	if (game->player.walking)
 		walk(game);
 	if (game->player.strafing)

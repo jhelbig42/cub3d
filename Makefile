@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/07 09:48:18 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/07 10:58:02 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,8 @@ MAKEALL = make all
 MAKECLEAN = make clean
 MAKEFCLEAN = make fclean
 
+DEFAULT_MAP = maps/subjectN.cub
+
 all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
@@ -84,13 +86,13 @@ ${LIBFT_A}:
 	$(MAKEALL) -C $(LIBFT_DIR)
 	
 debug: $(NAME)
-	gdb --args ./cub3d maps/subjectW.cub
+	gdb --args ./cub3d $(DEFAULT_MAP)
 
 run: $(NAME)
-	./cub3d maps/subjectW.cub
+	./cub3d $(DEFAULT_MAP)
 
 val_test: $(NAME)
-	valgrind --leak-check=full --track-fds=yes ./$(NAME) maps/subjectW.cub
+	valgrind --leak-check=full --track-fds=yes ./$(NAME) $(DEFAULT_MAP)
 
 clean: 
 	$(MAKECLEAN) -C $(LIBFT_DIR)

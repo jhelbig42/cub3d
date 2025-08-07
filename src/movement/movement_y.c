@@ -6,15 +6,37 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 09:41:45 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 09:57:44 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:21:38 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "movement.h"
 
-void	jump(t_game *game)
+void	start_jump(t_game *game)
 {
-	game->player.jump_offset += 1;
+	game->player.jump_offset = 0.0f;
+	game->player.jump_velo = 16.0f;
+	game->player.jumping = true;
+}
+
+void	jumping(t_game *game)
+{
+	if (game->player.jumping && game->player.jump_velo >= 0)
+	{
+		game->player.jump_velo -= JUMP_RISE;
+		game->player.jump_offset += game->player.jump_velo;
+	}
+	else if (game->player.jump_velo <= 0 && game->player.jump_offset >= 0)
+	{
+		game->player.jump_velo -= JUMP_FALL;
+		game->player.jump_offset += game->player.jump_velo;
+	}
+	else
+	{
+		game->player.jumping = false;
+		game->player.jump_velo = 0.0f;
+		game->player.jump_offset = 0.0f;
+	}
 }
 
 void	move_horizont(t_game *game)

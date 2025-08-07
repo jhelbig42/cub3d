@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 10:15:40 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:04:42 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	player_init(t_game *game)
 	game->player.dir.x = 0;
 	game->player.dir.y = 1;
 	game->player.jump_offset = 0;
+	game->player.jump_velo = 0;
 }
 
 static void	map_init(t_game *game)

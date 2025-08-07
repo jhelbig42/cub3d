@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:54:55 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 09:47:56 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:21:45 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ t_vector_d	rotate_vector(double x, double y, double angle);
 
 //movement_y.c
 void		move_horizont(t_game *game);
-void		jump(t_game *game);
+void		start_jump(t_game *game);
+void		jumping(t_game *game);
 #endif

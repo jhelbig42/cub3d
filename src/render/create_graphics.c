@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:22 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/25 12:17:48 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 11:13:14 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ void	gen_noise(t_game *game)
 	{
 		if (++x >= SCREEN_WIDTH && ++y > -2)
 			x = 0;
-		if (y <= game->horizont)
+		if (y <= game->horizont + game->player.jump_offset)
 			col = get_grad_col(
-					y, game->horizont, C_NEON_VIOLET, 0x0); 
+					y, game->horizont + game->player.jump_offset, C_NEON_VIOLET, 0x0); 
 		else
 			col = get_grad_col(
-					game->horizont, y, C_NEON_YELLOW, 0x0); 
+					game->horizont + game->player.jump_offset, y, C_NEON_YELLOW, 0x0); 
 		if (random() * 1 > RAND_MAX / 1.15)
 			pixel_put(&game->img, x, y, col);
 	}
@@ -99,13 +99,13 @@ void	bg_col(t_game *game)
 	y = -1;
 	while (++y <= SCREEN_HEIGHT)
 	{
-		if (game->shades && y < game->horizont)
+		if (game->shades && y < game->horizont + game->player.jump_offset)
 			col = get_grad_col(
-					y, game->horizont, 0x0, game->floor_color); 
+					y, game->horizont + game->player.jump_offset, 0x0, game->floor_color); 
 		else if (game->shades)
 			col = get_grad_col(
 					y, SCREEN_HEIGHT, game->ceiling_color, 0x0); 
-		else if (y < game->horizont)
+		else if (y < game->horizont + game->player.jump_offset)
 			col = game->floor_color;
 		else
 			col = game->ceiling_color;
