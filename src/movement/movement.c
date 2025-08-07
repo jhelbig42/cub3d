@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 11:48:55 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:25:28 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	walk(t_game *game)
 	}
 }
 
-static void	rotate(t_game *game)
+void	rotate(t_game *game)
 {
 	t_player	*p;
 	int			dir;

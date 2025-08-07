@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 11:57:33 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:38:19 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define EXIT_HOOK 17
 # define KEY_PRESS_HOOK 2
 # define KEY_RELEASE_HOOK 3
+# define KEY_MOUSE_MOVE_HOOK 6
 
 // keys
 # define ESC 65307

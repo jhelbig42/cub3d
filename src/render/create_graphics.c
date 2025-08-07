@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:22 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 11:38:24 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:50:51 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,12 @@ void	gen_noise(t_game *game)
 			x = 0;
 		if (y <= game->horizont + game->player.jump_offset)
 			col = get_grad_col(
-					y, game->horizont + game->player.jump_offset, C_NEON_VIOLET, 0x0); 
+					y, game->horizont + game->player.jump_offset,
+					C_NEON_VIOLET, 0x0); 
 		else
 			col = get_grad_col(
-					game->horizont + game->player.jump_offset, y, C_NEON_YELLOW, 0x0); 
+					game->horizont + game->player.jump_offset, y,
+					C_NEON_YELLOW, 0x0); 
 		if (random() * 1 > RAND_MAX / 1.15)
 			pixel_put(&game->img, x, y, col);
 	}
@@ -101,7 +103,8 @@ void	bg_col(t_game *game)
 	{
 		if (game->shades && y < game->horizont + game->player.jump_offset)
 			col = get_grad_col(
-					y, game->horizont + game->player.jump_offset, game->floor_color, 0x0); 
+					y, game->horizont + game->player.jump_offset,
+					game->floor_color, 0x0); 
 		else if (game->shades)
 			col = get_grad_col(
 					y, SCREEN_HEIGHT, 0x0, game->ceiling_color); 

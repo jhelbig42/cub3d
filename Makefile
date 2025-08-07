@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/07 12:00:31 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/07 15:29:11 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC += $(SRC_DIR)/main.c
 
 SRC += $(SRC_DIR)/events/destroy.c
 SRC += $(SRC_DIR)/events/keypress.c
+SRC += $(SRC_DIR)/events/mousemove.c
 
 SRC += $(SRC_DIR)/init/init.c
 

@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 11:04:42 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:22:15 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ t_game	game_init(t_game game)
 	game.horizont = SCREEN_HEIGHT * .5;
 	game.floor_color = -1;
 	game.ceiling_color = -1;
+	game.mouse_pos.x = SCREEN_WIDTH * .5;
+	game.mouse_pos.y = SCREEN_HEIGHT * .5;
 	game.north_path = NULL;
 	game.south_path = NULL;
 	game.west_path = NULL;
