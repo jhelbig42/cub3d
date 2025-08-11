@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 13:39:29 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 14:27:44 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	on_keypress_ascii(int key, t_game *game)
 		game->noise = !game->noise;
 	if (key == M)
 		game->shades = !game->shades;
+	if (key == X)
+		toggle_mouse(game);
 	if (key == SPACE)
 		if (!game->player.jumping)
 			start_jump(game);

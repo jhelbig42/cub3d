@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 13:55:11 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 14:18:20 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_game
 	void		*east_path;
 	bool		noise;
 	bool		shades;
+	bool		use_mouse;
 }	t_game;
 
 #endif

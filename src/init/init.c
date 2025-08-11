@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 15:22:15 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 14:18:35 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_game	game_init(t_game game)
 	game.east_path = NULL;
 	game.noise = false;
 	game.shades = false;
+	game.use_mouse = false;
 	game.last_frame = get_mills();
 	game.len_frame = 1000 / FRAME_RATE;
 	mlx_win_img_init(&game);

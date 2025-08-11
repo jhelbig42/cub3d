@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 15:38:19 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 14:25:54 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@
 # define E 101
 # define I 105
 # define K 107
+# define X 120
 
 // colors
 # define C_NEON_VIOLET 0xFFAB20FD
@@ -70,6 +71,8 @@
 # define JUMP_SPEED_START 24.0f
 # define JUMP_RISE 1
 # define JUMP_FALL 2.5
+# define MAX_MOUSE_ROT_X 180 //degrees
+# define MAX_MOUSE_ROT_Y 360 //pixel
 
 //map
 # define MAX_MAP_LENGTH 200

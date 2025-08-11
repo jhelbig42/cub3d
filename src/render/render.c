@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 13:50:35 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 14:25:01 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ int	render_frames(t_game *game)
 {
 	if (next_frame(game))
 	{
-		apply_mouse(game);
 		create_img(game);
 		mlx_put_image_to_window(
 			game->mlx_ptr, game->win_ptr, game->img.img, 0, 0);
 		move_player(game);
+		if (game->use_mouse)
+			apply_mouse(game);
 	}
 	return (0);
 }
