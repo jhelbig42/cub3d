@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 15:25:28 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 13:14:11 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,18 @@ static void	walk(t_game *game)
 	}
 }
 
-void	rotate(t_game *game)
+void	rotate(t_game *game, int dir)
 {
 	t_player	*p;
-	int			dir;
 	t_vector_d	new_dir;
 
 	p = &game->player;
-	dir = -p->rotating;
 	new_dir = rotate_vector(p->dir.x, p->dir.y,
-			deg_to_rad(ROT_ANGLE * dir));
+			deg_to_rad(dir));
 	p->dir.x = new_dir.x;
 	p->dir.y = new_dir.y;
 	new_dir = rotate_vector(p->plane.x, p->plane.y,
-			deg_to_rad(ROT_ANGLE * dir));
+			deg_to_rad(dir));
 	p->plane.x = new_dir.x;
 	p->plane.y = new_dir.y;
 }
@@ -74,7 +72,7 @@ void	rotate(t_game *game)
 void	move_player(t_game *game)
 {
 	if (game->player.rotating)
-		rotate(game);
+		rotate(game, -(ROT_ANGLE * game->player.rotating));
 	if (game->player.jumping)
 		jumping(game);
 	if (game->player.walking)

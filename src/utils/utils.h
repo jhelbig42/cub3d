@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 15:11:50 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 15:42:40 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 13:10:09 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 // utils.c
 double	deg_to_rad(int angle);
 int64_t	get_mills(void);
+float	map(int range, int t_min, int t_max, float val);
 
 // error.c
 void	print_error(char *msg);

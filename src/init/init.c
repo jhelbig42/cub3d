@@ -47,8 +47,8 @@ t_game	game_init(t_game game)
 	game.horizont = SCREEN_HEIGHT * .5;
 	game.floor_color = -1;
 	game.ceiling_color = -1;
-	game.mouse_pos.x = SCREEN_WIDTH * .5;
-	game.mouse_pos.y = SCREEN_HEIGHT * .5;
+	game.cursor.x = SCREEN_WIDTH * .5;
+	game.cursor.y = SCREEN_HEIGHT * .5;
 	game.north_path = NULL;
 	game.south_path = NULL;
 	game.west_path = NULL;

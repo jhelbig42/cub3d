@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 15:21:18 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 13:00:18 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ typedef struct s_game
 	int64_t		last_frame;
 	int			len_frame;
 	int			horizont;
-	t_vector_i	mouse_pos;
+	t_vector_i	cursor;
+	t_vector_i	last_cursor;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_img		img;

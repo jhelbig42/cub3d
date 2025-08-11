@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/07 15:29:11 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/11 13:17:23 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,10 @@ SRC += $(SRC_DIR)/parser/floodfill.c
 
 SRC += $(SRC_DIR)/raycaster/raycaster.c
 
-SRC += $(SRC_DIR)/render/render.c
 SRC += $(SRC_DIR)/render/create_graphics.c
 SRC += $(SRC_DIR)/render/draw_wall.c
+SRC += $(SRC_DIR)/render/mouse.c
+SRC += $(SRC_DIR)/render/render.c
 
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 
