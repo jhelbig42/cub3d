@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:48:18 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 16:36:23 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 12:56:54 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_ray
 	t_vector_i	step;
 	bool		hit;
 	int			side;
+	int			wall_height;
+	double		wall_x;
 }	t_ray;
 
 #endif

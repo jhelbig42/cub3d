@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 16:36:40 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/11 10:56:03 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void			gen_noise(t_game *game);
 void			bg_col(t_game *game);
 
 // draw_wall.c
-void			draw_wall_x(t_game *game, int x, int wall_height);
+void			draw_wall_x(t_game *game, t_ray ray, int x);
 
 #endif

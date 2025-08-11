@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 16:14:34 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/11 13:23:27 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,39 +60,49 @@ t_ray	get_delta_step_dist(t_ray ray, t_player p)
 // DDA - Digital Differential Analysis
 // Jump one square further until hit a target
 // return wall height
-int	dda(t_game *game, t_ray ray)
+void	dda(t_game *game, t_ray *ray)
 {
 	double	perp_wall_dist;
 
-	while (ray.hit == 0)
+	while (ray->hit == 0)
 	{
-		if (ray.side_dist.x < ray.side_dist.y)
+		if (ray->side_dist.x < ray->side_dist.y)
 		{
-			ray.side_dist.x += ray.delta.x;
-			ray.map.x += ray.step.x;
-			ray.side = 0;
+			//N or S
+			ray->side_dist.x += ray->delta.x;
+			ray->map.x += ray->step.x;
+			ray->side = 0;
 		}
 		else
 		{
-			ray.side_dist.y += ray.delta.y;
-			ray.map.y += ray.step.y;
-			ray.side = 1;
+			//W or E
+			ray->side_dist.y += ray->delta.y;
+			ray->map.y += ray->step.y;
+			ray->side = 1;
 		}
 		//hier wissen wir welche Wand getroffen wurde
-		if (game->map.map[ray.map.y][ray.map.x] > 0)
-			ray.hit = 1;	
+		if (game->map.map[ray->map.y][ray->map.x] > 0)
+			ray->hit = 1;
 	}
-	if (ray.side == 0)
-		perp_wall_dist = (ray.side_dist.x - ray.delta.x);
+	if (ray->side == 0)
+	{
+		perp_wall_dist = (ray->side_dist.x - ray->delta.x);
+		ray->wall_x = game->player.pos.y + perp_wall_dist * ray->dir.y;
+	}
 	else
-		perp_wall_dist = (ray.side_dist.y - ray.delta.y);
-	return ((int)(SCREEN_HEIGHT / perp_wall_dist));
+	{
+		perp_wall_dist = (ray->side_dist.y - ray->delta.y);
+		ray->wall_x = game->player.pos.x + perp_wall_dist * ray->dir.x;
+	}
+	ray->wall_height = (int)(SCREEN_HEIGHT / perp_wall_dist);
+	ray->wall_x = ray->wall_x - floor(ray->wall_x);
+	
+	//maybe flip here
 }
 
 void	raycaster(t_game *game)
 {
 	int			x;
-	int			height;
 	t_ray		ray;
 	t_player	p;
 
@@ -102,7 +112,7 @@ void	raycaster(t_game *game)
 	{
 		ray = init_ray(p, x);
 		ray = get_delta_step_dist(ray, p);
-		height = dda(game, ray);
-		draw_wall_x(game, x, height);
+		dda(game, &ray);
+		draw_wall_x(game, ray, x);
 	}
 }
