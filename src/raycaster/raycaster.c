@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 11:07:33 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 11:29:22 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,10 @@ void	dda(t_game *game, t_ray *ray)
 		ray->wall_x = game->player.pos.x + perp_wall_dist * ray->dir.x;
 	}
 	ray->wall_height = (int)(SCREEN_HEIGHT / perp_wall_dist);
-	ray->wall_x = ray->wall_x - floor(ray->wall_x);
+	if (ray->tex == &game->north || ray->tex == &game->west)
+		ray->wall_x = ray->wall_x - floor(ray->wall_x);
+	else
+		ray->wall_x = fabs(1 - (ray->wall_x - floor(ray->wall_x)));
 	
 	//maybe flip here
 }
