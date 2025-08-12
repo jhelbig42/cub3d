@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:35:01 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 11:44:19 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 15:13:22 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	draw_wall_x(t_game *game, t_ray ray, int x)
 {
 	t_line	l;
 
-	l.y = game->horizont - ray.wall_height / 2;
+	l.y = game->horizont - ray.wall_height / 2 + (int)game->player.jump_offset;
 	if (l.y < 0)
 		l.y = 0;
-	l.top = game->horizont + ray.wall_height / 2;
+	l.top = game->horizont + ray.wall_height / 2 + (int)game->player.jump_offset;
 	if (l.top > SCREEN_HEIGHT)
 		l.top = SCREEN_HEIGHT;
 	l.step_y = (double)ray.tex->height / ray.wall_height;
-	l.tex_pos = (l.y - game->horizont + ray.wall_height / 2) * l.step_y;
+	l.tex_pos = (l.y - game->horizont + ray.wall_height / 2 - (int)game->player.jump_offset) * l.step_y;
 	l.tex_x = (int)(ray.wall_x * ray.tex->width);
 	if (l.tex_x < 0)
 		l.tex_x = 0;

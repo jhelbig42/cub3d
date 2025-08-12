@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:29:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 14:26:01 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,6 @@ bool	correct_file_type(char *map_name)
 			p_err("wrong name extension of given filename"), false);
 	free_str_arr(split);
 	return (true); 
-}
-
-//default values in game struct used for checking completeness of map
-void	fill_default_game(t_game *game)
-{
-	game->floor_color = -1;
-	game->ceiling_color = -1;
-	game->north.path = NULL;
-	game->south.path = NULL;
-	game->west.path = NULL;
-	game->east.path = NULL;
-	game->player.plane.x = 0.66;
-	game->player.plane.y = 0;
-	game->player.dir.x = 0;
-	game->player.dir.y = 1;
-	game->map.width = 0;
-	game->map.height = 0;
 }
 
 bool	data_complete(t_game *game)

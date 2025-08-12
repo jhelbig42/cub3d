@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 14:27:13 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (p_err("no map file given"), 1);
-	if (!parse_map(&game, argv[1]))
-		return (1);
-	if (!game_init(&game))
+	if (!game_init(&game, argv[1]))
 		return (1);
 	if (argv[1])
 		printf("Map Name: %s\n", argv[1]);
 	mlx_hook(game.win_ptr, EXIT_HOOK, 0, on_destroy, &game);
 	mlx_hook(game.win_ptr, KEY_RELEASE_HOOK, (1L << 1), on_keyrelease, &game);
 	mlx_hook(game.win_ptr, KEY_PRESS_HOOK, (1L << 0), on_keypress, &game);
+	mlx_hook(game.win_ptr, KEY_MOUSE_MOVE_HOOK, (1L << 6), on_mousemove, &game);
 	mlx_loop_hook(game.mlx_ptr, render_frames, &game);
 	mlx_loop(game.mlx_ptr);
 }

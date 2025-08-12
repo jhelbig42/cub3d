@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 14:31:34 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 13:34:41 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,37 +53,28 @@ static void	walk(t_game *game)
 	}
 }
 
-static void	rotate(t_game *game)
+void	rotate(t_game *game, int angle)
 {
 	t_player	*p;
-	int			dir;
 	t_vector_d	new_dir;
 
 	p = &game->player;
-	dir = -p->rotating;
 	new_dir = rotate_vector(p->dir.x, p->dir.y,
-			deg_to_rad(ROT_ANGLE * dir));
+			deg_to_rad(angle));
 	p->dir.x = new_dir.x;
 	p->dir.y = new_dir.y;
 	new_dir = rotate_vector(p->plane.x, p->plane.y,
-			deg_to_rad(ROT_ANGLE * dir));
+			deg_to_rad(angle));
 	p->plane.x = new_dir.x;
 	p->plane.y = new_dir.y;
-}
-
-static void	move_horizont(t_game *game)
-{
-	game->horizont += game->player.nodding * 2;
-	if (game->horizont > SCREEN_HEIGHT)
-		game->horizont = SCREEN_HEIGHT;
-	if (game->horizont < 0)
-		game->horizont = 0;
 }
 
 void	move_player(t_game *game)
 {
 	if (game->player.rotating)
-		rotate(game);
+		rotate(game, -(ROT_ANGLE * game->player.rotating));
+	if (game->player.jumping)
+		jumping(game);
 	if (game->player.walking)
 		walk(game);
 	if (game->player.strafing)

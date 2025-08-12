@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:01:16 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/04 09:29:00 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/07 10:13:06 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ bool	parse_map(t_game *game, char *map_name);
 
 //utils.c
 bool	correct_file_type(char *map_name);
-void	fill_default_game(t_game *game);
 bool	data_complete(t_game *game);
 char	**init_map_char(char **map);
 

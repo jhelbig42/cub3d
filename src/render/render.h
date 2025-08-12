@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 11:38:49 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 14:26:20 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ void			bg_col(t_game *game);
 
 // draw_wall.c
 void			draw_wall_x(t_game *game, t_ray ray, int x);
+
+//mouse.c
+void			apply_mouse(t_game *game);
 
 #endif
