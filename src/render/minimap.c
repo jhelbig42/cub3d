@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 11:19:17 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/08/12 11:05:16 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/08/12 11:23:45 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-void	create_img(t_game *game)
+void	draw_minimap(t_game *game)
 {
-	reset_img(&game->img, SCREEN_WIDTH, SCREEN_HEIGHT);
-	if (game->noise)
-		gen_noise(game);
-	else
-		bg_col(game);
-	raycaster(game);
-}
+	int	x;
+	int	y;
 
-int	render_frames(t_game *game)
-{
-	move_player(game);
-	create_img(game);
-	draw_minimap(game);
-	mlx_put_image_to_window(
-		game->mlx_ptr, game->win_ptr, game->img.img, 0, 0);
-	return (0);
+	x = MM_MARGIN - 1;
+	y = MM_MARGIN - 1;
+	while (++y < MM_MARGIN + MM_HEIGHT)
+	{
+		while (++x < MM_MARGIN + MM_WIDTH)
+		{
+			if (x > MM_MARGIN)
+				pixel_put(&game->img, x, SCREEN_HEIGHT - y, 0);
+		}
+		x = MM_MARGIN - 1;
+	}
 }

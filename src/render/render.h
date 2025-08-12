@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 16:36:40 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 11:06:19 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void			bg_col(t_game *game);
 
 // draw_wall.c
 void			draw_wall_x(t_game *game, int x, int wall_height);
+
+// minimap.c
+void			draw_minimap(t_game *game);
 
 #endif

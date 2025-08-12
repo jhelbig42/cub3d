@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/04 15:19:54 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/12 11:18:36 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC += $(SRC_DIR)/raycaster/raycaster.c
 SRC += $(SRC_DIR)/render/render.c
 SRC += $(SRC_DIR)/render/create_graphics.c
 SRC += $(SRC_DIR)/render/draw_wall.c
+SRC += $(SRC_DIR)/render/minimap.c
 
 OBJ := $(patsubst src/%.c, build/%.o, $(SRC))
 

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 13:48:09 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 11:12:02 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,10 @@
 
 //map
 # define MAX_MAP_LENGTH 200
+
+//minimap
+# define MM_WIDTH 200
+# define MM_HEIGHT 150
+# define MM_MARGIN 10
 
 #endif
