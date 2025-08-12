@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 11:12:02 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 11:56:59 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@
 # define SCREEN_WIDTH 960
 # define SCREEN_HEIGHT 540
 # define ROT_ANGLE 1
-# define WALK_SPEED 0.13
+# define WALK_SPEED 0.03
 
 //map
 # define MAX_MAP_LENGTH 200
