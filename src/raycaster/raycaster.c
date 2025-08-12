@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 10:57:02 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 11:07:33 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,31 +68,34 @@ void	dda(t_game *game, t_ray *ray)
 	{
 		if (ray->side_dist.x < ray->side_dist.y)
 		{
-			//N or S
 			ray->side_dist.x += ray->delta.x;
 			ray->map.x += ray->step.x;
 			ray->side = 0;
 		}
 		else
 		{
-			//W or E
 			ray->side_dist.y += ray->delta.y;
 			ray->map.y += ray->step.y;
 			ray->side = 1;
 		}
-		//hier wissen wir welche Wand getroffen wurde
 		if (game->map.map[ray->map.y][ray->map.x] > 0)
 			ray->hit = 1;
 	}
 	if (ray->side == 0)
 	{
-		ray->tex = &game->east;
+		if (game->player.pos.x > ray->map.x)
+			ray->tex = &game->west;
+		else
+			ray->tex = &game->east;
 		perp_wall_dist = (ray->side_dist.x - ray->delta.x);
 		ray->wall_x = game->player.pos.y + perp_wall_dist * ray->dir.y;
 	}
 	else
 	{
-		ray->tex = &game->north;
+		if (game->player.pos.y > ray->map.y)
+			ray->tex = &game->south;
+		else
+			ray->tex = &game->north;
 		perp_wall_dist = (ray->side_dist.y - ray->delta.y);
 		ray->wall_x = game->player.pos.x + perp_wall_dist * ray->dir.x;
 	}
