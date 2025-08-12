@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 13:24:57 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 10:56:28 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	tex_init(t_game *game)
 	game->north.img = mlx_xpm_file_to_image(game->mlx_ptr, game->north.path, &game->north.width, &game->north.height);
 	game->north.addr = mlx_get_data_addr(game->north.img, &game->north.bpp,
 			&game->north.size_line, &game->north.endian);
-	printf("bpp %d\n", game->north.bpp);
+	game->east.img = mlx_xpm_file_to_image(game->mlx_ptr, game->east.path, &game->east.width, &game->east.height);
+	game->east.addr = mlx_get_data_addr(game->east.img, &game->east.bpp,
+			&game->east.size_line, &game->east.endian);
+	
 }
 
 

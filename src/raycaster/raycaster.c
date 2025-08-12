@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 13:23:27 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 10:57:02 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,13 @@ void	dda(t_game *game, t_ray *ray)
 	}
 	if (ray->side == 0)
 	{
+		ray->tex = &game->east;
 		perp_wall_dist = (ray->side_dist.x - ray->delta.x);
 		ray->wall_x = game->player.pos.y + perp_wall_dist * ray->dir.y;
 	}
 	else
 	{
+		ray->tex = &game->north;
 		perp_wall_dist = (ray->side_dist.y - ray->delta.y);
 		ray->wall_x = game->player.pos.x + perp_wall_dist * ray->dir.x;
 	}
