@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/06 15:26:29 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ static bool	set_wall_path(char **wall_path, char *line)
 
 	path = ft_strtrim(&line[2], " \n");
 	if (!path)
-		return (print_error("strtrim failed"), false);
+		return (p_err("strtrim failed"), false);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		return (print_error("could not open wall file"), free(path), false);
+		return (p_err("could not open wall file"), free(path), false);
 	buf = NULL;
 	if (read(fd, buf, 0) < 0)
-		return (print_error("could not read from wall file"),
+		return (p_err("could not read from wall file"),
 			free(path), false);
 	close(fd);
 	*wall_path = path;

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:25 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/11 11:24:40 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	read_map_data(t_game *game, int fd, char **line)
 	while (*line)
 	{
 		if (!*line)
-			return (print_error("ft_strtrim failed"), false);
+			return (p_err("ft_strtrim failed"), false);
 		if (*line[0] == 'F' || *line[0] == 'C') 
 		{
 			if (!find_colors(game, *line, *line[0]))
@@ -68,7 +68,7 @@ bool	parse_map(t_game *game, char *map_name)
 		return (false);
 	fd = open(map_name, O_RDONLY);
 	if (fd < 0)
-		return (print_error("could not open map file"), false);
+		return (p_err("could not open map file"), false);
 	line = get_next_line(fd, false);
 	if (!read_map_data(game, fd, &line))
 		return (get_next_line(fd, true), false);

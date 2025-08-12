@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:03 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/12 11:48:26 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static bool	check_rgb_val(char *input, int *val)
 {
 	*val = ft_atoi(input);
 	if (*val == 0 && input[0] != '0')
-		return (print_error("RGB values are not given as numbers"), false);
+		return (p_err("RGB values are not given as numbers"), false);
 	if (*val < 0 || *val > 255)
-		return (print_error("invalid RGB values given"), false);
+		return (p_err("invalid RGB values given"), false);
 	return (true);
 }
 
@@ -47,13 +47,13 @@ static bool	fill_color(char *line, int *rgb)
 		return (false);
 	if (!split[0] || !split[1] || !split[2] || split[3])
 		return (free_str_arr(split),
-			print_error("wrong number of RGB values given"), false);
+			p_err("wrong number of RGB values given"), false);
 	i = 0;
 	while (i < 3)
 	{
 		trim_split = ft_strtrim(split[i], " \n");
 		if (!trim_split)
-			return (free_str_arr(split), print_error("ft_strtrim failed"),
+			return (free_str_arr(split), p_err("ft_strtrim failed"),
 				false);
 		if (!check_rgb_val(split[i], &val))
 			return (free_str_arr(split), free(trim_split), false);

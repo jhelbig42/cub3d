@@ -6,31 +6,11 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:26:40 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/12 11:58:38 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
-
-void	test_print_map(t_game *game, char ***map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < game->map.height)
-	{
-		j = 0;
-		while (j < game->map.width)
-		{
-			if ((*map)[i][j])
-				printf("%c", (*map)[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-}
 
 char	*copy_line(t_map *map, char **char_map, int i)
 {
@@ -40,7 +20,7 @@ char	*copy_line(t_map *map, char **char_map, int i)
 
 	copy = (char *)malloc(sizeof(char) * (map->width + 1));
 	if (!copy)
-		return (print_error("malloc failed in floodfill"), NULL);
+		return (p_err("malloc failed in floodfill"), NULL);
 	len = ft_strlen(char_map[i]);
 	j = 0;
 	while (j < map->width)
@@ -63,7 +43,7 @@ char	**copy_map(t_map *map, char **char_map)
 
 	copy = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (!copy)
-		return (print_error("malloc failed in floodfill"), NULL);
+		return (p_err("malloc failed in floodfill"), NULL);
 	i = 0;
 	while (i < map->height)
 	{
@@ -97,7 +77,7 @@ static bool	test_flood_fill(t_game *game, char **copy)
 	while (i < game->map.height)
 	{
 		if (copy[i][0] == '8' || copy[i][game->map.width - 1] == '8')
-			return (print_error
+			return (p_err
 				("floodfill failed, map not entirely surrounded by walls"),
 				false);
 		i++;
@@ -106,7 +86,7 @@ static bool	test_flood_fill(t_game *game, char **copy)
 	while (i < game->map.width)
 	{
 		if (copy[0][i] == '8' || copy[game->map.height - 1][i] == '8')
-			return (print_error
+			return (p_err
 				("floodfill failed, map not entirely surrounded by walls"),
 				false);
 		i++;

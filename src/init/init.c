@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 11:43:49 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	game_init(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
-		return (print_error("mlx_init failed"), false);
+		return (p_err("mlx_init failed"), false);
 	game->width = SCREEN_WIDTH;
 	game->height = SCREEN_HEIGHT;
 	game->horizont = SCREEN_HEIGHT * .5;
