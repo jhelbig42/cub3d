@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_wall.c                                        :+:      :+:    :+:   */
+/*   mousemove.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 15:35:01 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 10:05:13 by uschmidt         ###   ########.fr       */
+/*   Created: 2025/08/07 13:55:15 by uschmidt          #+#    #+#             */
+/*   Updated: 2025/08/11 14:26:33 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "events.h"
 
-void	draw_wall_x(t_game *game, int x, int wall_height)
+int	on_mousemove(int x, int y, t_game *game)
 {
-	int	y;
-	int	top;
+	game->cursor.x = x;
+	game->cursor.y = y;
+	return (0);
+}
 
-	y = game->horizont - wall_height / 2.0f + game->player.jump_offset;
-	top = game->horizont + wall_height / 2.0f + game->player.jump_offset;
-	while (y++ < top)
-		pixel_put(&game->img, x + 1, y, C_NEON_BLUE);
+void	toggle_mouse(t_game *game)
+{
+	if (game->use_mouse)
+		mlx_mouse_show(game->mlx_ptr, game->win_ptr);
+	else
+		mlx_mouse_hide(game->mlx_ptr, game->win_ptr);
+	game->use_mouse = !game->use_mouse;
 }
