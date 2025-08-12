@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:06:05 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/07 15:44:40 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 14:27:13 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ int	main(int argc, char **argv)
 	static t_game	game;
 
 	if (argc != 2)
-		return (print_error("no map file given"), 1);
-	game = game_init(game);
-	if (!parse_map(&game, argv[1]))
+		return (p_err("no map file given"), 1);
+	if (!game_init(&game, argv[1]))
 		return (1);
 	if (argv[1])
 		printf("Map Name: %s\n", argv[1]);

@@ -6,12 +6,15 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 14:18:20 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 14:27:50 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // structs.h
-// This file is reserved for all reused struct definitions. It should not include anything but constants
+/* 
+This file is reserved for all reused struct definitions. 
+It should not include anything but constants
+*/
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
@@ -67,10 +70,24 @@ typedef struct s_player
 	float		jump_velo;
 }	t_player;
 
+typedef struct s_tex
+{
+	char	*path;
+	void	*img;
+	int		width;
+	int		height;
+	int		bpp;
+	int		size_line;
+	int		endian;
+	char	*addr;
+}	t_tex;
+
 typedef struct s_game
 {
 	t_map		map;
 	t_player	player;
+	bool		noise;
+	bool		shades;
 	int			floor_color;
 	int			ceiling_color;
 	int			width;
@@ -82,12 +99,10 @@ typedef struct s_game
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_img		img;
-	void		*north_path;
-	void		*south_path;
-	void		*west_path;
-	void		*east_path;
-	bool		noise;
-	bool		shades;
+	t_tex		north;
+	t_tex		south;
+	t_tex		west;
+	t_tex		east;
 	bool		use_mouse;
 }	t_game;
 

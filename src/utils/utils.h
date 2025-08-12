@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 15:11:50 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 13:10:09 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 14:26:28 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int64_t	get_mills(void);
 float	map(int range, int t_min, int t_max, float val);
 
 // error.c
-void	print_error(char *msg);
+void	p_err(char *msg);
 
 // free.c
 void	free_str_arr(char **str_arr);

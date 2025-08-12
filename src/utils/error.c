@@ -6,14 +6,14 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:01:49 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/25 14:39:48 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void    print_error(char *msg)
+void	p_err(char *msg)
 {
-    printf("Error\n");
-    printf("%s\n", msg);
-}  
+	printf("Error\n");
+	printf("%s\n", msg);
+}

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/06 15:13:45 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 		while (map[*i][j])
 		{
 			if (!is_valid_sym(map[*i][j]))
-				return (print_error("undefined symbols in map"), free_paths(game), false);
+				return (p_err("undefined symbols used"), free_paths(game), false);
 			if (is_orient(map[*i][j]))
 			{
 				if (*pos != 'D')
-					return (print_error("more that 1 player given in map"),
+					return (p_err("more that 1 player given in map"),
 						free_paths(game), false);
 				*pos = map[*i][j];
 				game->player.pos.y = *i;
@@ -91,13 +91,13 @@ bool	map_into_game(t_game *game, char **map)
 
 	game->map.map = (int **)malloc(sizeof(int *) * game->map.height);
 	if (!game->map.map)
-		return (print_error("malloc error map **int arr"), false);
+		return (p_err("malloc error map **int arr"), false);
 	i = 0;
 	while (i < game->map.height)
 	{
 		game->map.map[game->map.height - 1 - i] = (int *)malloc(sizeof(int) * game->map.width);
 		if (!game->map.map[game->map.height - 1 - i])
-			return (print_error("malloc error map int[i] arr"),
+			return (p_err("malloc error map int[i] arr"),
 				free_int_arr(game->map.map, i), false);
 		len = ft_strlen(map[i]);
 		j = 0;
@@ -129,7 +129,7 @@ bool	map_str_arr_valid(t_game *game, char **char_map)
 		return (false);
 	game->map.height = i;
 	if (pos == 'D')
-		return (free_paths(game), print_error("no player given in map"), false);
+		return (free_paths(game), p_err("no player given in map"), false);
 	set_start_pos(game, pos);
 	if (!flood_fill(game, char_map))
 		return (false);

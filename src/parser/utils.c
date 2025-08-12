@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:29:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/07 10:12:49 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 14:26:01 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ bool	correct_file_type(char *map_name)
 
 	split = ft_split(map_name, '.');
 	if (!split)
-		return (print_error("split failed"), false);
+		return (p_err("split failed"), false);
 	if (!split[1] || split[2])
-		return (free_str_arr(split), print_error("no '.' within filename"), false);
-	if (ft_strncmp(split[1], "cub", 3) != 0 || (split[1][3] && split[1][3] != '\0'))
+		return (free_str_arr(split), p_err("no '.' within filename"),
+			false);
+	if (ft_strncmp(split[1], "cub", 3) != 0
+		|| (split[1][3] && split[1][3] != '\0'))
 		return (free_str_arr(split), 
-			print_error("wrong name extension of given filename"), false);
+			p_err("wrong name extension of given filename"), false);
 	free_str_arr(split);
 	return (true); 
 }
@@ -31,9 +33,10 @@ bool	correct_file_type(char *map_name)
 bool	data_complete(t_game *game)
 {
 	if (game->floor_color == -1 || game->ceiling_color == -1
-		|| game->north_path == NULL || game->south_path == NULL
-		|| game->west_path == NULL || game->east_path == NULL)
-		return (print_error("Incomplete map data given"), free_paths(game), false);
+		|| game->north.path == NULL || game->south.path == NULL
+		|| game->west.path == NULL || game->east.path == NULL)
+		return (p_err("Incomplete map data given"),
+			free_paths(game), false);
 	else
 		return (true);
 }
@@ -44,7 +47,7 @@ char	**init_map_char(char **map)
 
 	map = (char **)malloc(sizeof(char *) * MAX_MAP_LENGTH); 
 	if (!map)
-		return (print_error("error malloc map"), NULL);
+		return (p_err("error malloc map"), NULL);
 	i = 0;
 	while (i < MAX_MAP_LENGTH)
 	{
