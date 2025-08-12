@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 10:56:03 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 11:38:49 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 # include "../includes/structs.h"
 # include "../movement/movement.h"
 # include "../raycaster/raycaster.h"
+
+typedef struct s_line
+{
+	int		y;
+	int		top;
+	double	step_y;
+	double	tex_pos;
+	int		tex_y;
+	int		tex_x;
+	int		pos;	
+}	t_line;
 
 // render.c
 int				render_frames(t_game *game);

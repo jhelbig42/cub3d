@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:29:13 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/06 15:26:00 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 11:46:39 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ bool	data_complete(t_game *game)
 	if (game->floor_color == -1 || game->ceiling_color == -1
 		|| game->north.path == NULL || game->south.path == NULL
 		|| game->west.path == NULL || game->east.path == NULL)
-		return (print_error("Incomplete map data given"), free_paths(game), false);
+		return (print_error("Incomplete map data given"),
+			free_paths(game), false);
 	else
 		return (true);
 }

@@ -6,12 +6,15 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/06 15:27:16 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 11:43:35 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // structs.h
-// This file is reserved for all reused struct definitions. It should not include anything but constants
+/* 
+This file is reserved for all reused struct definitions. 
+It should not include anything but constants
+*/
 
 #ifndef STRUCTS_H
 # define STRUCTS_H

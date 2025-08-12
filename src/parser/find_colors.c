@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:03 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/05 10:16:02 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 11:48:26 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // F 220,100,0
 
-static void	set_RGB_val(int *rgb, int i, int val)
+static	void	set_rgb_val(int *rgb, int i, int val)
 {
 	if (i == 0)
 		*rgb |= val << 16;
@@ -24,7 +24,7 @@ static void	set_RGB_val(int *rgb, int i, int val)
 		*rgb |= val << 0;
 }
 
-static bool	check_RGB_val(char *input, int *val)
+static bool	check_rgb_val(char *input, int *val)
 {
 	*val = ft_atoi(input);
 	if (*val == 0 && input[0] != '0')
@@ -55,9 +55,9 @@ static bool	fill_color(char *line, int *rgb)
 		if (!trim_split)
 			return (free_str_arr(split), print_error("ft_strtrim failed"),
 				false);
-		if (!check_RGB_val(split[i], &val))
+		if (!check_rgb_val(split[i], &val))
 			return (free_str_arr(split), free(trim_split), false);
-		set_RGB_val(rgb, i++, val);
+		set_rgb_val(rgb, i++, val);
 		free(trim_split);
 	}
 	free_str_arr(split);
@@ -72,4 +72,3 @@ bool	find_colors(t_game *game, char *line, char c)
 		return (free_paths(game), false);
 	return (true);
 }
-

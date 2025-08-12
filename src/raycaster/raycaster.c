@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 11:29:22 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/12 11:33:59 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,11 @@ t_ray	get_delta_step_dist(t_ray ray, t_player p)
 // DDA - Digital Differential Analysis
 // Jump one square further until hit a target
 // return wall height
-void	dda(t_game *game, t_ray *ray)
+
+void	set_textures(t_game *game, t_ray *ray)
 {
 	double	perp_wall_dist;
 
-	while (ray->hit == 0)
-	{
-		if (ray->side_dist.x < ray->side_dist.y)
-		{
-			ray->side_dist.x += ray->delta.x;
-			ray->map.x += ray->step.x;
-			ray->side = 0;
-		}
-		else
-		{
-			ray->side_dist.y += ray->delta.y;
-			ray->map.y += ray->step.y;
-			ray->side = 1;
-		}
-		if (game->map.map[ray->map.y][ray->map.x] > 0)
-			ray->hit = 1;
-	}
 	if (ray->side == 0)
 	{
 		if (game->player.pos.x > ray->map.x)
@@ -99,13 +83,33 @@ void	dda(t_game *game, t_ray *ray)
 		perp_wall_dist = (ray->side_dist.y - ray->delta.y);
 		ray->wall_x = game->player.pos.x + perp_wall_dist * ray->dir.x;
 	}
-	ray->wall_height = (int)(SCREEN_HEIGHT / perp_wall_dist);
 	if (ray->tex == &game->north || ray->tex == &game->west)
 		ray->wall_x = ray->wall_x - floor(ray->wall_x);
 	else
 		ray->wall_x = fabs(1 - (ray->wall_x - floor(ray->wall_x)));
-	
-	//maybe flip here
+	ray->wall_height = (int)(SCREEN_HEIGHT / perp_wall_dist);
+}
+
+void	dda(t_game *game, t_ray *ray)
+{
+	while (ray->hit == 0)
+	{
+		if (ray->side_dist.x < ray->side_dist.y)
+		{
+			ray->side_dist.x += ray->delta.x;
+			ray->map.x += ray->step.x;
+			ray->side = 0;
+		}
+		else
+		{
+			ray->side_dist.y += ray->delta.y;
+			ray->map.y += ray->step.y;
+			ray->side = 1;
+		}
+		if (game->map.map[ray->map.y][ray->map.x] > 0)
+			ray->hit = 1;
+	}
+	set_textures(game, ray);
 }
 
 void	raycaster(t_game *game)
