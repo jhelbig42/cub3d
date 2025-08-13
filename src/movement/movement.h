@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:54:55 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/04 15:30:35 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 13:34:56 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@
 # include "../utils/utils.h"
 
 void		move_player(t_game *game);
+void		rotate(t_game *game, int angle);
 
 //movement_utils.c
 bool		empty_field(t_map map, t_vector_d pos);
 t_vector_d	rotate_vector(double x, double y, double angle);
+
+//movement_y.c
+void		move_horizont(t_game *game);
+void		start_jump(t_game *game);
+void		jumping(t_game *game);
 #endif

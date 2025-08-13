@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/12 11:18:36 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/12 14:43:29 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJ_DIR = build
 INC_DIR = includes
 
 CFILES		:=
-vpath %.c $(SRC_FOLDER)
+vpath %.c $(SRC_DIR)
 CFILES += main.cpp
 
 SRC		:=
@@ -25,9 +25,13 @@ SRC += $(SRC_DIR)/main.c
 
 SRC += $(SRC_DIR)/events/destroy.c
 SRC += $(SRC_DIR)/events/keypress.c
+SRC += $(SRC_DIR)/events/mousemove.c
+
+SRC += $(SRC_DIR)/init/init.c
 
 SRC += $(SRC_DIR)/movement/movement.c
 SRC += $(SRC_DIR)/movement/movement_utils.c
+SRC += $(SRC_DIR)/movement/movement_y.c
 
 SRC += $(SRC_DIR)/parser/parser.c
 SRC += $(SRC_DIR)/parser/find_colors.c 
@@ -36,26 +40,30 @@ SRC += $(SRC_DIR)/parser/map_arr.c
 SRC += $(SRC_DIR)/parser/utils.c
 SRC += $(SRC_DIR)/parser/floodfill.c
 
+SRC += $(SRC_DIR)/raycaster/raycaster.c
+
+SRC += $(SRC_DIR)/render/create_graphics.c
+SRC += $(SRC_DIR)/render/draw_wall.c
+SRC += $(SRC_DIR)/render/minimap.c
+SRC += $(SRC_DIR)/render/mouse.c
+SRC += $(SRC_DIR)/render/render.c
+
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 
 SRC += $(SRC_DIR)/utils/utils.c
 
-SRC += $(SRC_DIR)/init/init.c
-
-SRC += $(SRC_DIR)/raycaster/raycaster.c
-
-SRC += $(SRC_DIR)/render/render.c
-SRC += $(SRC_DIR)/render/create_graphics.c
-SRC += $(SRC_DIR)/render/draw_wall.c
-SRC += $(SRC_DIR)/render/minimap.c
-
 OBJ := $(patsubst src/%.c, build/%.o, $(SRC))
 
 HEADERS = $(SRC_DIR)/$(INC_DIR)/cube.h 
-HEADERS = $(SRC_DIR)/$(INC_DIR)/CONSTANTS.h 
-HEADERS = $(SRC_DIR)/$(INC_DIR)/structs.h
-HEADERS = $(SRC_DIR)/init/init.h 
-HEADERS = $(SRC_DIR)/parser/parser.h 
+HEADERS += $(SRC_DIR)/$(INC_DIR)/CONSTANTS.h 
+HEADERS += $(SRC_DIR)/$(INC_DIR)/structs.h
+HEADERS += $(SRC_DIR)/events/events.h 
+HEADERS += $(SRC_DIR)/init/init.h 
+HEADERS += $(SRC_DIR)/movement/movement.h 
+HEADERS += $(SRC_DIR)/parser/parser.h 
+HEADERS += $(SRC_DIR)/raycaster/raycaster.h 
+HEADERS += $(SRC_DIR)/render/render.h 
+HEADERS += $(SRC_DIR)/utils/utils.h 
 
 LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
@@ -69,6 +77,8 @@ CFLAGS = -g -Wall -Wextra -Werror
 MAKEALL = make all
 MAKECLEAN = make clean
 MAKEFCLEAN = make fclean
+
+DEFAULT_MAP = maps/subjectN.cub
 
 all: $(NAME)
 
@@ -84,13 +94,13 @@ ${LIBFT_A}:
 	$(MAKEALL) -C $(LIBFT_DIR)
 	
 debug: $(NAME)
-	gdb --args ./cub3d maps/subjectW.cub
+	gdb --args ./cub3d $(DEFAULT_MAP)
 
 run: $(NAME)
-	./cub3d maps/subjectW.cub
+	./cub3d $(DEFAULT_MAP)
 
 val_test: $(NAME)
-	valgrind --leak-check=full --track-fds=yes ./$(NAME) maps/subjectW.cub
+	valgrind --leak-check=full --track-fds=yes ./$(NAME) $(DEFAULT_MAP)
 
 clean: 
 	$(MAKECLEAN) -C $(LIBFT_DIR)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/07/31 16:33:38 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/12 14:50:03 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,38 +60,61 @@ t_ray	get_delta_step_dist(t_ray ray, t_player p)
 // DDA - Digital Differential Analysis
 // Jump one square further until hit a target
 // return wall height
-int	dda(t_game *game, t_ray ray)
+
+void	set_textures(t_game *game, t_ray *ray)
 {
 	double	perp_wall_dist;
 
-	while (ray.hit == 0)
+	if (ray->side == 0)
 	{
-		if (ray.side_dist.x < ray.side_dist.y)
+		if (game->player.pos.x > ray->map.x)
+			ray->tex = &game->west;
+		else
+			ray->tex = &game->east;
+		perp_wall_dist = (ray->side_dist.x - ray->delta.x);
+		ray->wall_x = game->player.pos.y + perp_wall_dist * ray->dir.y;
+	}
+	else
+	{
+		if (game->player.pos.y > ray->map.y)
+			ray->tex = &game->south;
+		else
+			ray->tex = &game->north;
+		perp_wall_dist = (ray->side_dist.y - ray->delta.y);
+		ray->wall_x = game->player.pos.x + perp_wall_dist * ray->dir.x;
+	}
+	if (ray->tex == &game->north || ray->tex == &game->west)
+		ray->wall_x = ray->wall_x - floor(ray->wall_x);
+	else
+		ray->wall_x = fabs(1 - (ray->wall_x - floor(ray->wall_x)));
+	ray->wall_height = (int)(SCREEN_HEIGHT / perp_wall_dist);
+}
+
+void	dda(t_game *game, t_ray *ray)
+{
+	while (ray->hit == 0)
+	{
+		if (ray->side_dist.x < ray->side_dist.y)
 		{
-			ray.side_dist.x += ray.delta.x;
-			ray.map.x += ray.step.x;
-			ray.side = 0;
+			ray->side_dist.x += ray->delta.x;
+			ray->map.x += ray->step.x;
+			ray->side = 0;
 		}
 		else
 		{
-			ray.side_dist.y += ray.delta.y;
-			ray.map.y += ray.step.y;
-			ray.side = 1;
+			ray->side_dist.y += ray->delta.y;
+			ray->map.y += ray->step.y;
+			ray->side = 1;
 		}
-		if (game->map.map[ray.map.y][ray.map.x] > 0)
-			ray.hit = 1;
+		if (game->map.map[ray->map.y][ray->map.x] > 0)
+			ray->hit = 1;
 	}
-	if (ray.side == 0)
-		perp_wall_dist = (ray.side_dist.x - ray.delta.x);
-	else
-		perp_wall_dist = (ray.side_dist.y - ray.delta.y);
-	return ((int)(SCREEN_HEIGHT / perp_wall_dist));
+	set_textures(game, ray);
 }
 
 void	raycaster(t_game *game)
 {
 	int			x;
-	int			height;
 	t_ray		ray;
 	t_player	p;
 
@@ -101,7 +124,7 @@ void	raycaster(t_game *game)
 	{
 		ray = init_ray(p, x);
 		ray = get_delta_step_dist(ray, p);
-		height = dda(game, ray);
-		draw_wall_x(game, x, height);
+		dda(game, &ray);
+		draw_wall_x(game, ray, x);
 	}
 }
