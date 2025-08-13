@@ -74,7 +74,7 @@ all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O0 -c $< -o $@
 
 $(NAME): $(OBJ) $(HEADERS) $(LIBFT_A)
 	$(MAKEALL) -C $(MINILIBX_DIR)

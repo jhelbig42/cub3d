@@ -17,8 +17,8 @@ void	draw_wall_x(t_game *game, int x, int wall_height)
 	int	y;
 	int	top;
 
-	y = game->horizont - wall_height / 2;
+	y = game->horizont - wall_height / 2 - 1;
 	top = game->horizont + wall_height / 2;
 	while (y++ < top)
-		pixel_put(&game->img, x + 1, y, C_NEON_BLUE);
+		pixel_put(&game->img, x, y, C_NEON_BLUE);
 }
