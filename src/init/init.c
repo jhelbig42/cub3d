@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 14:30:36 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/13 11:23:10 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ void	tex_init(t_game *game)
 			&game->south.width, &game->south.height);
 	game->south.addr = mlx_get_data_addr(game->south.img, &game->south.bpp,
 			&game->south.size_line, &game->south.endian);
+	if (game->door.path != NULL)
+	{
+		game->door.img = mlx_xpm_file_to_image(game->mlx_ptr, game->door.path,
+				&game->door.width, &game->door.height);
+		game->door.addr = mlx_get_data_addr(game->door.img, &game->door.bpp,
+				&game->door.size_line, &game->door.endian);
+	}
 }
 
 static void	player_init(t_game *game)
@@ -81,6 +88,7 @@ bool	game_init(t_game *game, char *map_name)
 	game->south.path = NULL;
 	game->west.path = NULL;
 	game->east.path = NULL;
+	game->door.path = NULL;
 	if (!parse_map(game, map_name))
 		return (false);
 	if (!mlx_win_img_init(game))
