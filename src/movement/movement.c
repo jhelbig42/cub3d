@@ -65,6 +65,7 @@ static void	rotate(t_game *game)
 			deg_to_rad(ROT_ANGLE * dir));
 	p->dir.x = new_dir.x;
 	p->dir.y = new_dir.y;
+	printf("DIR: %f/%f\n", new_dir.x, new_dir.y);
 	new_dir = rotate_vector(p->plane.x, p->plane.y,
 			deg_to_rad(ROT_ANGLE * dir));
 	p->plane.x = new_dir.x;

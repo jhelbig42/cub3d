@@ -12,6 +12,7 @@
 
 #include "render.h"
 #define MM_ZOOM 10
+#define MM_VIEW_CONE 25
 
 static void	reset_minimap(t_game *game)
 {
@@ -52,7 +53,23 @@ static void	draw_wall_elmt(t_img img, int x, int y)
 	}
 }
 
-void	draw_player(t_img img)
+static void	draw_view_cone(t_game *game, t_vector_i center)
+{
+	int			i;
+	t_vector_d	next_pixel;
+
+	i = -1;
+	next_pixel.x = center.x;
+	next_pixel.y = center.y;
+	while (++i < MM_VIEW_CONE)
+	{
+		next_pixel.x += game->player.dir.x;
+		next_pixel.y -= game->player.dir.y;
+		pixel_put(&game->img, (int)next_pixel.x, (int)next_pixel.y , C_NEON_YELLOW);
+	}
+}
+
+void	draw_player(t_game *game)
 {
 	t_vector_i	mm_tl;
 	int			i;
@@ -66,12 +83,13 @@ void	draw_player(t_img img)
 	{
 		while (i < 5)
 		{
-			pixel_put(&img, mm_tl.x + i, mm_tl.y + j, C_NEON_YELLOW);
+			pixel_put(&game->img, mm_tl.x + i, mm_tl.y + j, C_NEON_YELLOW);
 			i++;
 		}
 		j++;
 		i = 0;
 	}
+	draw_view_cone(game, mm_tl);
 }
 
 void	draw_minimap(t_game *game)
@@ -107,5 +125,5 @@ void	draw_minimap(t_game *game)
 		x = 0;
 		mm_pos.x = p_pos.x - mm_dim.x / 2;
 	}
-	draw_player(game->img);
+	draw_player(game);
 }
