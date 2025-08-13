@@ -89,6 +89,8 @@ void	draw_player(t_game *game)
 		j++;
 		i = 0;
 	}
+	mm_tl.x += 2;
+	mm_tl.y += 2;
 	draw_view_cone(game, mm_tl);
 }
 
