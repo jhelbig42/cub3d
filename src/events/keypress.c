@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 14:27:44 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/13 15:51:53 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ static void	on_keypress_special(int key, t_game *game)
 
 int	on_keypress(int key, t_game *game)
 {
-	//printf("KEY: %d\n", key);
 	if (key <= 122)
 		on_keypress_ascii(key, game);
 	else
