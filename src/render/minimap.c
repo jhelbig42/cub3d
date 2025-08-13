@@ -56,15 +56,22 @@ static void	draw_wall_elmt(t_img img, int x, int y)
 static void	draw_view_cone(t_game *game, t_vector_i center)
 {
 	int			i;
+	int			j;
 	t_vector_d	next_pixel;
 
 	i = -1;
-	next_pixel.x = center.x;
-	next_pixel.y = center.y;
-	while (++i < MM_VIEW_CONE)
+	j = -MM_VIEW_CONE / 2;
+	while (++j < MM_VIEW_CONE / 2)
 	{
-		next_pixel.x += game->player.dir.x;
-		next_pixel.y -= game->player.dir.y;
+		next_pixel.x = center.x + game->player.plane.x * j;
+		next_pixel.y = center.y - game->player.plane.y * j;
+		while (++i < MM_VIEW_CONE)
+		{
+			next_pixel.x += game->player.dir.x;
+			next_pixel.y -= game->player.dir.y;
+			pixel_put(&game->img, (int)next_pixel.x, (int)next_pixel.y , C_NEON_YELLOW);
+		}
+		i = -1;
 		pixel_put(&game->img, (int)next_pixel.x, (int)next_pixel.y , C_NEON_YELLOW);
 	}
 }
