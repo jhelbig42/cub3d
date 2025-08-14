@@ -12,27 +12,35 @@
 
 #include "utils.h"
 
-double	deg_to_rad(int angle)
+double deg_to_rad(int angle)
 {
-	return ((angle) * M_PI / 180.0);
+	return ((angle)*M_PI / 180.0);
 }
 
-long	get_mills(void)
+long get_mills(void)
 {
-	struct timeval	tv;
-	long			mills;
+	struct timeval tv;
+	long		   mills;
 
 	gettimeofday(&tv, NULL);
 	mills = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 	return (mills);
 }
 
-float	map(int range, int t_min, int t_max, float val)
+float map(int range, int t_min, int t_max, float val)
 {
-	float	perc;
-	float	abs;
+	float perc;
+	float abs;
 
-	abs = t_max - t_min;
+	abs	 = t_max - t_min;
 	perc = val / abs;
 	return (range * perc);
+}
+
+int iabs(int val)
+{
+	if (val >= 0)
+		return (val);
+	else
+		return (-val);
 }
