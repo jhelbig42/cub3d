@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 14:26:20 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/14 13:59:52 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "../includes/CONSTANTS.h"
 #include "../includes/structs.h"
+#include "../minimap/minimap.h"
 #include "../movement/movement.h"
 #include "../raycaster/raycaster.h"
 
@@ -46,8 +47,5 @@ void draw_wall_x(t_game *game, t_ray ray, int x);
 
 // mouse.c
 void apply_mouse(t_game *game);
-
-// minimap.c
-void draw_minimap(t_game *game);
 
 #endif

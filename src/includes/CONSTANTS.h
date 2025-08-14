@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 14:25:54 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/14 14:00:12 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@
 #define MM_WIDTH 200
 #define MM_HEIGHT 150
 #define MM_MARGIN 10
+#define MM_ZOOM 10
+#define MM_VIEW_CONE 40
 
 #endif
