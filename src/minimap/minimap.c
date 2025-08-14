@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:05:16 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/14 14:02:55 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/14 16:42:38 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,27 @@
 
 static int init_minimap(t_mmap *mm, t_game *game)
 {
-	int i = 0;
+	int i = -1;
 
 	mm->map_dim.x = MM_WIDTH / MM_ZOOM;
 	mm->map_dim.y = MM_HEIGHT / MM_ZOOM;
 	mm->p_pos.x	  = (int)game->player.pos.x;
 	mm->p_pos.y	  = (int)game->player.pos.y;
-	mm->tl.x	  = MM_MARGIN + MM_WIDTH / 2 + 3;
-	mm->tl.y	  = SCREEN_HEIGHT - MM_MARGIN - MM_HEIGHT / 2 - 3;
+	mm->tl.x	  = MM_MARGIN;
+	mm->tl.y	  = SCREEN_HEIGHT - MM_MARGIN - MM_HEIGHT;
+	mm->center.x  = mm->tl.x + MM_WIDTH / 2 + 3;
+	mm->center.y  = SCREEN_HEIGHT - MM_MARGIN - MM_HEIGHT / 2 - 3;
 
 	mm->map = malloc(MM_HEIGHT * sizeof(int *));
 	if (!mm->map)
 		return (1);
-	while (i++ < MM_HEIGHT)
+	while (++i < MM_HEIGHT)
 	{
 		mm->map[i] = malloc(MM_WIDTH * sizeof(int));
 		if (!mm->map[i])
 		{
 			i = 0;
-			while (mm->map[i++])
+			while (mm->map[i])
 				free(mm->map[i++]);
 			free(mm->map);
 			return (1);
@@ -44,19 +46,13 @@ static int init_minimap(t_mmap *mm, t_game *game)
 
 static void reset_minimap(t_game *game, t_mmap mm)
 {
-	int x;
-	int y;
-
-	x = MM_MARGIN - 1;
-	y = MM_MARGIN;
-	while (y++ < MM_MARGIN + MM_HEIGHT)
+	for (int y = 0; y < MM_HEIGHT; y++)
 	{
-		while (x++ < MM_MARGIN + MM_WIDTH)
+		for (int x = 0; x < MM_WIDTH; x++)
 		{
-			mm.map[y - MM_MARGIN][x - MM_MARGIN + 1] = 0;
-			pixel_put(&game->img, x, SCREEN_HEIGHT - y, 0);
+			mm.map[y][x] = 0x555555;
+			pixel_put(&game->img, MM_MARGIN + x, SCREEN_HEIGHT - (MM_MARGIN + y), 0);
 		}
-		x = MM_MARGIN - 1;
 	}
 }
 
@@ -82,23 +78,28 @@ static void draw_wall_elmt(t_img img, int x, int y)
 	}
 }
 
-static void mm_wall_elmt(int x, int y, t_mmap mm)
+static void mm_wall_elmt(int cell_x, int cell_y, t_mmap mm)
 {
-	t_vector_i map_coord;
-	int		   i;
-	int		   j;
+	int i;
+	int j;
+	int pix_x;
+	int pix_y;
 
-	i = map_coord.x - MM_MARGIN;
-	j = map_coord.y - MM_MARGIN;
-	while (j > map_coord.y - MM_ZOOM)
+	j = 0;
+
+	pix_x = cell_x * MM_ZOOM + MM_ZOOM;
+	pix_y = cell_y * MM_ZOOM;
+	while (j < MM_ZOOM)
 	{
-		while (i < map_coord.x + MM_ZOOM)
+		i = 0;
+		while (i < MM_ZOOM)
 		{
-			mm.map[y + i][x + i] = C_NEON_VIOLET;
+			if (pix_x + i >= 0 && pix_x + i <= MM_WIDTH && pix_y + j >= 0 && pix_y + j <= MM_HEIGHT)
+				;
+			mm.map[pix_y + j][pix_x - i] = C_NEON_VIOLET;
 			i++;
 		}
-		j--;
-		i = map_coord.x - MM_MARGIN;
+		j++;
 	}
 }
 
@@ -119,7 +120,7 @@ static void create_minimap(t_game *game, t_mmap mm)
 			if (map_pos.x >= 0 && map_pos.x < game->map.width && map_pos.y >= 0 && map_pos.y < game->map.height && game->map.map[map_pos.y][map_pos.x])
 			{
 				draw_wall_elmt(game->img, x, mm.map_dim.y - y);
-				mm_wall_elmt(x, mm.map_dim.y - y, mm);
+				mm_wall_elmt(x, y, mm);
 			}
 			x++;
 			map_pos.x++;

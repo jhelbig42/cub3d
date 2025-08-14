@@ -23,6 +23,7 @@ typedef struct s_mmap
 	t_vector_i p_pos;
 	t_vector_i map_dim;
 	t_vector_i tl;
+	t_vector_i center;
 	int		 **map;
 } t_mmap;
 
