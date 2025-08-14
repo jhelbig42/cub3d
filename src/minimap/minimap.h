@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 13:57:08 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/14 13:57:08 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/14 17:08:24 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void draw_minimap(t_game *game);
 
 // minimap_player.c
 void draw_player(t_game *game, t_mmap mm);
+void mm_add_wall_elmt(int cell_x, int cell_y, t_mmap mm);
+void draw_wall_elmt(t_img img, int x, int y);
 
 #endif
