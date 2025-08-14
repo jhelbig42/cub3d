@@ -11,23 +11,24 @@
 /* ************************************************************************** */
 
 #ifndef UTILS_H
-# define UTILS_H
+#define UTILS_H
 
-# include "../includes/CONSTANTS.h"
-# include "../includes/structs.h"
-# include <math.h>
+#include "../includes/CONSTANTS.h"
+#include "../includes/structs.h"
+#include <math.h>
 
 // utils.c
 double	deg_to_rad(int angle);
-int64_t	get_mills(void);
+int64_t get_mills(void);
 float	map(int range, int t_min, int t_max, float val);
+int		iabs(int val);
 
 // error.c
-void	p_err(char *msg);
+void p_err(char *msg);
 
 // free.c
-void	free_str_arr(char **str_arr);
-void	free_int_arr(int **int_arr, int index);
-void	free_paths(t_game *game);
+void free_str_arr(char **str_arr);
+void free_int_arr(int **int_arr, int index);
+void free_paths(t_game *game);
 
 #endif

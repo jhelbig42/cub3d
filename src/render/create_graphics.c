@@ -79,16 +79,18 @@ void	gen_noise(t_game *game)
 	{
 		if (++x >= SCREEN_WIDTH && ++y > -2)
 			x = 0;
-		if (y <= game->horizont + game->player.jump_offset)
-			col = get_grad_col(
-					y, game->horizont + game->player.jump_offset,
-					C_NEON_VIOLET, 0x0); 
-		else
-			col = get_grad_col(
-					game->horizont + game->player.jump_offset, y,
-					C_NEON_YELLOW, 0x0); 
 		if (random() * 1 > RAND_MAX / 1.15)
+		{
+			if (y <= game->horizont + game->player.jump_offset)
+				col = get_grad_col(
+						y, game->horizont + game->player.jump_offset,
+						C_NEON_VIOLET, 0x0); 
+			else
+				col = get_grad_col(
+						game->horizont + game->player.jump_offset, y,
+						C_NEON_YELLOW, 0x0); 
 			pixel_put(&game->img, x, y, col);
+		}
 	}
 }
 

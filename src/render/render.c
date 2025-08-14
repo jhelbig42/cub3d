@@ -12,8 +12,6 @@
 
 #include "render.h"
 
-bool	first_frame = true;
-
 bool	next_frame(t_game *game)
 {
 	int64_t	mills;
@@ -61,6 +59,7 @@ int	render_frames(t_game *game)
 		move_player(game);
 		if (game->use_mouse)
 			apply_mouse(game);
+		draw_minimap(game);
 	}
 	return (0);
 }
