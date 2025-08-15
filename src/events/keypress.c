@@ -37,6 +37,8 @@ static void	on_keypress_ascii(int key, t_game *game)
 			start_jump(game);
 	if (key == O)
 		open_door(game);
+	if (key == C)
+		close_door(game);
 }
 
 static void	on_keypress_special(int key, t_game *game)

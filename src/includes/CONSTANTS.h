@@ -56,6 +56,7 @@
 # define K 107
 # define X 120
 # define O 111
+# define C 99
 
 // colors
 # define C_NEON_VIOLET 0xFFAB20FD

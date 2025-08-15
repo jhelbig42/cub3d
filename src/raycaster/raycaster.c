@@ -110,7 +110,7 @@ void	dda(t_game *game, t_ray *ray)
 			ray->map.y += ray->step.y;
 			ray->side = 1;
 		}
-		if (game->map.map[ray->map.y][ray->map.x] > 0)
+		if (game->map.map[ray->map.y][ray->map.x] > 0 && game->map.map[ray->map.y][ray->map.x] < 3)
 			ray->hit = 1;
 	}
 	set_textures(game, ray);

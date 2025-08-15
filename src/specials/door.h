@@ -6,5 +6,6 @@
 # include "../includes/structs.h"
 
 void	open_door(t_game *game);
+void	close_door(t_game *game);
 
 #endif
