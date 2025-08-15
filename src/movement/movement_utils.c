@@ -14,7 +14,7 @@
 
 bool	empty_field(t_map map, t_vector_d pos)
 {
-	if (map.map[(int)pos.y][(int)pos.x])
+	if (map.map[(int)pos.y][(int)pos.x] == 1 || map.map[(int)pos.y][(int)pos.x] == 2)
 		return (false);
 	return (true);
 }

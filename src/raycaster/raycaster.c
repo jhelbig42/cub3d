@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 14:50:03 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/13 12:05:05 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ void	set_textures(t_game *game, t_ray *ray)
 
 	if (ray->side == 0)
 	{
-		if (game->player.pos.x > ray->map.x)
+		if (game->map.map[ray->map.y][ray->map.x] == 2)
+			ray->tex = &game->door;
+		else if (game->player.pos.x > ray->map.x)
 			ray->tex = &game->west;
 		else
 			ray->tex = &game->east;
@@ -76,7 +78,9 @@ void	set_textures(t_game *game, t_ray *ray)
 	}
 	else
 	{
-		if (game->player.pos.y > ray->map.y)
+		if (game->map.map[ray->map.y][ray->map.x] == 2)
+			ray->tex = &game->door;
+		else if (game->player.pos.y > ray->map.y)
 			ray->tex = &game->south;
 		else
 			ray->tex = &game->north;
@@ -106,7 +110,7 @@ void	dda(t_game *game, t_ray *ray)
 			ray->map.y += ray->step.y;
 			ray->side = 1;
 		}
-		if (game->map.map[ray->map.y][ray->map.x] > 0)
+		if (game->map.map[ray->map.y][ray->map.x] > 0 && game->map.map[ray->map.y][ray->map.x] < 3)
 			ray->hit = 1;
 	}
 	set_textures(game, ray);

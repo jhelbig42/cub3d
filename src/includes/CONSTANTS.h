@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 14:25:54 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/13 12:10:06 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@
 # define I 105
 # define K 107
 # define X 120
+# define O 111
+# define C 99
 
 // colors
 # define C_NEON_VIOLET 0xFFAB20FD
