@@ -12,6 +12,15 @@
 
 #include "events.h"
 
+static void	change_display(t_game *game)
+{
+	if (game->displays == 0)
+		game->displays = 1;
+	if (game->displays == 1)
+		game->displays = 0;
+	
+}
+
 static void	on_keypress_ascii(int key, t_game *game)
 {
 	if (key == W)
@@ -35,6 +44,8 @@ static void	on_keypress_ascii(int key, t_game *game)
 	if (key == SPACE)
 		if (!game->player.jumping)
 			start_jump(game);
+	if (key == K)
+		change_display(game);
 }
 
 static void	on_keypress_special(int key, t_game *game)

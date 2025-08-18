@@ -34,6 +34,10 @@ void	tex_init(t_game *game)
 			&game->keys0.width, &game->keys0.height);
 	game->keys0.addr = mlx_get_data_addr(game->keys0.img, &game->keys0.bpp,
 			&game->keys0.size_line, &game->keys0.endian);
+	game->keys1.img = mlx_xpm_file_to_image(game->mlx_ptr, "./displays/keys1.xpm",
+			&game->keys1.width, &game->keys1.height);
+	game->keys1.addr = mlx_get_data_addr(game->keys1.img, &game->keys1.bpp,
+			&game->keys1.size_line, &game->keys1.endian);
 }
 
 static void	player_init(t_game *game)
@@ -85,6 +89,7 @@ bool	game_init(t_game *game, char *map_name)
 	game->south.path = NULL;
 	game->west.path = NULL;
 	game->east.path = NULL;
+	game->displays = 0;
 	if (!parse_map(game, map_name))
 		return (false);
 	if (!mlx_win_img_init(game))
