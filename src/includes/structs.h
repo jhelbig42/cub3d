@@ -103,6 +103,8 @@ typedef struct s_game
 	t_tex		south;
 	t_tex		west;
 	t_tex		east;
+	t_tex		keys0;
+	t_tex		keys1;
 	bool		use_mouse;
 }	t_game;
 

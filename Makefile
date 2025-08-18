@@ -46,6 +46,7 @@ SRC += $(SRC_DIR)/render/create_graphics.c
 SRC += $(SRC_DIR)/render/draw_wall.c
 SRC += $(SRC_DIR)/render/mouse.c
 SRC += $(SRC_DIR)/render/render.c
+SRC += $(SRC_DIR)/render/displays.c
 
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 

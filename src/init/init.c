@@ -30,6 +30,10 @@ void	tex_init(t_game *game)
 			&game->south.width, &game->south.height);
 	game->south.addr = mlx_get_data_addr(game->south.img, &game->south.bpp,
 			&game->south.size_line, &game->south.endian);
+	game->keys0.img = mlx_xpm_file_to_image(game->mlx_ptr, "./displays/keys0.xpm",
+			&game->keys0.width, &game->keys0.height);
+	game->keys0.addr = mlx_get_data_addr(game->keys0.img, &game->keys0.bpp,
+			&game->keys0.size_line, &game->keys0.endian);
 }
 
 static void	player_init(t_game *game)
