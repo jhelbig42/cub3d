@@ -48,6 +48,6 @@ void			draw_wall_x(t_game *game, t_ray ray, int x);
 void			apply_mouse(t_game *game);
 
 //display.c
-void			layer_display(t_img *dst, t_tex *display, int dst_x, int dst_y);
+void			layer_display(t_game *game);
 
 #endif

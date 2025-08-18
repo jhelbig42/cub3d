@@ -15,12 +15,12 @@ void	pixel_put_transparent(t_img *img, int x, int y, int color)
 	}
 }
 
-void    layer_display(t_img *dst, t_tex *display, int dst_x, int dst_y)
+void    put_display(t_img *dst, t_tex *display, int dst_x, int dst_y)
 {
-    int x;
-	int y;
-    int color;
-    char *pixel;
+    int		x;
+	int 	y;
+    int		color;
+    char	*pixel;
 
 	y = 0;
 
@@ -38,4 +38,14 @@ void    layer_display(t_img *dst, t_tex *display, int dst_x, int dst_y)
 		}
 		y++;
     }
+}
+
+void	layer_display(t_game *game)
+{
+	//printf("%d\n", game->displays);
+	if (game->displays == 0)
+		put_display(&game->img, &game->keys0, 750, 500);
+	else if (game->displays == 1)
+		put_display(&game->img, &game->keys1, 300, 450);
+	
 }

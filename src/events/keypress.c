@@ -16,9 +16,8 @@ static void	change_display(t_game *game)
 {
 	if (game->displays == 0)
 		game->displays = 1;
-	if (game->displays == 1)
+	else if (game->displays == 1)
 		game->displays = 0;
-	
 }
 
 static void	on_keypress_ascii(int key, t_game *game)
@@ -44,7 +43,7 @@ static void	on_keypress_ascii(int key, t_game *game)
 	if (key == SPACE)
 		if (!game->player.jumping)
 			start_jump(game);
-	if (key == K)
+	if (key == L)
 		change_display(game);
 }
 
@@ -64,6 +63,7 @@ static void	on_keypress_special(int key, t_game *game)
 
 int	on_keypress(int key, t_game *game)
 {
+	//printf("%d\n", key);
 	if (key <= 122)
 		on_keypress_ascii(key, game);
 	else
