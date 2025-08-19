@@ -98,7 +98,7 @@ bool	map_into_game(t_game *game, char **map)
 		game->map.map[game->map.height - 1 - i] = (int *)malloc(sizeof(int) * game->map.width);
 		if (!game->map.map[game->map.height - 1 - i])
 			return (p_err("malloc error map int[i] arr"),
-				free_int_arr(game->map.map, i), false);
+				free_int_arr(game->map.map, i, game->map.height), false);
 		len = ft_strlen(map[i]);
 		j = 0;
 		while (j < game->map.width)

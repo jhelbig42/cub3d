@@ -23,6 +23,6 @@ int	on_destroy(t_game *game)
 	mlx_destroy_display(game->mlx_ptr);
 	free(game->mlx_ptr);
 	free_paths(game);
-	free_int_arr(game->map.map, game->map.height);
+	free_int_arr(game->map.map, game->map.height, game->map.height);
 	exit(0);
 }
