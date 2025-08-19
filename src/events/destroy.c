@@ -20,6 +20,8 @@ int	on_destroy(t_game *game)
 	mlx_destroy_image(game->mlx_ptr, game->south.img);
 	mlx_destroy_image(game->mlx_ptr, game->east.img);
 	mlx_destroy_image(game->mlx_ptr, game->west.img);
+	mlx_destroy_image(game->mlx_ptr, game->keys0.img);
+	mlx_destroy_image(game->mlx_ptr, game->keys1.img);
 	mlx_destroy_display(game->mlx_ptr);
 	free(game->mlx_ptr);
 	free_paths(game);
