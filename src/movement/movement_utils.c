@@ -12,10 +12,18 @@
 
 #include "movement.h"
 
+// \a is the system bell - could produce a beep sound
 bool	empty_field(t_map map, t_vector_d pos)
 {
 	if (map.map[(int)pos.y][(int)pos.x] == 1 || map.map[(int)pos.y][(int)pos.x] == 2)
 		return (false);
+	return (true);
+}
+
+bool	empty_field_with_sound(t_map map, t_vector_d pos)
+{
+	if (map.map[(int)pos.y][(int)pos.x])
+		return (system("paplay /usr/share/sounds/freedesktop/stereo/bell.oga"), false);
 	return (true);
 }
 
