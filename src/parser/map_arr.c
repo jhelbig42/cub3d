@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/13 11:21:25 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:25:25 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 				if (*pos != 'X')
 					return (p_err("more that 1 player given in map"),
 						free_paths(game), false);
-				*pos = map[*i][j]; // default is X, if player found it is a orientation char
+				*pos = map[*i][j];
 				game->player.pos.y = *i;
 				game->player.pos.x = j;
 			}

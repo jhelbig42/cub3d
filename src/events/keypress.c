@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 10:15:35 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:24:53 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	on_keyrelease(int key, t_game *game)
 		game->player.walking = 0;
 	if (key == A || key == D)
 		game->player.strafing = 0;
-	if (key == I || key == K || key == UP || key == DOWN )
+	if (key == I || key == K || key == UP || key == DOWN)
 		game->player.nodding = 0;
 	return (0);
 }
