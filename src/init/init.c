@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 14:30:23 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 14:48:44 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,6 @@ static void	player_init(t_game *game)
 	game->player.jump_velo = 0;
 }
 
-static void	map_init(t_game *game)
-{
-	game->map.width = 0;
-	game->map.height = 0;
-}
-
 static bool	mlx_win_img_init(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
@@ -85,10 +79,10 @@ static bool	mlx_win_img_init(t_game *game)
 	return (true);
 }
 
-bool	game_init(t_game *game, char *map_name)
+static void	easy_init(t_game *game)
 {
-	map_init(game);
-	player_init(game);
+	game->map.width = 0;
+	game->map.height = 0;
 	game->width = SCREEN_WIDTH;
 	game->height = SCREEN_HEIGHT;
 	game->horizont = SCREEN_HEIGHT * .5;
@@ -107,6 +101,12 @@ bool	game_init(t_game *game, char *map_name)
 	game->east.path = NULL;
 	game->door.path = NULL;
 	game->displays = 0;
+}
+
+bool	game_init(t_game *game, char *map_name)
+{
+	player_init(game);
+	easy_init(game);
 	if (!parse_map(game, map_name))
 		return (false);
 	if (!mlx_win_img_init(game))
