@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/13 11:23:10 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:16:43 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ void	tex_init(t_game *game)
 		game->door.addr = mlx_get_data_addr(game->door.img, &game->door.bpp,
 				&game->door.size_line, &game->door.endian);
 	}
+	game->keys0.img = mlx_xpm_file_to_image(game->mlx_ptr, "./displays/keys0.xpm",
+			&game->keys0.width, &game->keys0.height);
+	game->keys0.addr = mlx_get_data_addr(game->keys0.img, &game->keys0.bpp,
+			&game->keys0.size_line, &game->keys0.endian);
+	game->keys1.img = mlx_xpm_file_to_image(game->mlx_ptr, "./displays/keys1.xpm",
+			&game->keys1.width, &game->keys1.height);
+	game->keys1.addr = mlx_get_data_addr(game->keys1.img, &game->keys1.bpp,
+			&game->keys1.size_line, &game->keys1.endian);
 }
 
 static void	player_init(t_game *game)
@@ -89,6 +97,7 @@ bool	game_init(t_game *game, char *map_name)
 	game->west.path = NULL;
 	game->east.path = NULL;
 	game->door.path = NULL;
+	game->displays = 0;
 	if (!parse_map(game, map_name))
 		return (false);
 	if (!mlx_win_img_init(game))
