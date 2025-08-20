@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:05:16 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 11:56:57 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 12:25:00 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ static void	reset_minimap(t_game *game, t_mmap mm)
 	int	x;
 	int	y;
 
-	x = 0;
 	y = 0;
 	while (y < MM_HEIGHT)
 	{
+		x = 0;
 		while (x < MM_WIDTH)
 		{
 			mm.map[y][x] = C_MM_SHAD;
