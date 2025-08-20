@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/14 14:29:36 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/20 14:07:53 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRC += $(SRC_DIR)/parser/parser.c
 SRC += $(SRC_DIR)/parser/find_colors.c 
 SRC += $(SRC_DIR)/parser/find_paths.c
 SRC += $(SRC_DIR)/parser/map_arr.c
+SRC += $(SRC_DIR)/parser/map_arr_utils.c
 SRC += $(SRC_DIR)/parser/utils.c
 SRC += $(SRC_DIR)/parser/floodfill.c
 
