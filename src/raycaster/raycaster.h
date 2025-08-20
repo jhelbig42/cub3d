@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:48:18 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 10:43:57 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 15:09:13 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ typedef struct s_ray
 	double		wall_x;
 	t_tex		*tex;
 }	t_ray;
+
+//raycaster_utils.c
+void	decide_sn(t_game *game, t_ray *ray);
 
 #endif

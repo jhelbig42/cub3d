@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 11:47:59 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/13 12:05:05 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 15:08:51 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,6 @@ t_ray	get_delta_step_dist(t_ray ray, t_player p)
 	return (ray);
 }
 
-// DDA - Digital Differential Analysis
-// Jump one square further until hit a target
-// return wall height
-
 void	set_textures(t_game *game, t_ray *ray)
 {
 	double	perp_wall_dist;
@@ -78,12 +74,7 @@ void	set_textures(t_game *game, t_ray *ray)
 	}
 	else
 	{
-		if (game->map.map[ray->map.y][ray->map.x] == 2)
-			ray->tex = &game->door;
-		else if (game->player.pos.y > ray->map.y)
-			ray->tex = &game->south;
-		else
-			ray->tex = &game->north;
+		decide_sn(game, ray);
 		perp_wall_dist = (ray->side_dist.y - ray->delta.y);
 		ray->wall_x = game->player.pos.x + perp_wall_dist * ray->dir.x;
 	}
@@ -94,6 +85,9 @@ void	set_textures(t_game *game, t_ray *ray)
 	ray->wall_height = (int)(SCREEN_HEIGHT / perp_wall_dist);
 }
 
+// DDA - Digital Differential Analysis
+// Jump one square further until hit a target
+// return wall height
 void	dda(t_game *game, t_ray *ray)
 {
 	while (ray->hit == 0)
@@ -110,7 +104,8 @@ void	dda(t_game *game, t_ray *ray)
 			ray->map.y += ray->step.y;
 			ray->side = 1;
 		}
-		if (game->map.map[ray->map.y][ray->map.x] > 0 && game->map.map[ray->map.y][ray->map.x] < 3)
+		if (game->map.map[ray->map.y][ray->map.x] > 0 
+			&& game->map.map[ray->map.y][ray->map.x] < 3)
 			ray->hit = 1;
 	}
 	set_textures(game, ray);
