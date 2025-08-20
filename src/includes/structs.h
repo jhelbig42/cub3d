@@ -6,13 +6,13 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 10:14:39 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 14:17:31 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // structs.h
-/* 
-This file is reserved for all reused struct definitions. 
+/*
+This file is reserved for all reused struct definitions.
 It should not include anything but constants
 */
 
@@ -44,9 +44,9 @@ typedef struct s_vector_i
 
 typedef struct s_map
 {
-	int	width;
-	int	height;
-	int	**map;
+	int		width;
+	int		height;
+	int		**map;
 }	t_map;
 
 typedef struct s_rgb
