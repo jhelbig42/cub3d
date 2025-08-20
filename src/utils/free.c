@@ -25,14 +25,14 @@ void	free_str_arr(char **str_arr)
 	free(str_arr);
 }
 
-void	free_int_arr(int **int_arr, int index)
+void	free_int_arr(int **int_arr, int index, int map_height)
 {
 	int	i;
 
 	i = 0;
 	while (i < index)
 	{
-		free(int_arr[i]);
+		free(int_arr[map_height - 1 - i]);
 		i++;
 	}
 	free(int_arr);

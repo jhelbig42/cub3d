@@ -28,7 +28,7 @@ void	p_err(char *msg);
 
 // free.c
 void	free_str_arr(char **str_arr);
-void	free_int_arr(int **int_arr, int index);
+void	free_int_arr(int **int_arr, int index, int map_height);
 void	free_paths(t_game *game);
 
 #endif

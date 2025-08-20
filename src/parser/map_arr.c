@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/20 14:26:29 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 14:32:07 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static bool	alloc_map_rows(t_game *game)
 			= (int *)malloc(sizeof(int) * game->map.width);
 		if (!game->map.map[game->map.height - 1 - i])
 		{
-			free_int_arr(game->map.map, i);
+			free_int_arr(game->map.map, i, game->map.height);
 			return (p_err("malloc error map int[i] arr"), false);
 		}
 		i++;
