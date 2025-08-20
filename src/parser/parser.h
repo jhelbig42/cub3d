@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:01:16 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/07 10:13:06 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/20 14:10:08 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 
 //map_arr.c
 bool	map_str_arr_valid(t_game *game, char **map);
+
+//map_arr_utils.c
+bool	check_map_char(t_game *game, char **map, int *i, char *pos);
+void	set_start_pos(t_game *game, char pos);
 
 //find_colors.c
 bool	find_colors(t_game *game, char *line, char c);

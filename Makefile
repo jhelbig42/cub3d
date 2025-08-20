@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/12 14:43:29 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/08/20 14:24:42 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ SRC += $(SRC_DIR)/events/mousemove.c
 
 SRC += $(SRC_DIR)/init/init.c
 
+SRC += $(SRC_DIR)/minimap/minimap_player.c
+SRC += $(SRC_DIR)/minimap/minimap.c
+
 SRC += $(SRC_DIR)/movement/movement.c
 SRC += $(SRC_DIR)/movement/movement_utils.c
 SRC += $(SRC_DIR)/movement/movement_y.c
@@ -37,6 +40,7 @@ SRC += $(SRC_DIR)/parser/parser.c
 SRC += $(SRC_DIR)/parser/find_colors.c 
 SRC += $(SRC_DIR)/parser/find_paths.c
 SRC += $(SRC_DIR)/parser/map_arr.c
+SRC += $(SRC_DIR)/parser/map_arr_utils.c
 SRC += $(SRC_DIR)/parser/utils.c
 SRC += $(SRC_DIR)/parser/floodfill.c
 
@@ -46,11 +50,13 @@ SRC += $(SRC_DIR)/render/create_graphics.c
 SRC += $(SRC_DIR)/render/draw_wall.c
 SRC += $(SRC_DIR)/render/mouse.c
 SRC += $(SRC_DIR)/render/render.c
+SRC += $(SRC_DIR)/render/displays.c
+
+SRC += $(SRC_DIR)/specials/door.c
 
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 
 SRC += $(SRC_DIR)/utils/utils.c
-
 
 OBJ := $(patsubst src/%.c, build/%.o, $(SRC))
 
@@ -59,10 +65,12 @@ HEADERS += $(SRC_DIR)/$(INC_DIR)/CONSTANTS.h
 HEADERS += $(SRC_DIR)/$(INC_DIR)/structs.h
 HEADERS += $(SRC_DIR)/events/events.h 
 HEADERS += $(SRC_DIR)/init/init.h 
+HEADERS += $(SRC_DIR)/minimap/minimap.h 
 HEADERS += $(SRC_DIR)/movement/movement.h 
 HEADERS += $(SRC_DIR)/parser/parser.h 
 HEADERS += $(SRC_DIR)/raycaster/raycaster.h 
-HEADERS += $(SRC_DIR)/render/render.h 
+HEADERS += $(SRC_DIR)/render/render.h
+HEADERS += $(SRC_DIR)/specials/door.h
 HEADERS += $(SRC_DIR)/utils/utils.h 
 
 LIBFT_DIR = libft

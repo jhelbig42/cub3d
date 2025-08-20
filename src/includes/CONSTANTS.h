@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 14:25:54 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/20 14:17:20 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@
 # include "../../libft/libft.h"
 # include "../../minilibx-linux/mlx.h"
 # include <X11/X.h>
+# include <X11/Xutil.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
 # include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
 # include <sys/time.h>
+# include <unistd.h>
 
 // MLX hooks
 # define EXIT_HOOK 17
@@ -54,13 +55,16 @@
 # define E 101
 # define I 105
 # define K 107
+# define L 108
 # define X 120
+# define O 111
+# define C 99
 
 // colors
 # define C_NEON_VIOLET 0xFFAB20FD
 # define C_NEON_YELLOW 0xFFCFFF04
 # define C_NEON_BLUE 0x4D4DFF
-
+# define C_MM_SHAD 0x555555
 // stats
 # define SCREEN_WIDTH 960
 # define SCREEN_HEIGHT 540
@@ -71,10 +75,17 @@
 # define JUMP_SPEED_START 24.0f
 # define JUMP_RISE 1
 # define JUMP_FALL 2.5
-# define MAX_MOUSE_ROT_X 180 //degrees
-# define MAX_MOUSE_ROT_Y 360 //pixel
+# define MAX_MOUSE_ROT_X 180 // degrees
+# define MAX_MOUSE_ROT_Y 360 // pixel
 
-//map
+// map
 # define MAX_MAP_LENGTH 200
+
+// minimap
+# define MM_WIDTH 200
+# define MM_HEIGHT 150
+# define MM_MARGIN 10
+# define MM_ZOOM 10
+# define MM_VIEW_CONE 40
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:08:47 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/07/31 10:41:18 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/20 12:07:27 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include "../events/events.h"
 # include "../init/init.h"
+# include "../minimap/minimap.h"
 # include "../parser/parser.h"
 # include "../render/render.h"
 # include "./CONSTANTS.h"

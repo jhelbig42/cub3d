@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 15:11:50 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 14:26:28 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 11:58:02 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 double	deg_to_rad(int angle);
 int64_t	get_mills(void);
 float	map(int range, int t_min, int t_max, float val);
+int		iabs(int val);
 
 // error.c
 void	p_err(char *msg);

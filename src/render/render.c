@@ -6,13 +6,11 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 14:44:13 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:23:01 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
-
-bool	first_frame = true;
 
 bool	next_frame(t_game *game)
 {
@@ -48,6 +46,7 @@ void	create_img(t_game *game)
 	else
 		bg_col(game);
 	raycaster(game);
+	layer_display(game);
 }
 
 // update gamestate always
@@ -61,6 +60,7 @@ int	render_frames(t_game *game)
 		move_player(game);
 		if (game->use_mouse)
 			apply_mouse(game);
+		draw_minimap(game);
 	}
 	return (0);
 }

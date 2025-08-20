@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 14:26:20 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 12:03:05 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../includes/CONSTANTS.h"
 # include "../includes/structs.h"
+# include "../minimap/minimap.h"
 # include "../movement/movement.h"
 # include "../raycaster/raycaster.h"
 
@@ -26,8 +27,8 @@ typedef struct s_line
 	double	tex_pos;
 	int		tex_y;
 	int		tex_x;
-	int		pos;	
-}	t_line;
+	int		pos;
+}		t_line;
 
 // render.c
 int				render_frames(t_game *game);
@@ -44,7 +45,10 @@ void			bg_col(t_game *game);
 // draw_wall.c
 void			draw_wall_x(t_game *game, t_ray ray, int x);
 
-//mouse.c
+// mouse.c
 void			apply_mouse(t_game *game);
+
+//display.c
+void			layer_display(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 12:21:17 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/06 15:27:43 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:06:55 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void	free_paths(t_game *game)
 	free(game->south.path);
 	free(game->west.path);
 	free(game->east.path);
+	free(game->door.path);
 }

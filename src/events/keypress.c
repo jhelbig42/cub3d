@@ -6,11 +6,19 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 14:27:44 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/20 14:17:05 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "events.h"
+
+static void	change_display(t_game *game)
+{
+	if (game->displays == 0)
+		game->displays = 1;
+	else if (game->displays == 1)
+		game->displays = 0;
+}
 
 static void	on_keypress_ascii(int key, t_game *game)
 {
@@ -35,6 +43,12 @@ static void	on_keypress_ascii(int key, t_game *game)
 	if (key == SPACE)
 		if (!game->player.jumping)
 			start_jump(game);
+	if (key == O)
+		open_door(game);
+	if (key == C)
+		close_door(game);
+	if (key == L)
+		change_display(game);
 }
 
 static void	on_keypress_special(int key, t_game *game)
@@ -53,7 +67,6 @@ static void	on_keypress_special(int key, t_game *game)
 
 int	on_keypress(int key, t_game *game)
 {
-	//printf("KEY: %d\n", key);
 	if (key <= 122)
 		on_keypress_ascii(key, game);
 	else
@@ -69,7 +82,7 @@ int	on_keyrelease(int key, t_game *game)
 		game->player.walking = 0;
 	if (key == A || key == D)
 		game->player.strafing = 0;
-	if (key == I || key == K || key == UP || key == DOWN )
+	if (key == I || key == K || key == UP || key == DOWN)
 		game->player.nodding = 0;
 	return (0);
 }

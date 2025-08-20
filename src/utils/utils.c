@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 15:18:42 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 13:09:37 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/20 11:58:50 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 double	deg_to_rad(int angle)
 {
-	return ((angle) * M_PI / 180.0);
+	return (angle * M_PI / 180.0);
 }
 
 long	get_mills(void)
@@ -35,4 +35,12 @@ float	map(int range, int t_min, int t_max, float val)
 	abs = t_max - t_min;
 	perc = val / abs;
 	return (range * perc);
+}
+
+int	iabs(int val)
+{
+	if (val >= 0)
+		return (val);
+	else
+		return (-val);
 }
