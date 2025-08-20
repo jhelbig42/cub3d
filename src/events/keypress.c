@@ -6,11 +6,19 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 10:12:50 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:15:35 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "events.h"
+
+static void	change_display(t_game *game)
+{
+	if (game->displays == 0)
+		game->displays = 1;
+	else if (game->displays == 1)
+		game->displays = 0;
+}
 
 static void	on_keypress_ascii(int key, t_game *game)
 {
@@ -39,6 +47,8 @@ static void	on_keypress_ascii(int key, t_game *game)
 		open_door(game);
 	if (key == C)
 		close_door(game);
+	if (key == L)
+		change_display(game);
 }
 
 static void	on_keypress_special(int key, t_game *game)

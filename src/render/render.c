@@ -48,6 +48,7 @@ void	create_img(t_game *game)
 	else
 		bg_col(game);
 	raycaster(game);
+	layer_display(game);
 }
 
 // update gamestate always

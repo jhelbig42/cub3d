@@ -54,6 +54,7 @@
 # define E 101
 # define I 105
 # define K 107
+# define L 108
 # define X 120
 # define O 111
 # define C 99
