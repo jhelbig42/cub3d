@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/13 15:51:53 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:12:50 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ static void	on_keypress_ascii(int key, t_game *game)
 	if (key == SPACE)
 		if (!game->player.jumping)
 			start_jump(game);
+	if (key == O)
+		open_door(game);
+	if (key == C)
+		close_door(game);
 }
 
 static void	on_keypress_special(int key, t_game *game)

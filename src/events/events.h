@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:59:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 14:24:04 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/13 12:19:10 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../movement/movement.h"
 # include "../utils/utils.h"
 # include "../includes/structs.h"
+# include "../specials/door.h"
 
 // destroy.c
 int		on_destroy(t_game *game);
