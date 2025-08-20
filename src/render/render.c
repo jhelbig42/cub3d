@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 14:44:13 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:23:01 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	create_img(t_game *game)
 	else
 		bg_col(game);
 	raycaster(game);
+	layer_display(game);
 }
 
 // update gamestate always

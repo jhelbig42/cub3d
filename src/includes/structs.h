@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:56:39 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 12:06:56 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 14:17:31 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,10 @@ typedef struct s_game
 	t_tex		south;
 	t_tex		west;
 	t_tex		east;
+	t_tex		door;
+	t_tex		keys0;
+	t_tex		keys1;
+	int			displays;
 	bool		use_mouse;
 }	t_game;
 

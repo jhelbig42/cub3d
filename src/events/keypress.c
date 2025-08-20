@@ -6,11 +6,19 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 12:03:36 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 14:17:05 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "events.h"
+
+static void	change_display(t_game *game)
+{
+	if (game->displays == 0)
+		game->displays = 1;
+	else if (game->displays == 1)
+		game->displays = 0;
+}
 
 static void	on_keypress_ascii(int key, t_game *game)
 {
@@ -35,6 +43,12 @@ static void	on_keypress_ascii(int key, t_game *game)
 	if (key == SPACE)
 		if (!game->player.jumping)
 			start_jump(game);
+	if (key == O)
+		open_door(game);
+	if (key == C)
+		close_door(game);
+	if (key == L)
+		change_display(game);
 }
 
 static void	on_keypress_special(int key, t_game *game)
