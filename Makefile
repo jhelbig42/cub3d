@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/20 14:24:42 by jhelbig          ###   ########.fr        #
+#    Updated: 2025/08/20 15:09:35 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC += $(SRC_DIR)/events/keypress.c
 SRC += $(SRC_DIR)/events/mousemove.c
 
 SRC += $(SRC_DIR)/init/init.c
+SRC += $(SRC_DIR)/init/tex_init.c
 
 SRC += $(SRC_DIR)/minimap/minimap_player.c
 SRC += $(SRC_DIR)/minimap/minimap.c
@@ -45,6 +46,7 @@ SRC += $(SRC_DIR)/parser/utils.c
 SRC += $(SRC_DIR)/parser/floodfill.c
 
 SRC += $(SRC_DIR)/raycaster/raycaster.c
+SRC += $(SRC_DIR)/raycaster/raycaster_utils.c
 
 SRC += $(SRC_DIR)/render/create_graphics.c
 SRC += $(SRC_DIR)/render/draw_wall.c

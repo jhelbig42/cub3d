@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 14:17:20 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 15:03:52 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <unistd.h>
+
+//displays
+# define KEYS0 "./displays/keys0.xpm"
+# define KEYS1 "./displays/keys1.xpm"
 
 // MLX hooks
 # define EXIT_HOOK 17

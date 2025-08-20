@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:26:45 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/20 10:28:40 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 14:34:36 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	put_display(t_img *dst, t_tex *display, int dst_x, int dst_y)
 		x = 0;
 		while (x < display->width)
 		{
-			pixel = display->addr + (y * display->size_line + x * (display->bpp / 8));
+			pixel = display->addr + (y * display->size_line
+					+ x * (display->bpp / 8));
 			color = *(unsigned int *)pixel;
 			pixel_put_transparent(dst, dst_x + x, dst_y + y, color);
 			x++;

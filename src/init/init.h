@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:36:36 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 14:30:18 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 15:02:48 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include "../utils/utils.h"
 # include "../parser/parser.h"
 
+//init.c
 bool	game_init(t_game *game, char *map_name);
+
+//tex_init.c
+bool	tex_init(t_game *game);
 
 #endif
