@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 14:01:24 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/14 17:08:30 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/20 11:29:40 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../render/render.h"
 #include "minimap.h"
 
-static void draw_view_cone(t_game *game, t_mmap mm)
+static void	draw_view_cone(t_game *game, t_mmap mm)
 {
-	int		   i;
-	int		   j;
-	int		   col;
-	int		   map_x;
-	int		   map_y;
-	t_vector_d next_pixel;
+	int			i;
+	int			j;
+	int			col;
+	int			map_x;
+	int			map_y;
+	t_vector_d	next_pixel;
 
 	i = -1;
 	j = -MM_VIEW_CONE / 2;
@@ -33,20 +33,20 @@ static void draw_view_cone(t_game *game, t_mmap mm)
 			next_pixel.x += game->player.dir.x;
 			next_pixel.y -= game->player.dir.y;
 			if (i * .5 < iabs(j))
-				continue;
+				continue ;
 			map_x = (int)next_pixel.x - MM_MARGIN;
 			map_y = SCREEN_HEIGHT - (int)next_pixel.y - MM_MARGIN;
-			col	  = mm.map[map_y][map_x];
+			col = mm.map[map_y][map_x];
 			pixel_put(&game->img, (int)next_pixel.x, (int)next_pixel.y, col);
 		}
 		i = -1;
 	}
 }
 
-void draw_player(t_game *game, t_mmap mm)
+void	draw_player(t_game *game, t_mmap mm)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -62,16 +62,16 @@ void draw_player(t_game *game, t_mmap mm)
 	draw_view_cone(game, mm);
 }
 
-void draw_wall_elmt(t_img img, int x, int y)
+void	draw_wall_elmt(t_img img, int x, int y)
 {
-	t_vector_i map_coord;
-	int		   i;
-	int		   j;
+	t_vector_i	map_coord;
+	int			i;
+	int			j;
 
 	map_coord.x = MM_MARGIN + (x * MM_ZOOM);
 	map_coord.y = SCREEN_HEIGHT - MM_MARGIN - MM_HEIGHT + (y * MM_ZOOM);
-	i			= map_coord.x;
-	j			= map_coord.y;
+	i = map_coord.x;
+	j = map_coord.y;
 	while (j > map_coord.y - MM_ZOOM)
 	{
 		while (i < map_coord.x + MM_ZOOM)
@@ -84,12 +84,12 @@ void draw_wall_elmt(t_img img, int x, int y)
 	}
 }
 
-void mm_add_wall_elmt(int cell_x, int cell_y, t_mmap mm)
+void	mm_add_wall_elmt(int cell_x, int cell_y, t_mmap mm)
 {
-	int i;
-	int j;
-	int pix_x;
-	int pix_y;
+	int	i;
+	int	j;
+	int	pix_x;
+	int	pix_y;
 
 	j = 0;
 
@@ -100,9 +100,8 @@ void mm_add_wall_elmt(int cell_x, int cell_y, t_mmap mm)
 		i = 0;
 		while (i < MM_ZOOM)
 		{
-			if (pix_x + i >= 0 && pix_x + i <= MM_WIDTH && pix_y + j >= 0 && pix_y + j <= MM_HEIGHT)
-				;
-			mm.map[pix_y + j][pix_x - i] = C_NEON_VIOLET;
+			if (pix_x - i >= 0 && pix_x - i < MM_WIDTH && pix_y + j >= 0 && pix_y + j < MM_HEIGHT)
+				mm.map[pix_y + j][pix_x - i] = C_NEON_VIOLET;
 			i++;
 		}
 		j++;
