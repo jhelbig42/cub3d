@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:03 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/20 13:48:14 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 15:22:55 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static bool	fill_color(char *line, int *rgb)
 		if (!trim_split)
 			return (free_str_arr(split), p_err("ft_strtrim failed"),
 				false);
-		if (!check_rgb_val(split[i], &val))
+		if (!check_rgb_val(trim_split, &val))
 			return (free_str_arr(split), free(trim_split), false);
 		set_rgb_val(rgb, i++, val);
 		free(trim_split);
