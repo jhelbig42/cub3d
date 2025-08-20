@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:00:03 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 13:48:14 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ static bool	fill_color(char *line, int *rgb)
 		set_rgb_val(rgb, i++, val);
 		free(trim_split);
 	}
-	free_str_arr(split);
-	return (true);
+	return (free_str_arr(split), true);
 }
 
 bool	find_colors(t_game *game, char *line, char c)

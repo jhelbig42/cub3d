@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 14:01:24 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 11:57:08 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 14:14:45 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,30 @@
 
 static void	draw_view_cone(t_game *game, t_mmap mm)
 {
-	int			i;
-	int			j;
+	int			index[2];
 	int			col;
 	int			map_x;
 	int			map_y;
 	t_vector_d	next_pixel;
 
-	i = -1;
-	j = -MM_VIEW_CONE / 2;
-	while (++j < MM_VIEW_CONE / 2)
+	index[0] = -1;
+	index[1] = -MM_VIEW_CONE / 2;
+	while (++index[1] < MM_VIEW_CONE / 2)
 	{
-		next_pixel.x = mm.center.x + game->player.plane.x * j;
-		next_pixel.y = mm.center.y - game->player.plane.y * j;
-		while (++i < MM_VIEW_CONE)
+		next_pixel.x = mm.center.x + game->player.plane.x * index[1];
+		next_pixel.y = mm.center.y - game->player.plane.y * index[1];
+		while (++index[0] < MM_VIEW_CONE)
 		{
 			next_pixel.x += game->player.dir.x;
 			next_pixel.y -= game->player.dir.y;
-			if (i * .5 < iabs(j))
+			if (index[0] * .5 < iabs(index[1]))
 				continue ;
 			map_x = (int)next_pixel.x - MM_MARGIN;
 			map_y = SCREEN_HEIGHT - (int)next_pixel.y - MM_MARGIN;
 			col = mm.map[map_y][map_x];
 			pixel_put(&game->img, (int)next_pixel.x, (int)next_pixel.y, col);
 		}
-		i = -1;
+		index[0] = -1;
 	}
 }
 
