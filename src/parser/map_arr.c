@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/12 12:03:44 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 10:25:25 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ bool	is_orient(char c)
 
 bool	is_valid_sym(char c)
 {
-	if (c == 'N' || c == 'S' || c == 'W' || c == 'E' || c == '1' 
-		|| c == '0' || c == ' ' || c == '\n')
+	if (c == 'N' || c == 'S' || c == 'W' || c == 'E' || c == 'D'
+		|| c == '1' || c == '0' || c == ' ' || c == '\n')
 		return (true);
 	else
 		return (false);
@@ -67,7 +67,7 @@ static bool	check_map_char(t_game *game, char **map, int *i, char *pos)
 				return (p_err("undefined symbols used"), free_paths(game), false);
 			if (is_orient(map[*i][j]))
 			{
-				if (*pos != 'D')
+				if (*pos != 'X')
 					return (p_err("more that 1 player given in map"),
 						free_paths(game), false);
 				*pos = map[*i][j];
@@ -105,6 +105,8 @@ bool	map_into_game(t_game *game, char **map)
 		{
 			if (j < len && map[i][j] == '1')
 				game->map.map[game->map.height - 1 - i][j] = 1;
+			else if (j < len && map[i][j] == 'D')
+				game->map.map[game->map.height - 1 - i][j] = 2;
 			else
 				game->map.map[game->map.height - 1 - i][j] = 0;
 			j++;
@@ -123,7 +125,7 @@ bool	map_str_arr_valid(t_game *game, char **char_map)
 	int		i;
 	char	pos;
 
-	pos = 'D';
+	pos = 'X';
 	i = 0;
 	if (!check_map_char(game, char_map, &i, &pos))
 		return (false);

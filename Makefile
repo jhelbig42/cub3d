@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/14 14:29:36 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/20 14:18:26 by jhelbig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,9 @@ SRC += $(SRC_DIR)/render/create_graphics.c
 SRC += $(SRC_DIR)/render/draw_wall.c
 SRC += $(SRC_DIR)/render/mouse.c
 SRC += $(SRC_DIR)/render/render.c
+SRC += $(SRC_DIR)/render/displays.c
+
+SRC += $(SRC_DIR)/specials/door.c
 
 SRC += $(SRC_DIR)/utils/free.c
 SRC += $(SRC_DIR)/utils/error.c 
@@ -65,7 +68,8 @@ HEADERS += $(SRC_DIR)/minimap/minimap.h
 HEADERS += $(SRC_DIR)/movement/movement.h 
 HEADERS += $(SRC_DIR)/parser/parser.h 
 HEADERS += $(SRC_DIR)/raycaster/raycaster.h 
-HEADERS += $(SRC_DIR)/render/render.h 
+HEADERS += $(SRC_DIR)/render/render.h
+HEADERS += $(SRC_DIR)/specials/door.h
 HEADERS += $(SRC_DIR)/utils/utils.h 
 
 LIBFT_DIR = libft
