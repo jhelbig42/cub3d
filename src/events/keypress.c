@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:53:10 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/11 14:27:44 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/20 12:03:36 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ static void	on_keypress_special(int key, t_game *game)
 
 int	on_keypress(int key, t_game *game)
 {
-	//printf("KEY: %d\n", key);
 	if (key <= 122)
 		on_keypress_ascii(key, game);
 	else
@@ -69,7 +68,7 @@ int	on_keyrelease(int key, t_game *game)
 		game->player.walking = 0;
 	if (key == A || key == D)
 		game->player.strafing = 0;
-	if (key == I || key == K || key == UP || key == DOWN )
+	if (key == I || key == K || key == UP || key == DOWN)
 		game->player.nodding = 0;
 	return (0);
 }

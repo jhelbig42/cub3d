@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 14:01:24 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 11:29:40 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/20 11:57:08 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void	draw_player(t_game *game, t_mmap mm)
 	while (j < 5)
 	{
 		while (i++ < 5)
-			pixel_put(&game->img, mm.center.x + i, mm.center.y + j, C_NEON_YELLOW);
+			pixel_put(&game->img, mm.center.x + i, 
+				mm.center.y + j, C_NEON_YELLOW);
 		j++;
 		i = 0;
 	}
@@ -92,7 +93,6 @@ void	mm_add_wall_elmt(int cell_x, int cell_y, t_mmap mm)
 	int	pix_y;
 
 	j = 0;
-
 	pix_x = cell_x * MM_ZOOM + MM_ZOOM;
 	pix_y = cell_y * MM_ZOOM;
 	while (j < MM_ZOOM)
@@ -100,7 +100,8 @@ void	mm_add_wall_elmt(int cell_x, int cell_y, t_mmap mm)
 		i = 0;
 		while (i < MM_ZOOM)
 		{
-			if (pix_x - i >= 0 && pix_x - i < MM_WIDTH && pix_y + j >= 0 && pix_y + j < MM_HEIGHT)
+			if (pix_x - i >= 0 && pix_x - i < MM_WIDTH
+				&& pix_y + j >= 0 && pix_y + j < MM_HEIGHT)
 				mm.map[pix_y + j][pix_x - i] = C_NEON_VIOLET;
 			i++;
 		}
