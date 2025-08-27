@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 15:03:52 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/27 10:40:41 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@
 # define C_NEON_VIOLET 0xFFAB20FD
 # define C_NEON_YELLOW 0xFFCFFF04
 # define C_NEON_BLUE 0x4D4DFF
+# define C_RED 0xFF1111
 # define C_MM_SHAD 0x555555
+
 // stats
 # define SCREEN_WIDTH 960
 # define SCREEN_HEIGHT 540
@@ -76,6 +78,7 @@
 # define WALK_SPEED 0.06
 # define NOD_SPEED 16
 # define FRAME_RATE 60
+# define WALL_HIT_COUNTER 40
 # define JUMP_SPEED_START 24.0f
 # define JUMP_RISE 1
 # define JUMP_FALL 2.5

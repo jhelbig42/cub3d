@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:22 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/07 13:50:51 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/27 10:23:57 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,33 +63,6 @@ void	reset_img(t_img *img, int width, int height)
 		{
 			y++;
 			x = 0;
-		}
-	}
-}
-
-void	gen_noise(t_game *game)
-{
-	int	x;
-	int	y;
-	int	col;
-
-	x = -1;
-	y = -1;
-	while (y <= SCREEN_HEIGHT)
-	{
-		if (++x >= SCREEN_WIDTH && ++y > -2)
-			x = 0;
-		if (random() * 1 > RAND_MAX / 1.15)
-		{
-			if (y <= game->horizont + game->player.jump_offset)
-				col = get_grad_col(
-						y, game->horizont + game->player.jump_offset,
-						C_NEON_VIOLET, 0x0); 
-			else
-				col = get_grad_col(
-						game->horizont + game->player.jump_offset, y,
-						C_NEON_YELLOW, 0x0); 
-			pixel_put(&game->img, x, y, col);
 		}
 	}
 }

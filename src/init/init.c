@@ -17,6 +17,7 @@ static void	player_init(t_game *game)
 	game->player.plane.x = 0.66;
 	game->player.plane.y = 0;
 	game->player.dir.x = 0;
+	game->player.wall_hit = 0;
 	game->player.dir.y = 1;
 	game->player.jump_offset = 0;
 	game->player.jump_velo = 0;
