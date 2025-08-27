@@ -33,6 +33,6 @@ void	draw_minimap(t_game *game);
 // minimap_player.c
 void	draw_player(t_game *game, t_mmap mm);
 void	mm_add_wall_elmt(int cell_x, int cell_y, t_mmap mm);
-void	draw_wall_elmt(t_img img, int x, int y);
+void	draw_wall_elmt(t_img img, int x, int y, int key);
 
 #endif

@@ -30,6 +30,7 @@ bool	find_colors(t_game *game, char *line, char c);
 //find_paths.c
 bool	is_wall_path(char *line);
 bool	set_wall_paths(t_game *game, char *line);
+bool	set_door_path(t_game *game, char *line);
 
 //parser.c
 bool	parse_map(t_game *game, char *map_name);

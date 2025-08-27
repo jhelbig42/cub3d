@@ -44,9 +44,7 @@ static void	on_keypress_ascii(int key, t_game *game)
 		if (!game->player.jumping)
 			start_jump(game);
 	if (key == O)
-		open_door(game);
-	if (key == C)
-		close_door(game);
+		toggle_door(game);
 	if (key == L)
 		change_display(game);
 }

@@ -65,8 +65,8 @@ bool	check_map_row(t_game *game, char *row, int i, char *pos)
 				return (p_err("more than 1 player given in map"),
 					free_paths(game), false);
 			*pos = symb;
-			game->player.pos.y = i;
-			game->player.pos.x = j;
+			game->player.pos.y = (float)i - 0.5;
+			game->player.pos.x = (float)j + 0.5;
 		}
 		if (j > game->map.width)
 			game->map.width = j;
