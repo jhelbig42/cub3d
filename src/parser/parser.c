@@ -25,7 +25,7 @@ bool	read_map_data(t_game *game, int fd, char **line)
 		}
 		else if (is_wall_path(*line))
 		{
-			if (!set_wall_paths(game, *line) && !set_door_path(game, *line))
+			if (!set_wall_paths(game, *line) || !set_door_path(game, *line))
 				return (free(*line), close(fd), false);
 		}
 		else if (*line[0] != '\n')
