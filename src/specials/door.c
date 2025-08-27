@@ -11,37 +11,31 @@
 /* ************************************************************************** */
 
 #include "door.h"
+#include "../includes/structs.h"
 
-void	open_door(t_game *game)
+#define DOOR_OPEN 3
+#define DOOR_CLOSED 2
+
+void	toggle_door(t_game *game)
 {
-	int	x;
-	int	y;
+	t_vector_i	pos;
 
-	x = game->player.pos.x;
-	y = game->player.pos.y;
-	if (game->map.map[y + 1][x] == 2)
-		game->map.map[y + 1][x] = 3;
-	else if (game->map.map[y - 1][x] == 2)
-		game->map.map[y - 1][x] = 3;
-	else if (game->map.map[y][x + 1] == 2)
-		game->map.map[y][x + 1] = 3;
-	else if (game->map.map[y][x - 1] == 2)
-		game->map.map[y][x - 1] = 3;
-}
-
-void	close_door(t_game *game)
-{
-	int	x;
-	int	y;
-
-	x = game->player.pos.x;
-	y = game->player.pos.y;
-	if (game->map.map[y + 1][x] == 3)
-		game->map.map[y + 1][x] = 2;
-	else if (game->map.map[y - 1][x] == 3)
-		game->map.map[y - 1][x] = 2;
-	else if (game->map.map[y][x + 1] == 3)
-		game->map.map[y][x + 1] = 2;
-	else if (game->map.map[y][x - 1] == 3)
-		game->map.map[y][x - 1] = 2;
+	pos.x = game->player.pos.x;
+	pos.y = game->player.pos.y;
+	if (game->map.map[pos.y + 1][pos.x] == DOOR_OPEN)
+		game->map.map[pos.y + 1][pos.x] = DOOR_CLOSED;
+	else if (game->map.map[pos.y + 1][pos.x] == DOOR_CLOSED)
+		game->map.map[pos.y + 1][pos.x] = DOOR_OPEN;
+	if (game->map.map[pos.y - 1][pos.x] == DOOR_OPEN)
+		game->map.map[pos.y - 1][pos.x] = DOOR_CLOSED;
+	else if (game->map.map[pos.y - 1][pos.x] == DOOR_CLOSED)
+		game->map.map[pos.y - 1][pos.x] = DOOR_OPEN;
+	if (game->map.map[pos.y][pos.x + 1] == DOOR_OPEN)
+		game->map.map[pos.y][pos.x + 1] = DOOR_CLOSED;
+	else if (game->map.map[pos.y][pos.x + 1] == DOOR_CLOSED)
+		game->map.map[pos.y][pos.x + 1] = DOOR_OPEN;
+	if (game->map.map[pos.y][pos.x - 1] == DOOR_OPEN)
+		game->map.map[pos.y][pos.x - 1] = DOOR_CLOSED;
+	else if (game->map.map[pos.y][pos.x - 1] == DOOR_CLOSED)
+		game->map.map[pos.y][pos.x - 1] = DOOR_OPEN;
 }

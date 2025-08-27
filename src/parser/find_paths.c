@@ -55,7 +55,12 @@ bool	set_wall_paths(t_game *game, char *line)
 		if (!set_wall_path(&game->east.path, line))
 			return (free(line), false);
 	}
-	else if (!ft_strncmp(line, "DO", 2))
+	return (true);
+}
+
+bool	set_door_path(t_game *game, char *line)
+{
+	if (!ft_strncmp(line, "DO", 2))
 	{
 		if (!set_wall_path(&game->door.path, line))
 			return (free(line), false);
