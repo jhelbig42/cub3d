@@ -67,6 +67,7 @@
 // colors
 # define C_NEON_VIOLET 0xFFAB20FD
 # define C_NEON_YELLOW 0xFFCFFF04
+# define C_NEON_GREEN 0x39FF14
 # define C_NEON_BLUE 0x4D4DFF
 # define C_MM_SHAD 0x555555
 // stats

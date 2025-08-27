@@ -62,12 +62,16 @@ void	draw_player(t_game *game, t_mmap mm)
 	draw_view_cone(game, mm);
 }
 
-void	draw_wall_elmt(t_img img, int x, int y)
+void	draw_wall_elmt(t_img img, int x, int y, int key)
 {
 	t_vector_i	map_coord;
 	int			i;
 	int			j;
+	int			col;
 
+	col = C_NEON_BLUE;
+	if (key > 1)
+		col = C_NEON_GREEN;
 	map_coord.x = MM_MARGIN + (x * MM_ZOOM);
 	map_coord.y = SCREEN_HEIGHT - MM_MARGIN - MM_HEIGHT + (y * MM_ZOOM);
 	i = map_coord.x;
@@ -76,7 +80,7 @@ void	draw_wall_elmt(t_img img, int x, int y)
 	{
 		while (i < map_coord.x + MM_ZOOM)
 		{
-			pixel_put(&img, i, j, C_NEON_BLUE);
+			pixel_put(&img, i, j, col);
 			i++;
 		}
 		j--;
