@@ -12,17 +12,23 @@
 
 #include "movement.h"
 
-bool	empty_field(t_map map, t_vector_d pos)
+bool	empty_field(t_game	*game, t_vector_d pos)
 {
-	if (map.map[(int)(pos.y + 0.05)][(int)(pos.x + 0.05)] == 1
-		|| map.map[(int)(pos.y - 0.05)][(int)(pos.x + 0.05)] == 1
-		|| map.map[(int)(pos.y + 0.05)][(int)(pos.x - 0.05)] == 1
-		|| map.map[(int)(pos.y - 0.05)][(int)(pos.x - 0.05)] == 1
-		|| map.map[(int)(pos.y + 0.05)][(int)(pos.x + 0.05)] == 2
-		|| map.map[(int)(pos.y - 0.05)][(int)(pos.x + 0.05)] == 2
-		|| map.map[(int)(pos.y + 0.05)][(int)(pos.x - 0.05)] == 2
-		|| map.map[(int)(pos.y - 0.05)][(int)(pos.x - 0.05)] == 2)
+	int	**map;
+
+	map = game->map.map;
+	if (map[(int)(pos.y + 0.05)][(int)(pos.x + 0.05)] == 1
+		|| map[(int)(pos.y - 0.05)][(int)(pos.x + 0.05)] == 1
+		|| map[(int)(pos.y + 0.05)][(int)(pos.x - 0.05)] == 1
+		|| map[(int)(pos.y - 0.05)][(int)(pos.x - 0.05)] == 1
+		|| map[(int)(pos.y + 0.05)][(int)(pos.x + 0.05)] == 2
+		|| map[(int)(pos.y - 0.05)][(int)(pos.x + 0.05)] == 2
+		|| map[(int)(pos.y + 0.05)][(int)(pos.x - 0.05)] == 2
+		|| map[(int)(pos.y - 0.05)][(int)(pos.x - 0.05)] == 2)
+	{
+		game->player.wall_hit = 10;
 		return (false);
+	}
 	return (true);
 }
 

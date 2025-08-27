@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:53:31 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 13:34:41 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/27 10:35:02 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	strafe(t_game *game)
 			game->player.dir.x, game->player.dir.y, deg_to_rad(90 * dir));
 	new_pos.x = game->player.pos.x + new_dir.x * WALK_SPEED;
 	new_pos.y = game->player.pos.y + new_dir.y * WALK_SPEED;
-	if (empty_field(game->map, new_pos))
+	if (empty_field(game, new_pos))
 	{
 		game->player.pos.x = new_pos.x;
 		game->player.pos.y = new_pos.y;
@@ -39,14 +39,14 @@ static void	walk(t_game *game)
 	new_dir.y = game->player.dir.y * WALK_SPEED * game->player.walking;
 	new_pos.x = game->player.pos.x + new_dir.x;
 	new_pos.y = game->player.pos.y;
-	if (empty_field(game->map, new_pos))
+	if (empty_field(game, new_pos))
 	{
 		game->player.pos.x = new_pos.x;
 		game->player.pos.y = new_pos.y;
 	}
 	new_pos.x = game->player.pos.x;
 	new_pos.y = game->player.pos.y + new_dir.y;
-	if (empty_field(game->map, new_pos))
+	if (empty_field(game, new_pos))
 	{
 		game->player.pos.x = new_pos.x;
 		game->player.pos.y = new_pos.y;

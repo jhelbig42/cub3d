@@ -62,6 +62,7 @@ typedef struct s_player
 	t_vector_d	dir;
 	t_vector_d	plane;
 	int			walking;
+	int			wall_hit;
 	int			rotating;
 	int			strafing;
 	int			nodding;

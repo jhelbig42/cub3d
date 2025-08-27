@@ -6,7 +6,7 @@
 /*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 08:54:55 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/12 13:34:56 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/27 10:34:40 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		move_player(t_game *game);
 void		rotate(t_game *game, int angle);
 
 //movement_utils.c
-bool		empty_field(t_map map, t_vector_d pos);
+bool		empty_field(t_game *game, t_vector_d pos);
 t_vector_d	rotate_vector(double x, double y, double angle);
 
 //movement_y.c

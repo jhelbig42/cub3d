@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:36:38 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/20 10:23:01 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/27 10:37:43 by uschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	create_img(t_game *game)
 {
 	reset_img(&game->img, SCREEN_WIDTH, SCREEN_HEIGHT);
 	if (game->noise)
-		gen_noise(game);
+		bg_noise(game);
 	else
 		bg_col(game);
 	raycaster(game);
@@ -61,6 +61,8 @@ int	render_frames(t_game *game)
 		if (game->use_mouse)
 			apply_mouse(game);
 		draw_minimap(game);
+		if (game->player.wall_hit > 0)
+			red_noise(game);
 	}
 	return (0);
 }
