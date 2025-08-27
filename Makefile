@@ -6,7 +6,7 @@
 #    By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 14:46:57 by jhelbig           #+#    #+#              #
-#    Updated: 2025/08/27 10:35:25 by uschmidt         ###   ########.fr        #
+#    Updated: 2025/08/27 10:56:27 by uschmidt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ MAKEALL = make all
 MAKECLEAN = make clean
 MAKEFCLEAN = make fclean
 
-DEFAULT_MAP = maps/subjectN.cub
+DEFAULT_MAP = maps/subjectN_urs.cub
 
 all: $(NAME)
 
