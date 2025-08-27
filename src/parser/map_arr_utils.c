@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_arr_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhelbig <jhelbig@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:11:03 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/20 14:11:05 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/27 10:20:04 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ bool	is_orient(char c)
 
 bool	is_valid_sym(char c)
 {
-	return (c == 'N' || c == 'S' || c == 'W' || c == 'E' || c == '1' 
-		|| c == '0' || c == ' ' || c == '\n');
+	return (c == 'N' || c == 'S' || c == 'W' || c == 'E' || c == 'D'
+		|| c == '1' || c == '0' || c == ' ' || c == '\n');
 }
 
 bool	check_map_row(t_game *game, char *row, int i, char *pos)
