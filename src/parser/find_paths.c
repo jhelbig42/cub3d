@@ -26,8 +26,7 @@ static bool	set_wall_path(char **wall_path, char *line)
 		return (p_err("could not open wall file"), free(path), false);
 	buf = NULL;
 	if (read(fd, buf, 0) < 0)
-		return (p_err("could not read from wall file"),
-			free(path), false);
+		return (p_err("could not read from wall file"), false);
 	close(fd);
 	*wall_path = path;
 	return (true);
