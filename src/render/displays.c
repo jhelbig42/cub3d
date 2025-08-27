@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:26:45 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/20 14:34:36 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/27 12:00:47 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ void	put_display(t_img *dst, t_tex *display, int dst_x, int dst_y)
 void	layer_display(t_game *game)
 {
 	if (game->displays == 0)
-		put_display(&game->img, &game->keys0, 750, 500);
+		put_display(&game->img, &game->keys0, SCREEN_WIDTH - 210,
+			SCREEN_HEIGHT - 40);
 	else if (game->displays == 1)
-		put_display(&game->img, &game->keys1, 300, 450);
+		put_display(&game->img, &game->keys1, SCREEN_WIDTH - 650,
+			SCREEN_HEIGHT - 90);
 }
