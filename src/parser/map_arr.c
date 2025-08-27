@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 09:27:07 by jhelbig           #+#    #+#             */
-/*   Updated: 2025/08/20 14:32:07 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/27 10:53:55 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	set_line(t_game *game, int i, char **map)
 	{
 		if (j < len && map[i][j] == '1')
 			game->map.map[game->map.height - 1 - i][j] = 1;
+		else if (j < len && map[i][j] == 'D')
+			game->map.map[game->map.height - 1 - i][j] = 2;
 		else
 			game->map.map[game->map.height - 1 - i][j] = 0;
 		j++;

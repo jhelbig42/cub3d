@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   create_graphics.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uschmidt <uschmidt@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:21:22 by uschmidt          #+#    #+#             */
 /*   Updated: 2025/08/27 10:23:57 by uschmidt         ###   ########.fr       */
@@ -79,14 +79,14 @@ void	bg_col(t_game *game)
 		if (game->shades && y < game->horizont + game->player.jump_offset)
 			col = get_grad_col(
 					y, game->horizont + game->player.jump_offset,
-					game->floor_color, 0x0); 
+					game->ceiling_color, 0x0); 
 		else if (game->shades)
 			col = get_grad_col(
-					y, SCREEN_HEIGHT, 0x0, game->ceiling_color); 
+					y, SCREEN_HEIGHT, 0x0, game->floor_color); 
 		else if (y < game->horizont + game->player.jump_offset)
-			col = game->floor_color;
-		else
 			col = game->ceiling_color;
+		else
+			col = game->floor_color;
 		x = -1;
 		while (++x <= SCREEN_WIDTH)
 			pixel_put(&game->img, x, y, col);
