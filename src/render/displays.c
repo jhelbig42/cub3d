@@ -56,6 +56,6 @@ void	layer_display(t_game *game)
 		put_display(&game->img, &game->keys0, SCREEN_WIDTH - 210,
 			SCREEN_HEIGHT - 40);
 	else if (game->displays == 1)
-		put_display(&game->img, &game->keys1, SCREEN_WIDTH - 650,
+		put_display(&game->img, &game->keys1, SCREEN_WIDTH - 450,
 			SCREEN_HEIGHT - 90);
 }

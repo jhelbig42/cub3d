@@ -1,5 +1,5 @@
 W / S / ↑ / ↓ - walk		 
-A / D - strafe	X - toggle mouse	O / C - open / close door
+A / D - strafe	X - toggle mouse	O - toggle door
 ← / → - rotate	N - activate noise	ESC - exit
 I / K - nod		M - activate shades	SPACE - jump
 	
