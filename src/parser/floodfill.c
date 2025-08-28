@@ -94,25 +94,6 @@ static bool	test_flood_fill(t_game *game, char **copy)
 	return (true);
 }
 
-void	test_print(char **map)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			write(1, &map[i][j], 1);
-			j++;
-		}
-		write(1, "\n", 1);
-		i++;
-	}
-}
-
 bool	flood_fill(t_game *game, char **char_map)
 {
 	char	**copy;
@@ -120,14 +101,11 @@ bool	flood_fill(t_game *game, char **char_map)
 	int		j;
 
 	copy = copy_map(&game->map, char_map);
-	test_print(copy);
 	if (!copy)
 		return (false);
 	i = game->player.pos.y;
 	j = game->player.pos.x;
 	fill(game, &copy, i, j);
-	write(1, "\n", 1);
-	test_print(copy);
 	if (!test_flood_fill(game, copy))
 		return (free_paths(game), free_str_arr(copy), false);
 	else
