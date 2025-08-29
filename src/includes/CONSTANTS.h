@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:59:11 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/27 11:54:24 by uschmidt         ###   ########.fr       */
+/*   Updated: 2025/08/29 11:14:47 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <unistd.h>
+
+//display padding
+# define KEYS0_WIDTH 200
+# define KEYS0_HEIGHT 20
+# define KEYS1_WIDTH 700
+# define KEYS1_HEIGHT 250
 
 //displays
 # define KEYS0 "./displays/keys0.xpm"

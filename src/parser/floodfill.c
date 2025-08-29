@@ -103,8 +103,8 @@ bool	flood_fill(t_game *game, char **char_map)
 	copy = copy_map(&game->map, char_map);
 	if (!copy)
 		return (false);
-	i = game->player.pos.x;
-	j = game->player.pos.y;
+	i = game->player.pos.y;
+	j = game->player.pos.x;
 	fill(game, &copy, i, j);
 	if (!test_flood_fill(game, copy))
 		return (free_paths(game), free_str_arr(copy), false);

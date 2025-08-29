@@ -42,10 +42,14 @@ bool	is_orient(char c)
 	return (c == 'N' || c == 'S' || c == 'W' || c == 'E');
 }
 
-bool	is_valid_sym(char c)
+bool	is_valid_sym(t_game *game, char c)
 {
-	return (c == 'N' || c == 'S' || c == 'W' || c == 'E' || c == 'D'
-		|| c == '1' || c == '0' || c == ' ' || c == '\n');
+	if (c == 'N' || c == 'S' || c == 'W' || c == 'E'
+		|| c == '1' || c == '0' || c == ' ' || c == '\n')
+		return (true);
+	if (game->door.path != NULL && c == 'D')
+		return (true);
+	return (false);
 }
 
 bool	check_map_row(t_game *game, char *row, int i, char *pos)
@@ -57,7 +61,7 @@ bool	check_map_row(t_game *game, char *row, int i, char *pos)
 	while (row[j])
 	{
 		symb = row[j];
-		if (!is_valid_sym(symb))
+		if (!is_valid_sym(game, symb))
 			return (p_err("undefined symbols used"), free_paths(game), false);
 		if (is_orient(symb))
 		{
