@@ -62,7 +62,8 @@ make
 
 Use arrow keys / WASD to move around, and ESC to quit.
 
-![Demo](images/keymap.jpg)  
+![Demo](images/keymap.png)  
+
 ## Features
 
 - Raycasting engine with textured walls
