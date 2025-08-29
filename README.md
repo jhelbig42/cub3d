@@ -8,8 +8,6 @@ The player can explore a 2.5D maze, open doors, and navigate with WASD-style mov
 
 ## 📸 Demo
 
-(Add gameplay GIFs here — recorded with peek or ScreenToGif for example.)  
-
 - Gameplay:  
   ![Demo](images/skin_julia_cropped.gif)  
 
@@ -37,12 +35,13 @@ git clone https://github.com/yourname/cub3d.git
 cd cub3d
 ```
 
-### On Wayland-based distros
+### On RPM-based distros
 
 Install dependencies:
 ```bash
 sudo dnf install libX11-devel libXext-devel libXrender-devel libbsd-devel
 ```
+for debian based use apt and do your own research on missing packages
 
 ## Configuration
 
