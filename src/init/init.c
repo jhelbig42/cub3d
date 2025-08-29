@@ -6,7 +6,7 @@
 /*   By: jhelbig <jhelbig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:43:23 by uschmidt          #+#    #+#             */
-/*   Updated: 2025/08/27 10:39:21 by jhelbig          ###   ########.fr       */
+/*   Updated: 2025/08/29 11:33:40 by jhelbig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,10 @@ bool	game_init(t_game *game, char *map_name)
 	if (!parse_map(game, map_name))
 		return (false);
 	if (!mlx_win_img_init(game))
-		return (false);
+		return (free_int_arr(game->map.map, game->map.height, game->map.height),
+			false);
 	if (!tex_init(game))
-		return (false);
+		return (free_int_arr(game->map.map, game->map.height, game->map.height),
+			false);
 	return (true);
 }
