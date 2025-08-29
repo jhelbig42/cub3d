@@ -11,9 +11,9 @@ The player can explore a 2.5D maze, open doors, and navigate with WASD-style mov
 (Add gameplay GIFs here — recorded with peek or ScreenToGif for example.)  
 
 - Gameplay:  
-  ![Demo](images/skin_julia.gif)  
+  ![Demo](images/skin_julia_cropped.gif)  
 
-  ![Demo_2](images/skin_urs.gif)  
+  ![Demo_2](images/skin_urs_cropped.gif)  
 
 - Minimap:  
   ![Demo_3](images/minimap.gif)  
