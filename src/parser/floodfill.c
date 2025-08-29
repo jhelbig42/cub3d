@@ -60,7 +60,12 @@ static void	fill(t_game *game, char ***map, int i, int j)
 {
 	if (i < 0 || i >= game->map.height || j < 0 || j >= game->map.width)
 		return ;
-	if ((*map)[i][j] != '0')
+	if ((*map)[i][j] == ' ')
+	{
+		(*map)[i][j] = '9';
+		return ;
+	}
+	if ((*map)[i][j] == '1')
 		return ;
 	(*map)[i][j] = '8';
 	fill(game, map, i + 1, j);
