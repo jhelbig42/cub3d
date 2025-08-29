@@ -81,7 +81,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 MINILIBX_DIR = minilibx-linux
 
-CC = clang
+CC = cc
 
 CFLAGS = -g -Wall -Wextra -Werror
 
