@@ -81,3 +81,6 @@ Example:
 102001
 111111
 ```
+Textures:
+- PBR Texture Pack by Julio Sillet(https://www.artstation.com/juliovii) is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0 
+- Monster Skin texture pack by Lynocs (https://lynocs.itch.io/texture-pack)
