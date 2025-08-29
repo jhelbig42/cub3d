@@ -29,7 +29,7 @@ static bool	mlx_win_img_init(t_game *game)
 	if (!game->mlx_ptr)
 		return (p_err("mlx_init failed"), false);
 	game->win_ptr = mlx_new_window(
-			game->mlx_ptr, game->width, game->height, "cub3d");
+			game->mlx_ptr, game->width, game->height, "cub3D");
 	if (!game->mlx_ptr)
 		return (p_err("mlx_new_window failed"), false);
 	game->img.img = mlx_new_image(game->mlx_ptr, game->width, game->height);

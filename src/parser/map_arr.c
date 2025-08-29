@@ -91,7 +91,6 @@ bool	map_str_arr_valid(t_game *game, char **char_map)
 	set_start_pos(game, pos);
 	if (!flood_fill(game, char_map))
 		return (false);
-	
 	if (!map_into_game(game, char_map))
 		return (false);
 	return (true);
