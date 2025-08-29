@@ -11,9 +11,9 @@ The player can explore a 2.5D maze, open doors, and navigate with WASD-style mov
 (Add gameplay GIFs here — recorded with peek or ScreenToGif for example.)  
 
 - Gameplay:  
-  [Demo](images/skin_julia.gif)  
+  ![Demo](images/skin_julia.gif)  
 
-  [Demo_2](images/skin_urs.gif)  
+  ![Demo_2](images/skin_urs.gif)  
 
 - Minimap:  
   ![Demo_3](images/minimap.gif)  
@@ -29,15 +29,55 @@ The player can explore a 2.5D maze, open doors, and navigate with WASD-style mov
 
 ---
 
-## 🖥️ Installation
+## Installation
 
-Clone the repository:  
-### To run on wayland based distros:
-`sudo dnf install libX11-devel libXext-devel libXrender-devel libbsd-devel`
+Clone the repository:
+```bash
+git clone https://github.com/yourname/cub3d.git
+cd cub3d
+```
 
-### In minilibx_linux/Makefile.mk:4
-The default compiler also needs to be changed in order to match the
-prototyping requirement of school computers.
-change to `CC	= clang`
+### On Wayland-based distros
 
-your own files should also be compiled using clang
+Install dependencies:
+```bash
+sudo dnf install libX11-devel libXext-devel libXrender-devel libbsd-devel
+```
+
+## Configuration
+
+In minilibx_linux/Makefile.mk:4, change the compiler to match school requirements:
+```make
+CC = clang
+```
+
+Your own files should also be compiled using clang.
+
+## Running the Game
+
+```bash
+make
+./cub3D maps/example.cub
+```
+
+Use arrow keys / WASD to move around, and ESC to quit.
+
+![Demo](images/keymap.jpg)  
+## Features
+
+- Raycasting engine with textured walls
+- Doors (use `2` in map files)
+- Custom map support (`.cub` files)
+- Keyboard navigation
+
+## Map Format
+
+Maps are defined using `1` for walls, `0` for empty space, `2` for doors, and a starting position marked with `N`, `S`, `E`, or `W`.
+
+Example:
+```
+111111
+1000N1
+102001
+111111
+```
