@@ -2,7 +2,7 @@ NO ./textures/urs/north_resized.xpm
 SO ./textures/urs/south_resized.xpm
 WE ./textures/urs/west_resized.xpm
 EA ./textures/urs/east_resized.xpm
-DO ./textures/urs/door_resize1d.xpm
+DO ./textures/urs/door_resized.xpm
 
 C 54 , 0, 91
 F 40, 0, 0
