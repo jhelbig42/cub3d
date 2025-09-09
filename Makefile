@@ -108,7 +108,7 @@ debug: $(NAME)
 	gdb --args ./cub3d $(DEFAULT_MAP)
 
 run: $(NAME)
-	./cub3d $(DEFAULT_MAP)
+	./$(NAME) $(DEFAULT_MAP)
 
 val_test: $(NAME)
 	valgrind --leak-check=full --track-fds=yes ./$(NAME) $(DEFAULT_MAP)
