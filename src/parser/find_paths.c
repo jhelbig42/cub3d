@@ -62,7 +62,7 @@ bool	set_door_path(t_game *game, char *line)
 	if (!ft_strncmp(line, "DO", 2))
 	{
 		if (!set_wall_path(&game->door.path, line))
-			return (free(line), false);
+			return (false);
 	}
 	return (true);
 }
